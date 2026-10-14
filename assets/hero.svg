@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title description">
+  <title id="title">Awesome AI Projects</title>
+  <desc id="description">A playful night-sky map with colorful open-source AI project cards orbiting a star.</desc>
+  <defs>
+    <linearGradient id="night" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#11142f"/>
+      <stop offset="0.56" stop-color="#1b2050"/>
+      <stop offset="1" stop-color="#302159"/>
+    </linearGradient>
+    <linearGradient id="headline" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#91f0ce"/>
+      <stop offset="0.54" stop-color="#b5a4ff"/>
+      <stop offset="1" stop-color="#ffb37f"/>
+    </linearGradient>
+    <pattern id="dots" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#b7b9ea" opacity="0.12"/>
+    </pattern>
+    <filter id="soft-glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="360" rx="28" fill="url(#night)"/>
+  <rect width="1200" height="360" rx="28" fill="url(#dots)"/>
+
+  <g fill="#fff" opacity="0.56">
+    <circle cx="43" cy="64" r="2"/><circle cx="335" cy="43" r="1.7"/>
+    <circle cx="537" cy="65" r="1.5"/><circle cx="678" cy="317" r="1.7"/>
+    <circle cx="801" cy="55" r="1.3"/><circle cx="956" cy="42" r="2"/>
+    <circle cx="1135" cy="108" r="1.8"/><circle cx="1114" cy="302" r="1.4"/>
+    <circle cx="722" cy="126" r="1.3"/><circle cx="1036" cy="220" r="1.6"/>
+  </g>
+  <path d="M55 299l4-10 4 10 10 4-10 4-4 10-4-10-10-4z" fill="#ffbf8a"/>
+  <path d="M692 56l3-7 3 7 7 3-7 3-3 7-3-7-7-3z" fill="#93ecca"/>
+  <path d="M1141 57l4-9 4 9 9 4-9 4-4 9-4-9-9-4z" fill="#b4a7ff"/>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <rect x="68" y="52" width="235" height="31" rx="15.5" fill="#ffffff" opacity="0.1"/>
+    <circle cx="85" cy="67.5" r="5" fill="#8ff0ce"/>
+    <text x="100" y="73" fill="#e7e8ff" font-size="14" font-weight="700" letter-spacing="2">THE CURATED UNIVERSE</text>
+    <text x="67" y="150" fill="#ffffff" font-size="64" font-weight="900" letter-spacing="-3">AWESOME</text>
+    <text x="64" y="222" fill="url(#headline)" font-size="66" font-weight="900" letter-spacing="-3">AI PROJECTS</text>
+    <text x="69" y="272" fill="#d6daf5" font-size="20">Find your next open-source rabbit hole.</text>
+    <text x="69" y="316" fill="#a8acd0" font-size="13" font-weight="700" letter-spacing="2">BUILD  ·  PLAY  ·  EXPLORE</text>
+  </g>
+
+  <g fill="none" stroke="#aaa2e7" stroke-width="1.5" opacity="0.33">
+    <ellipse cx="923" cy="184" rx="220" ry="116" transform="rotate(-19 923 184)"/>
+    <ellipse cx="923" cy="184" rx="146" ry="83" transform="rotate(25 923 184)"/>
+  </g>
+  <g stroke="#b9a8f3" stroke-width="2" stroke-linecap="round" opacity="0.8">
+    <path d="M787 96l39 23"/><path d="M963 95l-20 34"/>
+    <path d="M944 244l48 18"/><path d="M811 247l42-18"/>
+  </g>
+
+  <g transform="translate(850 132)">
+    <circle cx="72" cy="52" r="58" fill="#b1a2ff" opacity="0.18" filter="url(#soft-glow)"/>
+    <circle cx="72" cy="52" r="45" fill="#ffdd9c"/>
+    <circle cx="72" cy="52" r="37" fill="#ffc47c"/>
+    <path d="M72 21l9 21 21 10-21 9-9 22-9-22-21-9 21-10z" fill="#fff5ca"/>
+    <circle cx="72" cy="52" r="8" fill="#ffffff"/>
+  </g>
+
+  <g font-family="Arial, Helvetica, sans-serif" font-weight="700" text-anchor="middle">
+    <g transform="rotate(-10 762 104)">
+      <rect x="708" y="75" width="108" height="59" rx="14" fill="#90eccc"/>
+      <rect x="714" y="81" width="96" height="47" rx="10" fill="#173a43"/>
+      <text x="762" y="111" fill="#9bf3d4" font-size="23">&gt;_</text>
+    </g>
+    <g transform="rotate(8 1059 110)">
+      <rect x="1000" y="77" width="118" height="67" rx="16" fill="#ffb18c"/>
+      <path d="M1025 111h9l4-12 6 25 7-35 8 32 6-16 5 6h22" fill="none" stroke="#552b55" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g transform="rotate(-7 763 269)">
+      <rect x="705" y="235" width="116" height="69" rx="16" fill="#b9abff"/>
+      <rect x="720" y="249" width="86" height="41" rx="8" fill="#35306a"/>
+      <circle cx="748" cy="269" r="5" fill="#f9dc8b"/>
+      <circle cx="779" cy="269" r="5" fill="#f9dc8b"/>
+      <path d="M747 280q17 11 33 0" fill="none" stroke="#f9dc8b" stroke-width="3" stroke-linecap="round"/>
+      <path d="M764 239v-10" stroke="#35306a" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="764" cy="226" r="5" fill="#f9dc8b"/>
+    </g>
+    <g transform="rotate(9 1077 266)">
+      <rect x="1017" y="228" width="120" height="76" rx="16" fill="#92dff1"/>
+      <path d="M1036 282l17-34 14 19 11-13 27 28z" fill="#4e6aa2"/>
+      <circle cx="1093" cy="249" r="7" fill="#fff3be"/>
+      <path d="M1036 283h68" stroke="#284869" stroke-width="4" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>

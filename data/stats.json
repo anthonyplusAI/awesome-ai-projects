@@ -1,0 +1,255 @@
+{
+  "fetched_at": "2026-10-14T00:19:33Z",
+  "repositories": {
+    "openclaw/openclaw": {
+      "stars": 391906,
+      "license": "MIT",
+      "archived": false
+    },
+    "anomalyco/opencode": {
+      "stars": 213249,
+      "license": "MIT",
+      "archived": false
+    },
+    "OpenHands/OpenHands": {
+      "stars": 90830,
+      "license": "MIT",
+      "archived": false
+    },
+    "browser-use/browser-use": {
+      "stars": 117882,
+      "license": "MIT",
+      "archived": false
+    },
+    "cline/cline": {
+      "stars": 70278,
+      "license": "Apache-2.0",
+      "archived": false
+    },
+    "aaif-goose/goose": {
+      "stars": 55255,
+      "license": "Apache-2.0",
+      "archived": false
+    },
+    "Aider-AI/aider": {
+      "stars": 49529,
+      "license": "Apache-2.0",
+      "archived": false
+    },
+    "Kilo-Org/kilocode": {
+      "stars": 27597,
+      "license": "MIT",
+      "archived": false
+    },
+    "nearai/ironclaw": {
+      "stars": 12652,
+      "license": "MIT OR Apache-2.0",
+      "archived": false
+    },
+    "pydantic/pydantic-ai": {
+      "stars": 20598,
+      "license": "MIT",
+      "archived": false
+    },
+    "ollama/ollama": {
+      "stars": 183051,
+      "license": "MIT",
+      "archived": false
+    },
+    "ggml-org/llama.cpp": {
+      "stars": 131087,
+      "license": "MIT",
+      "archived": false
+    },
+    "vllm-project/vllm": {
+      "stars": 93732,
+      "license": "Apache-2.0",
+      "archived": false
+    },
+    "janhq/jan": {
+      "stars": 44937,
+      "license": "Apache-2.0",
+      "archived": false
+    },
+    "mudler/LocalAI": {
+      "stars": 49513,
+      "license": "MIT",
+      "archived": false
+    },
+    "exo-explore/exo": {
+      "stars": 47870,
+      "license": "Apache-2.0",
+      "archived": false
+    },
+    "GradientHQ/parallax": {
+      "stars": 1397,
+      "license": "Apache-2.0",
+      "archived": false
+    },
+    "unslothai/unsloth": {
+      "stars": 77953,
+      "license": "Apache-2.0",
+      "archived": false
+    },
+    "infiniflow/ragflow": {
+      "stars": 92158,
+      "license": "Apache-2.0",
+      "archived": false
+    },
+    "Mintplex-Labs/anything-llm": {
+      "stars": 67035,
+      "license": "MIT",
+      "archived": false
+    },
+    "mem0ai/mem0": {
+      "stars": 67134,
+      "license": "Apache-2.0",
+      "archived": false
+    },
+    "run-llama/llama_index": {
+      "stars": 52482,
+      "license": "MIT",
+      "archived": false
+    },
+    "khoj-ai/khoj": {
+      "stars": 37676,
+      "license": "AGPL-3.0",
+      "archived": false
+    },
+    "getzep/graphiti": {
+      "stars": 31724,
+      "license": "Apache-2.0",
+      "archived": false
+    },
+    "chroma-core/chroma": {
+      "stars": 29495,
+      "license": "Apache-2.0",
+      "archived": false
+    },
+    "Comfy-Org/ComfyUI": {
+      "stars": 137335,
+      "license": "GPL-3.0",
+      "archived": false
+    },
+    "invoke-ai/InvokeAI": {
+      "stars": 28621,
+      "license": "Apache-2.0",
+      "archived": false
+    },
+    "wandb/openui": {
+      "stars": 22591,
+      "license": "Apache-2.0",
+      "archived": false
+    },
+    "ATH-MaaS/ComfyUI-Copilot": {
+      "stars": 5541,
+      "license": "MIT",
+      "archived": false
+    },
+    "latent-spaces/brag": {
+      "stars": 15748,
+      "license": "MIT",
+      "archived": false
+    },
+    "storytold/photocraft": {
+      "stars": 57851,
+      "license": "MIT OR Apache-2.0",
+      "archived": false
+    },
+    "huggingface/diffusers": {
+      "stars": 34713,
+      "license": "Apache-2.0",
+      "archived": false
+    },
+    "debpalash/VoiceStudio": {
+      "stars": 63220,
+      "license": "AGPL-3.0",
+      "archived": false
+    },
+    "openai/whisper": {
+      "stars": 110465,
+      "license": "MIT",
+      "archived": false
+    },
+    "RVC-Project/Retrieval-based-Voice-Conversion-WebUI": {
+      "stars": 38723,
+      "license": "MIT",
+      "archived": false
+    },
+    "myshell-ai/OpenVoice": {
+      "stars": 37875,
+      "license": "MIT",
+      "archived": false
+    },
+    "resemble-ai/chatterbox": {
+      "stars": 26911,
+      "license": "MIT",
+      "archived": false
+    },
+    "cjpais/Handy": {
+      "stars": 33696,
+      "license": "MIT",
+      "archived": false
+    },
+    "OpenWhispr/openwhispr": {
+      "stars": 9360,
+      "license": "MIT",
+      "archived": false
+    },
+    "langchain-ai/langchain": {
+      "stars": 147789,
+      "license": "MIT",
+      "archived": false
+    },
+    "crewAIInc/crewAI": {
+      "stars": 59662,
+      "license": "MIT",
+      "archived": false
+    },
+    "huggingface/transformers": {
+      "stars": 167683,
+      "license": "Apache-2.0",
+      "archived": false
+    },
+    "openai/openai-agents-python": {
+      "stars": 30020,
+      "license": "MIT",
+      "archived": false
+    },
+    "BerriAI/litellm": {
+      "stars": 61173,
+      "license": "MIT",
+      "archived": false
+    },
+    "mcp-use/mcp-use": {
+      "stars": 10755,
+      "license": "MIT",
+      "archived": false
+    },
+    "InsForge/InsForge": {
+      "stars": 13110,
+      "license": "Apache-2.0",
+      "archived": false
+    },
+    "langfuse/langfuse": {
+      "stars": 35785,
+      "license": "MIT",
+      "archived": false
+    },
+    "promptfoo/promptfoo": {
+      "stars": 25978,
+      "license": "MIT",
+      "archived": false
+    },
+    "confident-ai/deepeval": {
+      "stars": 18830,
+      "license": "Apache-2.0",
+      "archived": false
+    },
+    "NVIDIA-NeMo/Guardrails": {
+      "stars": 7290,
+      "license": "Apache-2.0",
+      "archived": false
+    }
+  }
+}

@@ -1,0 +1,39 @@
+name: Refresh AI catalog
+
+on:
+  schedule:
+    - cron: "23 15 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ai-catalog-refresh-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Test catalog tools
+        run: python3 -m unittest discover -s tests -v
+      - name: Refresh repository metadata
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/refresh.py --refresh
+      - name: Commit changed snapshot and README
+        run: |
+          if git diff --quiet -- README.md data/stats.json; then
+            echo "Catalog already current"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- README.md data/stats.json
+          git commit -m "chore: refresh AI catalog stats"
+          git push

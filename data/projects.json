@@ -1,0 +1,355 @@
+{
+  "categories": [
+    {
+      "id": "agents-coding",
+      "title": "🤖 Agents and coding",
+      "description": "From terminal copilots to personal agents that can take action."
+    },
+    {
+      "id": "local-models",
+      "title": "🧠 Local models and inference",
+      "description": "Run models on your own hardware or serve them at speed."
+    },
+    {
+      "id": "knowledge",
+      "title": "📚 Search, RAG and memory",
+      "description": "Search, remember, and make better use of your own information."
+    },
+    {
+      "id": "creative",
+      "title": "🎨 Create, remix and ship",
+      "description": "Generate media, build interfaces, and give agents creative tools."
+    },
+    {
+      "id": "voice",
+      "title": "🎙️ Voice and audio",
+      "description": "Speech recognition, voices, and audio creation."
+    },
+    {
+      "id": "builders",
+      "title": "🧰 Build with models",
+      "description": "Frameworks and services for shipping your own AI applications."
+    },
+    {
+      "id": "evaluation",
+      "title": "🧪 Test, trace and trust",
+      "description": "See what your system does and test it before you ship."
+    }
+  ],
+  "projects": [
+    {
+      "repo": "openclaw/openclaw",
+      "name": "OpenClaw",
+      "category": "agents-coding",
+      "description": "Personal AI agent that acts across chat apps and devices.",
+      "product_hunt": "https://www.producthunt.com/products/openclaw-formerly-clawdbot"
+    },
+    {
+      "repo": "anomalyco/opencode",
+      "name": "OpenCode",
+      "category": "agents-coding",
+      "description": "Coding agent for terminal, desktop, and web.",
+      "product_hunt": "https://www.producthunt.com/products/opencode"
+    },
+    {
+      "repo": "OpenHands/OpenHands",
+      "name": "OpenHands",
+      "category": "agents-coding",
+      "description": "Self-hosted control center for running coding agents and automations."
+    },
+    {
+      "repo": "browser-use/browser-use",
+      "name": "browser-use",
+      "category": "agents-coding",
+      "description": "Browser automation for AI agents."
+    },
+    {
+      "repo": "cline/cline",
+      "name": "Cline",
+      "category": "agents-coding",
+      "description": "Coding agent for IDE, CLI, and desktop workflows.",
+      "product_hunt": "https://www.producthunt.com/products/cline-4"
+    },
+    {
+      "repo": "aaif-goose/goose",
+      "name": "Goose",
+      "category": "agents-coding",
+      "description": "Extensible coding agent that runs on your machine."
+    },
+    {
+      "repo": "Aider-AI/aider",
+      "name": "Aider",
+      "category": "agents-coding",
+      "description": "Terminal pair programmer that edits files in Git repositories."
+    },
+    {
+      "repo": "Kilo-Org/kilocode",
+      "name": "Kilo Code",
+      "category": "agents-coding",
+      "description": "AI coding platform for code edits and automation.",
+      "product_hunt": "https://www.producthunt.com/products/kilocode"
+    },
+    {
+      "repo": "nearai/ironclaw",
+      "name": "IronClaw",
+      "category": "agents-coding",
+      "description": "Security-focused personal AI agent.",
+      "product_hunt": "https://www.producthunt.com/products/ironclaw"
+    },
+    {
+      "repo": "pydantic/pydantic-ai",
+      "name": "PydanticAI",
+      "category": "agents-coding",
+      "description": "Typed Python framework for model-powered agents."
+    },
+    {
+      "repo": "ollama/ollama",
+      "name": "Ollama",
+      "category": "local-models",
+      "description": "Run and manage large language models locally."
+    },
+    {
+      "repo": "ggml-org/llama.cpp",
+      "name": "llama.cpp",
+      "category": "local-models",
+      "description": "Efficient C and C++ inference for language models."
+    },
+    {
+      "repo": "vllm-project/vllm",
+      "name": "vLLM",
+      "category": "local-models",
+      "description": "High-throughput model serving and inference."
+    },
+    {
+      "repo": "janhq/jan",
+      "name": "Jan",
+      "category": "local-models",
+      "description": "Offline-first desktop app for private AI chat."
+    },
+    {
+      "repo": "mudler/LocalAI",
+      "name": "LocalAI",
+      "category": "local-models",
+      "description": "Self-hosted API for local language, image, and audio models."
+    },
+    {
+      "repo": "exo-explore/exo",
+      "name": "Exo",
+      "category": "local-models",
+      "description": "Pool nearby devices for distributed local inference."
+    },
+    {
+      "repo": "GradientHQ/parallax",
+      "name": "Parallax",
+      "category": "local-models",
+      "description": "Serve models across a cluster of local machines.",
+      "product_hunt": "https://www.producthunt.com/products/parallax-by-gradient"
+    },
+    {
+      "repo": "unslothai/unsloth",
+      "name": "Unsloth",
+      "category": "local-models",
+      "description": "Tools for local model inference and fine-tuning.",
+      "product_hunt": "https://www.producthunt.com/products/unsloth"
+    },
+    {
+      "repo": "infiniflow/ragflow",
+      "name": "RAGFlow",
+      "category": "knowledge",
+      "description": "Retrieval and agent workflows over your documents."
+    },
+    {
+      "repo": "Mintplex-Labs/anything-llm",
+      "name": "AnythingLLM",
+      "category": "knowledge",
+      "description": "Workspace for chatting with documents and building agents.",
+      "product_hunt": "https://www.producthunt.com/products/anythingllm"
+    },
+    {
+      "repo": "mem0ai/mem0",
+      "name": "Mem0",
+      "category": "knowledge",
+      "description": "Persistent memory layer for AI agents."
+    },
+    {
+      "repo": "run-llama/llama_index",
+      "name": "LlamaIndex",
+      "category": "knowledge",
+      "description": "Connect private data to retrieval and agent applications."
+    },
+    {
+      "repo": "khoj-ai/khoj",
+      "name": "Khoj",
+      "category": "knowledge",
+      "description": "Self-hostable personal AI research assistant."
+    },
+    {
+      "repo": "getzep/graphiti",
+      "name": "Graphiti",
+      "category": "knowledge",
+      "description": "Build real-time knowledge graphs for AI agents."
+    },
+    {
+      "repo": "chroma-core/chroma",
+      "name": "Chroma",
+      "category": "knowledge",
+      "description": "Search infrastructure for AI applications."
+    },
+    {
+      "repo": "Comfy-Org/ComfyUI",
+      "name": "ComfyUI",
+      "category": "creative",
+      "description": "Node-based workflows for image and video generation."
+    },
+    {
+      "repo": "invoke-ai/InvokeAI",
+      "name": "InvokeAI",
+      "category": "creative",
+      "description": "Creative studio for generative image workflows."
+    },
+    {
+      "repo": "wandb/openui",
+      "name": "OpenUI",
+      "category": "creative",
+      "description": "Generate and refine live interfaces from prompts.",
+      "product_hunt": "https://www.producthunt.com/products/openui"
+    },
+    {
+      "repo": "ATH-MaaS/ComfyUI-Copilot",
+      "name": "ComfyUI-Copilot",
+      "category": "creative",
+      "description": "Build ComfyUI workflows with natural language; bring your own AI API key.",
+      "product_hunt": "https://www.producthunt.com/products/comfyui-copilot"
+    },
+    {
+      "repo": "latent-spaces/brag",
+      "name": "brag",
+      "category": "creative",
+      "description": "Agent skill for making project launch videos with Hyperframes."
+    },
+    {
+      "repo": "storytold/photocraft",
+      "name": "PhotoCraft",
+      "category": "creative",
+      "description": "AI-adjacent Rust image editor with agent controls; generative AI is planned."
+    },
+    {
+      "repo": "huggingface/diffusers",
+      "name": "Diffusers",
+      "category": "creative",
+      "description": "Diffusion pipelines for image, video, and audio generation."
+    },
+    {
+      "repo": "debpalash/VoiceStudio",
+      "name": "VoiceStudio",
+      "category": "voice",
+      "description": "Local studio for cloning, dubbing, transcription, and audiobooks."
+    },
+    {
+      "repo": "openai/whisper",
+      "name": "Whisper",
+      "category": "voice",
+      "description": "Speech recognition model and transcription toolkit."
+    },
+    {
+      "repo": "RVC-Project/Retrieval-based-Voice-Conversion-WebUI",
+      "name": "RVC WebUI",
+      "category": "voice",
+      "description": "Train and run retrieval-based voice conversion models."
+    },
+    {
+      "repo": "myshell-ai/OpenVoice",
+      "name": "OpenVoice",
+      "category": "voice",
+      "description": "Instant voice cloning across languages and styles."
+    },
+    {
+      "repo": "resemble-ai/chatterbox",
+      "name": "Chatterbox",
+      "category": "voice",
+      "description": "Text-to-speech models and inference tools."
+    },
+    {
+      "repo": "cjpais/Handy",
+      "name": "Handy",
+      "category": "voice",
+      "description": "Offline speech-to-text desktop app.",
+      "product_hunt": "https://www.producthunt.com/products/handy-4"
+    },
+    {
+      "repo": "OpenWhispr/openwhispr",
+      "name": "OpenWhispr",
+      "category": "voice",
+      "description": "Dictation app with local and cloud transcription options.",
+      "product_hunt": "https://www.producthunt.com/products/openwispr-open-source-ai-speech-to-text"
+    },
+    {
+      "repo": "langchain-ai/langchain",
+      "name": "LangChain",
+      "category": "builders",
+      "description": "Framework for building language-model apps and agents."
+    },
+    {
+      "repo": "crewAIInc/crewAI",
+      "name": "CrewAI",
+      "category": "builders",
+      "description": "Orchestrate collaborative AI agents."
+    },
+    {
+      "repo": "huggingface/transformers",
+      "name": "Transformers",
+      "category": "builders",
+      "description": "Model architectures and tools for training and inference."
+    },
+    {
+      "repo": "openai/openai-agents-python",
+      "name": "OpenAI Agents SDK",
+      "category": "builders",
+      "description": "Python SDK for agents, tools, and handoffs."
+    },
+    {
+      "repo": "BerriAI/litellm",
+      "name": "LiteLLM",
+      "category": "builders",
+      "description": "Route requests across model providers through one API."
+    },
+    {
+      "repo": "mcp-use/mcp-use",
+      "name": "mcp-use",
+      "category": "builders",
+      "description": "Build MCP clients, servers, and agent integrations.",
+      "product_hunt": "https://www.producthunt.com/products/mcp-use"
+    },
+    {
+      "repo": "InsForge/InsForge",
+      "name": "InsForge",
+      "category": "builders",
+      "description": "Backend platform built for coding agents.",
+      "product_hunt": "https://www.producthunt.com/products/insforge-alpha"
+    },
+    {
+      "repo": "langfuse/langfuse",
+      "name": "Langfuse",
+      "category": "evaluation",
+      "description": "Trace, debug, and evaluate language-model apps."
+    },
+    {
+      "repo": "promptfoo/promptfoo",
+      "name": "promptfoo",
+      "category": "evaluation",
+      "description": "Test prompts, agents, and RAG pipelines."
+    },
+    {
+      "repo": "confident-ai/deepeval",
+      "name": "DeepEval",
+      "category": "evaluation",
+      "description": "Write evaluations for language-model application behavior."
+    },
+    {
+      "repo": "NVIDIA-NeMo/Guardrails",
+      "name": "NeMo Guardrails",
+      "category": "evaluation",
+      "description": "Define programmable constraints around AI conversations."
+    }
+  ]
+}
