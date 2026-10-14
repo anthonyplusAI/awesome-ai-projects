@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-10-14T00:19:33Z",
+  "fetched_at": "2026-10-14T00:22:30Z",
   "repositories": {
     "openclaw/openclaw": {
-      "stars": 391906,
+      "stars": 391904,
       "license": "MIT",
       "archived": false
     },
@@ -102,7 +102,7 @@
       "archived": false
     },
     "mem0ai/mem0": {
-      "stars": 67134,
+      "stars": 67135,
       "license": "Apache-2.0",
       "archived": false
     },
@@ -117,7 +117,7 @@
       "archived": false
     },
     "getzep/graphiti": {
-      "stars": 31724,
+      "stars": 31725,
       "license": "Apache-2.0",
       "archived": false
     },
@@ -147,12 +147,12 @@
       "archived": false
     },
     "latent-spaces/brag": {
-      "stars": 15748,
+      "stars": 15749,
       "license": "MIT",
       "archived": false
     },
     "storytold/photocraft": {
-      "stars": 57851,
+      "stars": 57860,
       "license": "MIT OR Apache-2.0",
       "archived": false
     },
@@ -162,7 +162,7 @@
       "archived": false
     },
     "debpalash/VoiceStudio": {
-      "stars": 63220,
+      "stars": 63223,
       "license": "AGPL-3.0",
       "archived": false
     },
@@ -242,7 +242,7 @@
       "archived": false
     },
     "confident-ai/deepeval": {
-      "stars": 18830,
+      "stars": 18831,
       "license": "Apache-2.0",
       "archived": false
     },

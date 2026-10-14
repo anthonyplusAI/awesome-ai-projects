@@ -25,7 +25,7 @@ From terminal copilots to personal agents that can take action.
 
 | Project | Why it's here | ⭐ Stars | License | Launch |
 | --- | --- | ---: | --- | --- |
-| [OpenClaw](https://github.com/openclaw/openclaw) | Personal AI agent that acts across chat apps and devices. | 391,906 | MIT | [🏹 Product Hunt](https://www.producthunt.com/products/openclaw-formerly-clawdbot) |
+| [OpenClaw](https://github.com/openclaw/openclaw) | Personal AI agent that acts across chat apps and devices. | 391,904 | MIT | [🏹 Product Hunt](https://www.producthunt.com/products/openclaw-formerly-clawdbot) |
 | [OpenCode](https://github.com/anomalyco/opencode) | Coding agent for terminal, desktop, and web. | 213,249 | MIT | [🏹 Product Hunt](https://www.producthunt.com/products/opencode) |
 | [OpenHands](https://github.com/OpenHands/OpenHands) | Self-hosted control center for running coding agents and automations. | 90,830 | MIT | — |
 | [browser-use](https://github.com/browser-use/browser-use) | Browser automation for AI agents. | 117,882 | MIT | — |
@@ -59,10 +59,10 @@ Search, remember, and make better use of your own information.
 | --- | --- | ---: | --- | --- |
 | [RAGFlow](https://github.com/infiniflow/ragflow) | Retrieval and agent workflows over your documents. | 92,158 | Apache-2.0 | — |
 | [AnythingLLM](https://github.com/Mintplex-Labs/anything-llm) | Workspace for chatting with documents and building agents. | 67,035 | MIT | [🏹 Product Hunt](https://www.producthunt.com/products/anythingllm) |
-| [Mem0](https://github.com/mem0ai/mem0) | Persistent memory layer for AI agents. | 67,134 | Apache-2.0 | — |
+| [Mem0](https://github.com/mem0ai/mem0) | Persistent memory layer for AI agents. | 67,135 | Apache-2.0 | — |
 | [LlamaIndex](https://github.com/run-llama/llama_index) | Connect private data to retrieval and agent applications. | 52,482 | MIT | — |
 | [Khoj](https://github.com/khoj-ai/khoj) | Self-hostable personal AI research assistant. | 37,676 | AGPL-3.0 | — |
-| [Graphiti](https://github.com/getzep/graphiti) | Build real-time knowledge graphs for AI agents. | 31,724 | Apache-2.0 | — |
+| [Graphiti](https://github.com/getzep/graphiti) | Build real-time knowledge graphs for AI agents. | 31,725 | Apache-2.0 | — |
 | [Chroma](https://github.com/chroma-core/chroma) | Search infrastructure for AI applications. | 29,495 | Apache-2.0 | — |
 
 ### 🎨 Create, remix and ship
@@ -75,8 +75,8 @@ Generate media, build interfaces, and give agents creative tools.
 | [InvokeAI](https://github.com/invoke-ai/InvokeAI) | Creative studio for generative image workflows. | 28,621 | Apache-2.0 | — |
 | [OpenUI](https://github.com/wandb/openui) | Generate and refine live interfaces from prompts. | 22,591 | Apache-2.0 | [🏹 Product Hunt](https://www.producthunt.com/products/openui) |
 | [ComfyUI-Copilot](https://github.com/ATH-MaaS/ComfyUI-Copilot) | Build ComfyUI workflows with natural language; bring your own AI API key. | 5,541 | MIT | [🏹 Product Hunt](https://www.producthunt.com/products/comfyui-copilot) |
-| [brag](https://github.com/latent-spaces/brag) | Agent skill for making project launch videos with Hyperframes. | 15,748 | MIT | — |
-| [PhotoCraft](https://github.com/storytold/photocraft) | AI-adjacent Rust image editor with agent controls; generative AI is planned. | 57,851 | MIT OR Apache-2.0 | — |
+| [brag](https://github.com/latent-spaces/brag) | Agent skill for making project launch videos with Hyperframes. | 15,749 | MIT | — |
+| [PhotoCraft](https://github.com/storytold/photocraft) | AI-adjacent Rust image editor with agent controls; generative AI is planned. | 57,860 | MIT OR Apache-2.0 | — |
 | [Diffusers](https://github.com/huggingface/diffusers) | Diffusion pipelines for image, video, and audio generation. | 34,713 | Apache-2.0 | — |
 
 ### 🎙️ Voice and audio
@@ -85,7 +85,7 @@ Speech recognition, voices, and audio creation.
 
 | Project | Why it's here | ⭐ Stars | License | Launch |
 | --- | --- | ---: | --- | --- |
-| [VoiceStudio](https://github.com/debpalash/VoiceStudio) | Local studio for cloning, dubbing, transcription, and audiobooks. | 63,220 | AGPL-3.0 | — |
+| [VoiceStudio](https://github.com/debpalash/VoiceStudio) | Local studio for cloning, dubbing, transcription, and audiobooks. | 63,223 | AGPL-3.0 | — |
 | [Whisper](https://github.com/openai/whisper) | Speech recognition model and transcription toolkit. | 110,465 | MIT | — |
 | [RVC WebUI](https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI) | Train and run retrieval-based voice conversion models. | 38,723 | MIT | — |
 | [OpenVoice](https://github.com/myshell-ai/OpenVoice) | Instant voice cloning across languages and styles. | 37,875 | MIT | — |
@@ -115,7 +115,7 @@ See what your system does and test it before you ship.
 | --- | --- | ---: | --- | --- |
 | [Langfuse](https://github.com/langfuse/langfuse) | Trace, debug, and evaluate language-model apps. | 35,785 | MIT | — |
 | [promptfoo](https://github.com/promptfoo/promptfoo) | Test prompts, agents, and RAG pipelines. | 25,978 | MIT | — |
-| [DeepEval](https://github.com/confident-ai/deepeval) | Write evaluations for language-model application behavior. | 18,830 | Apache-2.0 | — |
+| [DeepEval](https://github.com/confident-ai/deepeval) | Write evaluations for language-model application behavior. | 18,831 | Apache-2.0 | — |
 | [NeMo Guardrails](https://github.com/NVIDIA-NeMo/Guardrails) | Define programmable constraints around AI conversations. | 7,290 | Apache-2.0 | — |
 <!-- CATALOG:END -->
 
