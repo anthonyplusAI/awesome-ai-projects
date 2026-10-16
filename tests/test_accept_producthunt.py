@@ -119,6 +119,71 @@ class AcceptProductHuntTests(unittest.TestCase):
         self.assertIn("keeping", errors.lower())
         self.assertEqual(self.previous.read_text(encoding="utf-8"), previous)
 
+    def test_fallback_diagnostic_identifies_blocked_redirect_without_exposing_urls(self) -> None:
+        previous = write_json(self.previous, SNAPSHOT)
+        incomplete = copy.deepcopy(SNAPSHOT)
+        incomplete["complete"] = False
+        incomplete["coverage"] = {
+            "mode": "feed_direct_github",
+            "date_basis": "feed_published",
+        }
+        incomplete["warnings"] = [
+            "Product Hunt returned HTTP 403 for "
+            "https://www.producthunt.com/products/example?token=secret-value",
+            "Product Hunt direct Link returned HTTP 403 for "
+            "https://www.producthunt.com/r/p/123456?token=secret-value",
+        ]
+        write_json(self.input, incomplete)
+
+        status, errors = self.run_accept()
+
+        self.assertEqual(status, 0)
+        self.assertIn("coverage=feed_direct_github", errors)
+        self.assertIn("warnings=2", errors)
+        self.assertIn("first_issue=Product Hunt /r/p redirect HTTP 403", errors)
+        self.assertIn("product_page=Product Hunt product page HTTP 403", errors)
+        self.assertNotIn("secret-value", errors)
+        self.assertNotIn("https://", errors)
+        self.assertLess(len(errors), 300)
+        self.assertEqual(self.previous.read_text(encoding="utf-8"), previous)
+
+    def test_product_page_diagnostic_uses_a_bounded_safe_reason(self) -> None:
+        write_json(self.previous, SNAPSHOT)
+        incomplete = copy.deepcopy(SNAPSHOT)
+        incomplete["complete"] = False
+        incomplete["warnings"] = [
+            "Product Hunt returned HTTP 403 for "
+            "https://www.producthunt.com/products/example?access_token=secret-value",
+            "more detail " + ("secret-value " * 1000),
+        ]
+        write_json(self.input, incomplete)
+
+        status, errors = self.run_accept()
+
+        self.assertEqual(status, 0)
+        self.assertIn("coverage=product_page", errors)
+        self.assertIn("warnings=2", errors)
+        self.assertIn("first_issue=Product Hunt product page HTTP 403", errors)
+        self.assertNotIn("secret-value", errors)
+        self.assertLess(len(errors), 300)
+
+    def test_untrusted_mode_and_warning_text_cannot_inject_log_output(self) -> None:
+        write_json(self.previous, SNAPSHOT)
+        incomplete = copy.deepcopy(SNAPSHOT)
+        incomplete["complete"] = False
+        incomplete["coverage"]["mode"] = "evil\n::warning::token=secret-value"
+        incomplete["warnings"] = ["Bearer secret-value"]
+        write_json(self.input, incomplete)
+
+        status, errors = self.run_accept()
+
+        self.assertEqual(status, 0)
+        self.assertIn("coverage=unknown", errors)
+        self.assertIn("warnings=1", errors)
+        self.assertIn("first_issue=unclassified source issue", errors)
+        self.assertNotIn("secret-value", errors)
+        self.assertEqual(errors.count("::warning::"), 1)
+
     def test_duplicate_or_bad_evidence_cannot_replace_the_snapshot(self) -> None:
         previous = write_json(self.previous, SNAPSHOT)
         duplicate = copy.deepcopy(SNAPSHOT)
