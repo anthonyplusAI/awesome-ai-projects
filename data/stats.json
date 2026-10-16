@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-16T22:56:03Z",
+  "fetched_at": "2026-10-16T23:16:43Z",
   "repositories": {
     "openclaw/openclaw": {
       "stars": 392193,
@@ -7,37 +7,37 @@
       "archived": false
     },
     "paperclipai/paperclip": {
-      "stars": 103152,
+      "stars": 103162,
       "license": "MIT",
       "archived": false
     },
     "anomalyco/opencode": {
-      "stars": 214339,
+      "stars": 214342,
       "license": "MIT",
       "archived": false
     },
     "OpenHands/OpenHands": {
-      "stars": 91078,
+      "stars": 91079,
       "license": "MIT",
       "archived": false
     },
     "browser-use/browser-use": {
-      "stars": 118201,
+      "stars": 118203,
       "license": "MIT",
       "archived": false
     },
     "cline/cline": {
-      "stars": 70422,
+      "stars": 70424,
       "license": "Apache-2.0",
       "archived": false
     },
     "aaif-goose/goose": {
-      "stars": 55347,
+      "stars": 55348,
       "license": "Apache-2.0",
       "archived": false
     },
     "Aider-AI/aider": {
-      "stars": 49585,
+      "stars": 49586,
       "license": "Apache-2.0",
       "archived": false
     },
@@ -57,12 +57,12 @@
       "archived": false
     },
     "ollama/ollama": {
-      "stars": 183496,
+      "stars": 183498,
       "license": "MIT",
       "archived": false
     },
     "ggml-org/llama.cpp": {
-      "stars": 131421,
+      "stars": 131422,
       "license": "MIT",
       "archived": false
     },
@@ -97,17 +97,17 @@
       "archived": false
     },
     "infiniflow/ragflow": {
-      "stars": 92335,
+      "stars": 92336,
       "license": "Apache-2.0",
       "archived": false
     },
     "Tencent/WeKnora": {
-      "stars": 34392,
+      "stars": 34396,
       "license": "MIT",
       "archived": false
     },
     "Mintplex-Labs/anything-llm": {
-      "stars": 67211,
+      "stars": 67213,
       "license": "MIT",
       "archived": false
     },
@@ -117,7 +117,7 @@
       "archived": false
     },
     "vectorize-io/hindsight": {
-      "stars": 50489,
+      "stars": 50494,
       "license": "MIT",
       "archived": false
     },
@@ -127,7 +127,7 @@
       "archived": false
     },
     "VectifyAI/PageIndex": {
-      "stars": 39186,
+      "stars": 39188,
       "license": "MIT",
       "archived": false
     },
@@ -137,7 +137,7 @@
       "archived": false
     },
     "getzep/graphiti": {
-      "stars": 31821,
+      "stars": 31822,
       "license": "Apache-2.0",
       "archived": false
     },
@@ -167,32 +167,32 @@
       "archived": false
     },
     "latent-spaces/brag": {
-      "stars": 16332,
+      "stars": 16335,
       "license": "MIT",
       "archived": false
     },
     "heygen-com/hyperframes": {
-      "stars": 65280,
+      "stars": 65292,
       "license": "Apache-2.0",
       "archived": false
     },
     "storytold/photocraft": {
-      "stars": 64956,
+      "stars": 64968,
       "license": "MIT OR Apache-2.0",
       "archived": false
     },
     "huggingface/diffusers": {
-      "stars": 34735,
+      "stars": 34736,
       "license": "Apache-2.0",
       "archived": false
     },
     "debpalash/VoiceStudio": {
-      "stars": 71033,
+      "stars": 71069,
       "license": "AGPL-3.0",
       "archived": false
     },
     "openai/whisper": {
-      "stars": 110691,
+      "stars": 110693,
       "license": "MIT",
       "archived": false
     },
@@ -242,7 +242,7 @@
       "archived": false
     },
     "NVIDIA/OpenShell": {
-      "stars": 16443,
+      "stars": 16447,
       "license": "Apache-2.0",
       "archived": false
     },
