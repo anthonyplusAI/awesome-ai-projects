@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-10-16T23:16:45Z",
+  "fetched_at": "2026-10-16T23:19:52Z",
   "source_url": "https://github.com/trending?since=monthly",
   "period": "monthly",
-  "source_updated_at": "2026-10-16T23:16:45Z",
+  "source_updated_at": "2026-10-16T23:19:52Z",
   "signal": "Automated GitHub Trending candidates; not editorial endorsements.",
   "selection_policy": "Highest-ranked qualifying AI repositories, with one slot reserved for a qualifying curated project when available.",
   "repositories": [
@@ -26,7 +26,7 @@
       "repo": "heygen-com/hyperframes",
       "rank": 4,
       "stars_this_month": 14246,
-      "stars_total": 65292,
+      "stars_total": 65294,
       "license": "Apache-2.0",
       "description": "Write HTML. Render video. Built for agents.",
       "curated": true,
@@ -58,7 +58,7 @@
       "repo": "debpalash/VoiceStudio",
       "rank": 6,
       "stars_this_month": 38181,
-      "stars_total": 71069,
+      "stars_total": 71073,
       "license": "AGPL-3.0",
       "description": "VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation…",
       "curated": true,

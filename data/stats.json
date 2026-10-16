@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-10-16T23:16:43Z",
+  "fetched_at": "2026-10-16T23:19:50Z",
   "repositories": {
     "openclaw/openclaw": {
-      "stars": 392193,
+      "stars": 392194,
       "license": "MIT",
       "archived": false
     },
@@ -17,7 +17,7 @@
       "archived": false
     },
     "OpenHands/OpenHands": {
-      "stars": 91079,
+      "stars": 91080,
       "license": "MIT",
       "archived": false
     },
@@ -27,7 +27,7 @@
       "archived": false
     },
     "cline/cline": {
-      "stars": 70424,
+      "stars": 70425,
       "license": "Apache-2.0",
       "archived": false
     },
@@ -167,17 +167,17 @@
       "archived": false
     },
     "latent-spaces/brag": {
-      "stars": 16335,
+      "stars": 16336,
       "license": "MIT",
       "archived": false
     },
     "heygen-com/hyperframes": {
-      "stars": 65292,
+      "stars": 65294,
       "license": "Apache-2.0",
       "archived": false
     },
     "storytold/photocraft": {
-      "stars": 64968,
+      "stars": 64970,
       "license": "MIT OR Apache-2.0",
       "archived": false
     },
@@ -187,7 +187,7 @@
       "archived": false
     },
     "debpalash/VoiceStudio": {
-      "stars": 71069,
+      "stars": 71073,
       "license": "AGPL-3.0",
       "archived": false
     },

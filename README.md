@@ -29,9 +29,9 @@ _Source: [GitHub Trending · this month](https://github.com/trending?since=month
 | Trending project | ⭐ This month | GitHub description / license |
 | --- | ---: | --- |
 | #2 [paperclipai/paperclip](https://github.com/paperclipai/paperclip) · ✓ Curated | **+22,181** (103,162 total) | The open-source app everyone uses to manage agents at work · MIT |
-| #4 [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) · ✓ Curated | **+14,246** (65,292 total) | Write HTML. Render video. Built for agents. · Apache-2.0 |
+| #4 [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) · ✓ Curated | **+14,246** (65,294 total) | Write HTML. Render video. Built for agents. · Apache-2.0 |
 | #5 [vectorize-io/hindsight](https://github.com/vectorize-io/hindsight) · ✓ Curated | **+26,652** (50,494 total) | Hindsight: Agent Memory That Learns · MIT |
-| #6 [debpalash/VoiceStudio](https://github.com/debpalash/VoiceStudio) · ✓ Curated | **+38,181** (71,069 total) | VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription &amp; audiobook creation… · AGPL-3.0 |
+| #6 [debpalash/VoiceStudio](https://github.com/debpalash/VoiceStudio) · ✓ Curated | **+38,181** (71,073 total) | VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription &amp; audiobook creation… · AGPL-3.0 |
 | #7 [affaan-m/ECC](https://github.com/affaan-m/ECC) · 🔎 New lead | **+22,953** (281,458 total) | The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor… · MIT |
 | #9 [anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins) · 🔎 New lead | **+5,835** (29,885 total) | Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork · Apache-2.0 |
 | #11 [NVIDIA/OpenShell](https://github.com/NVIDIA/OpenShell) · ✓ Curated | **+7,813** (16,447 total) | OpenShell is the safe, private runtime for autonomous AI agents. · Apache-2.0 |
@@ -88,12 +88,12 @@ _GitHub metadata refreshed on **2026-10-16 PT**. Documented license exceptions a
 
 | Project | Why try it | ⭐ Stars |
 | --- | --- | ---: |
-| [OpenClaw](https://github.com/openclaw/openclaw) · `MIT` · [🏹 Product Hunt](https://www.producthunt.com/products/openclaw-formerly-clawdbot) | Personal AI agent that acts across chat apps and devices. | **392,193** |
+| [OpenClaw](https://github.com/openclaw/openclaw) · `MIT` · [🏹 Product Hunt](https://www.producthunt.com/products/openclaw-formerly-clawdbot) | Personal AI agent that acts across chat apps and devices. | **392,194** |
 | [Paperclip](https://github.com/paperclipai/paperclip) · `MIT` | Self-hosted control panel for assigning goals, tasks, and budgets to AI agent teams. | **103,162** |
 | [OpenCode](https://github.com/anomalyco/opencode) · `MIT` · [🏹 Product Hunt](https://www.producthunt.com/products/opencode) | Coding agent for terminal, desktop, and web. | **214,342** |
-| [OpenHands](https://github.com/OpenHands/OpenHands) · `MIT` | Self-hosted control center for running coding agents and automations. | **91,079** |
+| [OpenHands](https://github.com/OpenHands/OpenHands) · `MIT` | Self-hosted control center for running coding agents and automations. | **91,080** |
 | [browser-use](https://github.com/browser-use/browser-use) · `MIT` | Browser automation for AI agents. | **118,203** |
-| [Cline](https://github.com/cline/cline) · `Apache-2.0` · [🏹 Product Hunt](https://www.producthunt.com/products/cline-4) | Coding agent for IDE, CLI, and desktop workflows. | **70,424** |
+| [Cline](https://github.com/cline/cline) · `Apache-2.0` · [🏹 Product Hunt](https://www.producthunt.com/products/cline-4) | Coding agent for IDE, CLI, and desktop workflows. | **70,425** |
 | [Goose](https://github.com/aaif-goose/goose) · `Apache-2.0` | Extensible coding agent that runs on your machine. | **55,348** |
 | [Aider](https://github.com/Aider-AI/aider) · `Apache-2.0` | Terminal pair programmer that edits files in Git repositories. | **49,586** |
 | [Kilo Code](https://github.com/Kilo-Org/kilocode) · `MIT` · [🏹 Product Hunt](https://www.producthunt.com/products/kilocode) | AI coding platform for code edits and automation. | **27,628** |
@@ -148,9 +148,9 @@ _GitHub metadata refreshed on **2026-10-16 PT**. Documented license exceptions a
 | [InvokeAI](https://github.com/invoke-ai/InvokeAI) · `Apache-2.0` | Creative studio for generative image workflows. | **28,690** |
 | [OpenUI](https://github.com/wandb/openui) · `Apache-2.0` · [🏹 Product Hunt](https://www.producthunt.com/products/openui) | Generate and refine live interfaces from prompts. | **22,612** |
 | [ComfyUI-Copilot](https://github.com/ATH-MaaS/ComfyUI-Copilot) · `MIT` · [🏹 Product Hunt](https://www.producthunt.com/products/comfyui-copilot) | Build ComfyUI workflows with natural language; bring your own AI API key. | **5,550** |
-| [brag](https://github.com/latent-spaces/brag) · `MIT` | Agent skill for making project launch videos with Hyperframes. | **16,335** |
-| [HyperFrames](https://github.com/heygen-com/hyperframes) · `Apache-2.0` | Render HTML, CSS, and timed animations into MP4 videos with a local CLI and agent skills. | **65,292** |
-| [PhotoCraft](https://github.com/storytold/photocraft) · `MIT OR Apache-2.0` | AI-adjacent Rust image editor with agent controls; generative AI is planned. | **64,968** |
+| [brag](https://github.com/latent-spaces/brag) · `MIT` | Agent skill for making project launch videos with Hyperframes. | **16,336** |
+| [HyperFrames](https://github.com/heygen-com/hyperframes) · `Apache-2.0` | Render HTML, CSS, and timed animations into MP4 videos with a local CLI and agent skills. | **65,294** |
+| [PhotoCraft](https://github.com/storytold/photocraft) · `MIT OR Apache-2.0` | AI-adjacent Rust image editor with agent controls; generative AI is planned. | **64,970** |
 | [Diffusers](https://github.com/huggingface/diffusers) · `Apache-2.0` | Diffusion pipelines for image, video, and audio generation. | **34,736** |
 
 <a id="voice"></a>
@@ -161,7 +161,7 @@ _GitHub metadata refreshed on **2026-10-16 PT**. Documented license exceptions a
 
 | Project | Why try it | ⭐ Stars |
 | --- | --- | ---: |
-| [VoiceStudio](https://github.com/debpalash/VoiceStudio) · `AGPL-3.0` | Local studio for cloning, dubbing, transcription, and audiobooks. | **71,069** |
+| [VoiceStudio](https://github.com/debpalash/VoiceStudio) · `AGPL-3.0` | Local studio for cloning, dubbing, transcription, and audiobooks. | **71,073** |
 | [Whisper](https://github.com/openai/whisper) · `MIT` | Speech recognition model and transcription toolkit. | **110,693** |
 | [RVC WebUI](https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI) · `MIT` | Train and run retrieval-based voice conversion models. | **38,778** |
 | [OpenVoice](https://github.com/myshell-ai/OpenVoice) · `MIT` | Instant voice cloning across languages and styles. | **37,904** |

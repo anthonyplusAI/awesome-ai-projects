@@ -1,7 +1,7 @@
 {
   "source_url": "https://github.com/trending?since=monthly",
   "period": "monthly",
-  "fetched_at": "2026-10-16T23:16:45Z",
+  "fetched_at": "2026-10-16T23:19:52Z",
   "repositories": [
     {
       "repo": "cloudflare/security-audit-skill",
@@ -31,7 +31,7 @@
       "repo": "heygen-com/hyperframes",
       "rank": 4,
       "stars_this_month": 14246,
-      "stars_total": 65292,
+      "stars_total": 65294,
       "description": "Write HTML. Render video. Built for agents.",
       "language": "TypeScript"
     },
@@ -47,7 +47,7 @@
       "repo": "debpalash/VoiceStudio",
       "rank": 6,
       "stars_this_month": 38181,
-      "stars_total": 71069,
+      "stars_total": 71074,
       "description": "VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
       "language": "Python"
     },
@@ -63,7 +63,7 @@
       "repo": "agent-substrate/substrate",
       "rank": 8,
       "stars_this_month": 3368,
-      "stars_total": 5308,
+      "stars_total": 5309,
       "description": "Agent Substrate: the core system",
       "language": "Go"
     },
@@ -79,7 +79,7 @@
       "repo": "mksglu/context-mode",
       "rank": 10,
       "stars_this_month": 6744,
-      "stars_total": 30214,
+      "stars_total": 30213,
       "description": "Context window optimization for AI coding agents. Sandboxes tool output (98% reduction), persists session memory, and enforces routing across 17 platforms via MCP + hooks.",
       "language": "TypeScript"
     },
@@ -119,7 +119,7 @@
       "repo": "NationalSecurityAgency/ghidra",
       "rank": 15,
       "stars_this_month": 12092,
-      "stars_total": 89590,
+      "stars_total": 89593,
       "description": "Ghidra is a software reverse engineering (SRE) framework",
       "language": "Java"
     },
@@ -159,7 +159,7 @@
       "repo": "cursor/plugins",
       "rank": 20,
       "stars_this_month": 3928,
-      "stars_total": 11921,
+      "stars_total": 11922,
       "description": "Cursor plugin specification and official plugins",
       "language": "TypeScript"
     },
