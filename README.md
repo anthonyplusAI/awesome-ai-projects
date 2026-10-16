@@ -5,15 +5,15 @@
 **A living field guide to open-source AI.** Follow the projects people love, see what is moving this month, and find new launches worth a closer look. Pick a rabbit hole and go build something. 🐇
 
 <!-- STATUS:START -->
-**56 selected projects** · **8 monthly signals** · **6 new launch leads**
+**56 selected projects** · **8 monthly signals** · **6 launch leads**
 
-_Stars checked Oct 16, 2026 PT · Monthly Trending checked Oct 16, 2026 PT · Product Hunt checked Oct 16, 2026 PT_
+_Stars checked Oct 16, 2026 PT · Monthly Trending checked Oct 16, 2026 PT · Product Hunt last verified Oct 16, 2026 PT_
 <!-- STATUS:END -->
 
 [![Weekly discovery refresh](https://github.com/anthonyplusAI/awesome-ai-projects/actions/workflows/refresh.yml/badge.svg)](https://github.com/anthonyplusAI/awesome-ai-projects/actions/workflows/refresh.yml)
 &nbsp; [🔥 Monthly momentum](#monthly-momentum) · [🏹 Launch radar](#launch-radar) · [✨ Start somewhere fun](#start-somewhere-fun) · [🧭 Curated collection](#curated-collection) · [📡 Sources and updates](#sources-and-updates)
 
-**How to read this map:** The **curated collection** contains projects selected after checking their public source, open-source license, and practical use. The **monthly** and **launch** radars are freshly gathered leads that pass automated checks; they still need a closer look before joining the collection. Source dates appear with every section.
+**How to read this map:** The **curated collection** contains projects selected after checking their public source, open-source license, and practical use. The **monthly** and **launch** radars are dated discovery leads that pass automated checks; they still need a closer look before joining the collection. Source dates appear with every section.
 
 ---
 
@@ -44,19 +44,19 @@ _Source: [GitHub Trending · this month](https://github.com/trending?since=month
 
 ## 🏹 Launch radar
 
-Product Hunt can surface projects before they appear in a large GitHub ranking. These leads appeared in **both** its [AI](https://www.producthunt.com/feed?category=artificial-intelligence) and [open-source](https://www.producthunt.com/feed?category=open-source) public feeds, then passed a GitHub repository and license check. A product-page GitHub link can point to a parent project, so treat a launch association as a lead for review.
+Product Hunt can surface projects before they appear in a large GitHub ranking. These leads appeared in **both** its [AI](https://www.producthunt.com/feed?category=artificial-intelligence) and [open-source](https://www.producthunt.com/feed?category=open-source) public feeds, then passed a GitHub repository and license check. When Product Hunt pages are accessible, the radar checks the product's own GitHub link and launch date. If pages block the weekly runner, it shows only feed posts whose official outbound link goes directly to a GitHub repository; their dates are the Atom feed's **published timestamps**, not verified launch dates. The source note below says which method produced this snapshot.
 
 <!-- LAUNCHES:START -->
-_Source: Product Hunt's [AI feed](https://www.producthunt.com/feed?category=artificial-intelligence) and [open-source feed](https://www.producthunt.com/feed?category=open-source), checked **Oct 16, 2026 PT**. Launch dates come from each product page; GitHub links and open-source licenses are checked. Descriptions come from repository metadata. These are automated leads awaiting collection review._
+_Source: Product Hunt's [AI feed](https://www.producthunt.com/feed?category=artificial-intelligence) and [open-source feed](https://www.producthunt.com/feed?category=open-source), checked **Oct 16, 2026 PT**. Actual launch dates and GitHub links come from the product pages; GitHub repositories and open-source licenses are checked. Descriptions come from repository metadata. Shown leads are automated candidates for collection review._
 
-| GitHub project | Product Hunt launch | Snapshot |
+| GitHub project | Product Hunt post | Snapshot |
 | --- | --- | --- |
-| [autonomous-ai/openharness](https://github.com/autonomous-ai/openharness) | [Harness by Autonomous · Oct 16, 2026](https://www.producthunt.com/products/harness-by-autonomous) | The ultimate harness for coding agents and beyond. All your agents. All your machines. One command center. Start with code, then follow your curiosity and build across disciplines: CAD, circuits, robots, games and music. · ⭐ 1,272 · MIT |
-| [risa-labs-inc/BossConsole](https://github.com/risa-labs-inc/BossConsole) | [BOSS Console · Oct 16, 2026](https://www.producthunt.com/products/boss-console) | Open-source, multi-platform harness for AI agents - a native, multi-threaded operator's console (JVM, not Electron) to run Claude Code, Codex, Gemini or OpenCode with a real browser, terminal, editor, secrets &amp; 200+ MCP tools. Built for enterprises, science &amp; research. · ⭐ 812 · Apache-2.0 |
-| [HarjjotSinghh/helicon](https://github.com/HarjjotSinghh/helicon) | [Helicon · Oct 16, 2026](https://www.producthunt.com/products/helicon) | Open-source desktop app and VS Code extension for Meta's Muse Code CLI, with threads, inline diffs and approvals on Windows, macOS and Linux. Unofficial, not affiliated with Meta. · ⭐ 92 · MIT |
-| [tetriz-ai/tetriz-harness](https://github.com/tetriz-ai/tetriz-harness) | [Tetriz Harness · Oct 16, 2026](https://www.producthunt.com/products/tetriz-harness) | Recommend AI coding harness changes from repository context and coding signals, then distribute approved rules, skills, hooks and agents to selected people or teams. Pair with Agent Desk through your ingestion adapter; use audience targeting for manual test/control rollouts. · ⭐ 10 · MIT |
-| [qualixar/superlocalmemory](https://github.com/qualixar/superlocalmemory) | [SuperLocalMemory · Oct 15, 2026](https://www.producthunt.com/products/superlocalmemory-v2) | Open-source governed, local-first memory control plane for AI agents and teams. arXiv:2608.08253 · ⭐ 249 · AGPL-3.0 |
-| [acyclic-labs/sdk](https://github.com/acyclic-labs/sdk) | [Acyclic · Oct 14, 2026](https://www.producthunt.com/products/acyclic) | Open-source Acyclic SDK and in-memory reference providers · ⭐ 36 · Apache-2.0 |
+| [autonomous-ai/openharness](https://github.com/autonomous-ai/openharness) | [Harness by Autonomous · Launched Oct 16, 2026](https://www.producthunt.com/products/harness-by-autonomous) | The ultimate harness for coding agents and beyond. All your agents. All your machines. One command center. Start with code, then follow your curiosity and build across disciplines: CAD, circuits, robots, games and music. · ⭐ 1,272 · MIT |
+| [risa-labs-inc/BossConsole](https://github.com/risa-labs-inc/BossConsole) | [BOSS Console · Launched Oct 16, 2026](https://www.producthunt.com/products/boss-console) | Open-source, multi-platform harness for AI agents - a native, multi-threaded operator's console (JVM, not Electron) to run Claude Code, Codex, Gemini or OpenCode with a real browser, terminal, editor, secrets &amp; 200+ MCP tools. Built for enterprises, science &amp; research. · ⭐ 812 · Apache-2.0 |
+| [HarjjotSinghh/helicon](https://github.com/HarjjotSinghh/helicon) | [Helicon · Launched Oct 16, 2026](https://www.producthunt.com/products/helicon) | Open-source desktop app and VS Code extension for Meta's Muse Code CLI, with threads, inline diffs and approvals on Windows, macOS and Linux. Unofficial, not affiliated with Meta. · ⭐ 92 · MIT |
+| [tetriz-ai/tetriz-harness](https://github.com/tetriz-ai/tetriz-harness) | [Tetriz Harness · Launched Oct 16, 2026](https://www.producthunt.com/products/tetriz-harness) | Recommend AI coding harness changes from repository context and coding signals, then distribute approved rules, skills, hooks and agents to selected people or teams. Pair with Agent Desk through your ingestion adapter; use audience targeting for manual test/control rollouts. · ⭐ 10 · MIT |
+| [qualixar/superlocalmemory](https://github.com/qualixar/superlocalmemory) | [SuperLocalMemory · Launched Oct 15, 2026](https://www.producthunt.com/products/superlocalmemory-v2) | Open-source governed, local-first memory control plane for AI agents and teams. arXiv:2608.08253 · ⭐ 249 · AGPL-3.0 |
+| [acyclic-labs/sdk](https://github.com/acyclic-labs/sdk) | [Acyclic · Launched Oct 14, 2026](https://www.producthunt.com/products/acyclic) | Open-source Acyclic SDK and in-memory reference providers · ⭐ 36 · Apache-2.0 |
 <!-- LAUNCHES:END -->
 
 [Inspect the launch evidence →](data/producthunt-recent.json)
@@ -216,11 +216,11 @@ Check the project's license files for the specific part you want to use.
 Every automated signal has a source you can inspect:
 
 1. **Monthly GitHub Trending:** [the live monthly page](https://github.com/trending?since=monthly) is captured in [`data/trending-monthly.json`](data/trending-monthly.json), including every page result, rank, and displayed monthly star gain. [`data/radar.json`](data/radar.json) is the smaller AI shortlist after GitHub API checks.
-2. **Product Hunt launches:** its public [AI Atom feed](https://www.producthunt.com/feed?category=artificial-intelligence) and [open-source Atom feed](https://www.producthunt.com/feed?category=open-source) supply [`data/producthunt-recent.json`](data/producthunt-recent.json). Each feed exposes a bounded set of recent entries, so the lookback window is a filter, not an exhaustive archive. Product Hunt's [RSS documentation](https://help.producthunt.com/en/articles/484970-does-product-hunt-have-an-rss-feed) describes the public feed.
+2. **Product Hunt leads:** its public [AI Atom feed](https://www.producthunt.com/feed?category=artificial-intelligence) and [open-source Atom feed](https://www.producthunt.com/feed?category=open-source) supply [`data/producthunt-recent.json`](data/producthunt-recent.json). Each feed exposes a bounded set of recent entries, so the lookback window is a filter, not an exhaustive archive. Product Hunt's [RSS documentation](https://help.producthunt.com/en/articles/484970-does-product-hunt-have-an-rss-feed) describes the public feed. The snapshot records whether product pages or direct outbound links supplied repository evidence.
 3. **Repository facts:** [GitHub's repository API](https://docs.github.com/en/rest/repos/repos#get-a-repository) supplies current stars, repository status, and source-code license metadata for the [curated catalog](data/stats.json) and candidate validation. The license check is a screening step; it does not inspect every file or asset.
 4. **Optional manual scouting:** [`scripts/discover.py`](scripts/discover.py) searches GitHub repositories with the `artificial-intelligence`, `generative-ai`, `ai-agent`, and `llm` topics. It prints candidates for review and does not change the published collection.
 
-The [GitHub Actions workflow](.github/workflows/refresh.yml) runs **weekly** and can be started manually. It refreshes source snapshots and catalog stats, then regenerates this README. **Check the dates above or the workflow badge**: when a required source fails, the previous published snapshot stays in place. New candidates are never added to the curated collection automatically.
+The [GitHub Actions workflow](.github/workflows/refresh.yml) runs **weekly** and can be started manually. It refreshes source snapshots and catalog stats, then regenerates this README. **Check each source date**: a GitHub source failure stops publication, while an incomplete Product Hunt fetch leaves that source at its last verified snapshot so the GitHub sections can still update. New candidates are never added to the curated collection automatically.
 
 Found one we missed? [Nominate it or send a pull request →](CONTRIBUTING.md)
 

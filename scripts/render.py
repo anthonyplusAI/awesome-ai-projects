@@ -61,13 +61,13 @@ def _date_label(value: str) -> str:
     return f"{date.strftime('%b')} {date.day}, {date.year} PT"
 
 
-def _launch_label(value: str) -> str:
+def _event_label(value: str) -> str:
     try:
         date = datetime.fromisoformat(value.replace("Z", "+00:00"))
     except (AttributeError, ValueError) as error:
-        raise CatalogError("Product Hunt launch_at must be an ISO 8601 timestamp") from error
+        raise CatalogError("Product Hunt date must be an ISO 8601 timestamp") from error
     if date.tzinfo is None:
-        raise CatalogError("Product Hunt launch_at must include a timezone")
+        raise CatalogError("Product Hunt date must include a timezone")
     return f"{date.strftime('%b')} {date.day}, {date.year}"
 
 
@@ -113,6 +113,16 @@ def _validate_launches(snapshot: object, catalog: dict) -> list[dict]:
     _parse_utc_timestamp(snapshot.get("fetched_at"))
     if snapshot.get("complete") is not True or snapshot.get("warnings") != []:
         raise CatalogError("producthunt-recent.json must be a complete warning-free snapshot")
+    coverage = snapshot.get("coverage")
+    if not isinstance(coverage, dict):
+        raise CatalogError("Product Hunt snapshot needs a coverage mode")
+    mode = coverage.get("mode")
+    basis = coverage.get("date_basis")
+    if (mode, basis) not in {
+        ("product_page", "actual_launch"),
+        ("feed_direct_github", "feed_published"),
+    }:
+        raise CatalogError("Product Hunt snapshot has an invalid coverage mode or date basis")
     sources = snapshot.get("sources")
     if not isinstance(sources, list) or len(sources) != len(PH_FEEDS):
         raise CatalogError("producthunt-recent.json must identify both Product Hunt feeds")
@@ -132,14 +142,13 @@ def _validate_launches(snapshot: object, catalog: dict) -> list[dict]:
     rows = snapshot.get("candidates")
     if not isinstance(rows, list):
         raise CatalogError("producthunt-recent.json needs a candidates list")
-    curated = {project["repo"].casefold() for project in catalog["projects"]}
     seen: set[str] = set()
     for row in rows:
         if not isinstance(row, dict):
             raise CatalogError("Product Hunt candidate must be an object")
         slug = _validate_repo_slug(row.get("repo"))
-        if slug.casefold() in curated or slug.casefold() in seen:
-            raise CatalogError(f"{slug}: launch candidate is duplicate or already curated")
+        if slug.casefold() in seen:
+            raise CatalogError(f"{slug}: launch candidate is duplicated")
         seen.add(slug.casefold())
         if row.get("github_url") != f"https://github.com/{slug}":
             raise CatalogError(f"{slug}: launch GitHub link does not match repository")
@@ -158,7 +167,16 @@ def _validate_launches(snapshot: object, catalog: dict) -> list[dict]:
             or ph_parts.fragment
         ):
             raise CatalogError(f"{slug}: launch needs a Product Hunt product URL")
-        _launch_label(row.get("launch_at"))
+        _event_label(row.get("source_date"))
+        _event_label(row.get("feed_published_at"))
+        if row.get("date_basis") != basis:
+            raise CatalogError(f"{slug}: date basis does not match Product Hunt coverage")
+        if mode == "product_page":
+            _event_label(row.get("launch_at"))
+            if row["source_date"] != row["launch_at"]:
+                raise CatalogError(f"{slug}: source date does not match launch evidence")
+        elif row.get("launch_at") is not None or row["source_date"] != row["feed_published_at"]:
+            raise CatalogError(f"{slug}: feed date cannot be presented as a launch date")
         for field in ("name", "description"):
             if not isinstance(row.get(field), str) or not row[field].strip():
                 raise CatalogError(f"{slug}: launch {field} is empty")
@@ -171,30 +189,75 @@ def _validate_launches(snapshot: object, catalog: dict) -> list[dict]:
         evidence = row.get("evidence")
         if (
             not isinstance(evidence, dict)
-            or evidence.get("product_page_url") != ph_url
             or evidence.get("github_api_url") != f"https://api.github.com/repos/{slug}"
             or not isinstance(evidence.get("product_hunt_post_id"), str)
             or not evidence["product_hunt_post_id"].isdigit()
         ):
             raise CatalogError(f"{slug}: launch evidence is incomplete")
+        if mode == "product_page":
+            if evidence.get("product_page_url") != ph_url or not isinstance(
+                evidence.get("product_page_field"), str
+            ):
+                raise CatalogError(f"{slug}: launch evidence is incomplete")
+        else:
+            feed_link = evidence.get("feed_link_url")
+            redirect = evidence.get("redirect_location")
+            try:
+                link_parts = urlsplit(feed_link)
+                link_port = link_parts.port
+                redirect_parts = urlsplit(redirect)
+                redirect_port = redirect_parts.port
+            except (TypeError, ValueError) as error:
+                raise CatalogError(f"{slug}: feed redirect evidence is incomplete") from error
+            redirect_path = redirect_parts.path.rstrip("/")
+            if redirect_path.endswith(".git"):
+                redirect_path = redirect_path[:-4]
+            if (
+                link_parts.scheme != "https"
+                or link_parts.hostname not in {"producthunt.com", "www.producthunt.com"}
+                or link_parts.username is not None
+                or link_parts.password is not None
+                or link_port is not None
+                or link_parts.path != f"/r/p/{evidence['product_hunt_post_id']}"
+                or link_parts.fragment
+                or redirect_parts.scheme not in {"http", "https"}
+                or redirect_parts.hostname != "github.com"
+                or redirect_parts.username is not None
+                or redirect_parts.password is not None
+                or redirect_port is not None
+                or redirect_path.casefold() != f"/{slug}".casefold()
+            ):
+                raise CatalogError(f"{slug}: feed redirect does not match repository")
     return rows
+
+
+def _visible_launches(launches: dict, catalog: dict) -> list[dict]:
+    curated = {project["repo"].casefold() for project in catalog["projects"]}
+    return [
+        row for row in launches["candidates"] if row["repo"].casefold() not in curated
+    ]
 
 
 def render_status(catalog: dict, stats: dict, radar: dict, launches: dict) -> str:
     count = len(catalog["projects"])
     radar_count = len(radar["repositories"])
-    launch_count = len(launches["candidates"])
+    launch_count = len(_visible_launches(launches, catalog))
     project_word = "project" if count == 1 else "projects"
     signal_word = "signal" if radar_count == 1 else "signals"
     lead_word = "lead" if launch_count == 1 else "leads"
-    return (
+    rendered = (
         f"**{count} selected {project_word}** · "
         f"**{radar_count} monthly {signal_word}** · "
-        f"**{launch_count} new launch {lead_word}**\n\n"
+        f"**{launch_count} launch {lead_word}**\n\n"
         f"_Stars checked {_date_label(stats['fetched_at'])} · "
         f"Monthly Trending checked {_date_label(radar['source_updated_at'])} · "
-        f"Product Hunt checked {_date_label(launches['fetched_at'])}_\n"
+        f"Product Hunt last verified {_date_label(launches['fetched_at'])}_\n"
     )
+    if (
+        _parse_utc_timestamp(stats["fetched_at"]) - _parse_utc_timestamp(launches["fetched_at"])
+    ).total_seconds() > 7 * 24 * 60 * 60:
+        rendered += "\n⚠️ Product Hunt snapshot is older than one weekly cycle; check its source date.\n"
+    return rendered
 
 
 def render_radar(radar: dict) -> str:
@@ -220,21 +283,30 @@ def render_radar(radar: dict) -> str:
     return "\n".join(lines) + "\n"
 
 
-def render_launches(launches: dict) -> str:
+def render_launches(launches: dict, catalog: dict) -> str:
     feed_links = (
         f"[AI feed]({PH_FEEDS[0]}) and [open-source feed]({PH_FEEDS[1]})"
     )
+    direct_mode = launches["coverage"]["mode"] == "feed_direct_github"
+    method_note = (
+        "Limited view: only feed posts whose official outbound link goes directly to a "
+        "GitHub repository are included. Dates use the Atom feed's published "
+        "timestamp in UTC; they are not verified launch dates. GitHub repositories "
+        "and open-source licenses are checked."
+        if direct_mode
+        else "Actual launch dates and GitHub links come from the product pages; "
+        "GitHub repositories and open-source licenses are checked."
+    )
     lines = [
         f"_Source: Product Hunt's {feed_links}, checked "
-        f"**{_date_label(launches['fetched_at'])}**. Launch dates come from each "
-        "product page; GitHub links and open-source licenses are checked. "
+        f"**{_date_label(launches['fetched_at'])}**. {method_note} "
         "Descriptions come from repository metadata. "
-        "These are automated leads awaiting collection review._",
+        "Shown leads are automated candidates for collection review._",
         "",
     ]
     rows = sorted(
-        launches["candidates"],
-        key=lambda row: (row["launch_at"], row["stars"], row["repo"].casefold()),
+        _visible_launches(launches, catalog),
+        key=lambda row: (row["source_date"], row["stars"], row["repo"].casefold()),
         reverse=True,
     )
     shown = rows[:8]
@@ -247,21 +319,22 @@ def render_launches(launches: dict) -> str:
             ]
         )
     if not rows:
-        lines.append(
-            f"No verified new open-source AI launches appeared in the last "
-            f"{launches['window_days']} days of these feeds."
-        )
+        if direct_mode:
+            lines.append("No additional uncurated posts with a direct GitHub outbound link qualified in these feeds.")
+        else:
+            lines.append("No additional uncurated open-source AI launch leads qualified in these feeds.")
         return "\n".join(lines) + "\n"
     lines.extend(
         [
-            "| GitHub project | Product Hunt launch | Snapshot |",
+            "| GitHub project | Product Hunt post | Snapshot |",
             "| --- | --- | --- |",
         ]
     )
     for row in shown:
+        date_label = "Feed date" if direct_mode else "Launched"
         lines.append(
             f"| [{escape_table_text(row['repo'])}]({row['github_url']}) | "
-            f"[{escape_table_text(row['name'])} · {_launch_label(row['launch_at'])}]"
+            f"[{escape_table_text(row['name'])} · {date_label} {_event_label(row['source_date'])}]"
             f"({row['product_hunt_url']}) | "
             f"{escape_table_text(row['description'])} · "
             f"⭐ {row['stars']:,} · {escape_table_text(row['license'])} |"
@@ -293,7 +366,7 @@ def render_all(root: Path, check: bool = False) -> bool:
     updated = replace_catalog(current, render_catalog(catalog, stats))
     updated = replace_block(updated, STATUS_START, STATUS_END, render_status(catalog, stats, radar, launches))
     updated = replace_block(updated, RADAR_START, RADAR_END, render_radar(radar))
-    updated = replace_block(updated, LAUNCHES_START, LAUNCHES_END, render_launches(launches))
+    updated = replace_block(updated, LAUNCHES_START, LAUNCHES_END, render_launches(launches, catalog))
     if updated == current:
         return False
     if check:

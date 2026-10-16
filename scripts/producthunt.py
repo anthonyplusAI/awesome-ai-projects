@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-"""Find recent Product Hunt AI/open-source launches with verified GitHub links.
+"""Find Product Hunt AI/open-source leads with verified GitHub links.
 
-Product Hunt's public Atom feeds are the discovery source. A launch must appear
-in both feeds, have an explicit GitHub link on its Product Hunt page, and resolve
-to a public, non-fork, unarchived GitHub repository with a recognized open-source
-license. Results are review candidates, never automatic catalog additions. The
-Atom ``published`` field is submission time; launch dates come from the matching
-post's ``scheduledAt`` field on the product page. A product-page ``githubUrl``
-does not count for a differently named launch on that product's page.
+Product Hunt's public Atom feeds are the discovery source. When product pages
+are available, the matching post's scheduledAt and explicit GitHub link provide
+the launch evidence. If product pages are blocked, the limited fallback checks
+each feed-provided, post-specific outbound Link redirect and admits only direct
+GitHub repository destinations. Its Atom published value is a feed publication
+timestamp, not a verified launch date. GitHub confirms public, non-fork, unarchived repos
+with a recognized open-source license. Results remain review candidates.
 """
 
 from __future__ import annotations
@@ -23,10 +23,11 @@ import time
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
+from html.parser import HTMLParser
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlsplit
-from urllib.request import Request, urlopen
+from urllib.request import HTTPRedirectHandler, HTTPSHandler, Request, build_opener, urlopen
 
 if __package__:
     from .refresh import (
@@ -70,6 +71,8 @@ class FeedEntry:
     name: str
     product_hunt_url: str
     tagline: str
+    feed_published_at: datetime
+    direct_link_url: str | None
 
 
 @dataclass(frozen=True)
@@ -120,6 +123,46 @@ def _tagline(content: str) -> str:
     return " ".join(html.unescape(re.sub(r"<[^>]*>", "", match.group(1))).split())
 
 
+class _FeedContentLinks(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.urls: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag == "a":
+            self.urls.extend(value for name, value in attrs if name == "href" and value)
+
+
+def _post_redirect_url(value: str, post_id: str | None = None) -> str | None:
+    """Preserve a post-specific feed Link on either Product Hunt hostname."""
+    try:
+        parts = urlsplit(value)
+        port = parts.port
+    except ValueError:
+        return None
+    match = re.fullmatch(r"/r/p/([0-9]+)", parts.path)
+    if (
+        parts.scheme != "https"
+        or parts.hostname not in {"producthunt.com", "www.producthunt.com"}
+        or parts.username is not None
+        or parts.password is not None
+        or port is not None
+        or parts.fragment
+        or not match
+        or (post_id is not None and match.group(1) != post_id)
+    ):
+        return None
+    return value
+
+
+def _feed_direct_link(content: str, post_id: str) -> str | None:
+    links = _FeedContentLinks()
+    links.feed(content)
+    matched = {_post_redirect_url(url, post_id) for url in links.urls}
+    matched.discard(None)
+    return next(iter(matched)) if len(matched) == 1 else None
+
+
 def parse_atom_feed(payload: str, url: str) -> ParsedFeed:
     """Read the official Atom feed; reject an HTML block or empty feed."""
     try:
@@ -149,11 +192,21 @@ def parse_atom_feed(payload: str, url: str) -> ParsedFeed:
             skipped += 1
             continue
         post_id = match.group(1)
+        try:
+            feed_published_at = _timestamp(
+                element.findtext(ATOM + "published") or "", f"Product Hunt post {post_id}"
+            )
+        except ProductHuntError:
+            skipped += 1
+            continue
+        content = element.findtext(ATOM + "content") or ""
         entries[post_id] = FeedEntry(
             post_id=post_id,
             name=name,
             product_hunt_url=next(iter(product_urls)),
-            tagline=_tagline(element.findtext(ATOM + "content") or ""),
+            tagline=_tagline(content),
+            feed_published_at=feed_published_at,
+            direct_link_url=_feed_direct_link(content, post_id),
         )
     if not entries:
         raise ProductHuntError(f"Product Hunt feed {url} had no valid launch entries")
@@ -193,7 +246,61 @@ def fetch_text(url: str, opener=None) -> str:
         raise ProductHuntError(f"Product Hunt returned invalid UTF-8 for {url}") from error
 
 
+def fetch_direct_link_location(url: str, opener=None) -> str:
+    """Read the feed Link's first HTTP redirect without visiting its target."""
+    if _post_redirect_url(url) != url:
+        raise ProductHuntError(f"Unexpected Product Hunt direct Link URL: {url}")
+    request = Request(
+        url,
+        headers={
+            "Accept": "*/*",
+            "User-Agent": "awesome-ai-projects/1.0 (+https://github.com/anthonyplusAI/awesome-ai-projects)",
+        },
+    )
+    if opener is None:
+        class _NoRedirect(HTTPRedirectHandler):
+            def redirect_request(self, request, fp, code, msg, headers, newurl):
+                return None
+
+        context = _fallback_ssl_context()
+        handler = HTTPSHandler(context=context) if context is not None else HTTPSHandler()
+        opener = build_opener(_NoRedirect(), handler).open
+    try:
+        with opener(request, timeout=20) as response:
+            raise ProductHuntError(
+                f"Product Hunt direct Link did not redirect (HTTP {response.status}): {url}"
+            )
+    except HTTPError as error:
+        if error.code not in {301, 302, 303, 307, 308}:
+            error.close()
+            raise ProductHuntError(
+                f"Product Hunt direct Link returned HTTP {error.code} for {url}"
+            ) from error
+        location = error.headers.get("Location")
+        error.close()
+    except (URLError, TimeoutError) as error:
+        raise ProductHuntError(f"Could not reach Product Hunt direct Link at {url}: {error}") from error
+    if not isinstance(location, str) or not location:
+        raise ProductHuntError(f"Product Hunt direct Link had no Location: {url}")
+    try:
+        parts = urlsplit(location)
+        port = parts.port
+    except ValueError as error:
+        raise ProductHuntError(f"Product Hunt direct Link had invalid Location: {url}") from error
+    if (
+        parts.scheme not in {"http", "https"}
+        or not parts.hostname
+        or parts.username is not None
+        or parts.password is not None
+        or port is not None
+        or parts.hostname in {"producthunt.com", "www.producthunt.com"}
+    ):
+        raise ProductHuntError(f"Product Hunt direct Link had no external HTTP location: {url}")
+    return location
+
+
 def _github_slug(value: str) -> str | None:
+    """Accept a GitHub repository root URL, including HTTP and .git variants."""
     try:
         parts = urlsplit(value)
         port = parts.port
@@ -328,6 +435,7 @@ def discover_product_hunt(
     now: datetime | None = None,
     fetch_text_fn=None,
     fetch_json_fn=None,
+    fetch_direct_link_fn=None,
 ) -> dict:
     """Return verified launch candidates and source/coverage metadata."""
     validate_catalog(catalog)
@@ -340,6 +448,9 @@ def discover_product_hunt(
         raise ProductHuntError("now needs a timezone")
     now = now.astimezone(timezone.utc)
     fetch_text_fn = fetch_text if fetch_text_fn is None else fetch_text_fn
+    fetch_direct_link_fn = (
+        fetch_direct_link_location if fetch_direct_link_fn is None else fetch_direct_link_fn
+    )
     if fetch_json_fn is None:
         token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
         fetch_json_fn = lambda url: fetch_json(url, token=token)
@@ -362,7 +473,7 @@ def discover_product_hunt(
 
     known = {project["repo"].casefold() for project in catalog["projects"]}
     shared_ids = parsed[AI_FEED].entries.keys() & parsed[OPEN_SOURCE_FEED].entries.keys()
-    candidates: list[dict] = []
+    matched: list[tuple[str, FeedEntry, FeedEntry]] = []
     for post_id in sorted(shared_ids):
         ai_entry = parsed[AI_FEED].entries[post_id]
         open_entry = parsed[OPEN_SOURCE_FEED].entries[post_id]
@@ -370,24 +481,119 @@ def discover_product_hunt(
             warnings.append(f"Product Hunt feeds disagree on product URL for post {post_id}")
             complete = False
             continue
+        matched.append((post_id, ai_entry, open_entry))
+
+    page_evidence: dict[str, tuple[str, datetime, str] | None] = {}
+    page_issue: str | None = None
+    for post_id, ai_entry, _ in matched:
         try:
             page = _fetch_with_retry(fetch_text_fn, ai_entry.product_hunt_url)
+            page_evidence[post_id] = product_page_evidence(page, post_id, ai_entry.name)
         except ProductHuntError as error:
-            warnings.append(str(error))
-            complete = False
-            continue
-        try:
-            evidence = product_page_evidence(page, post_id, ai_entry.name)
-        except ProductHuntError as error:
-            warnings.append(str(error))
-            complete = False
-            continue
-        if evidence is None:
-            # No explicit, unambiguous repo and launch date means no verified
-            # candidate. Other GitHub links in comments or embeds do not count.
-            continue
-        slug, launch_at, evidence_field = evidence
-        if not now - timedelta(days=days) <= launch_at <= now:
+            page_issue = str(error)
+            break
+
+    direct_mode = page_issue is not None
+    mode = "feed_direct_github" if direct_mode else "product_page"
+    date_basis = "feed_published" if direct_mode else "actual_launch"
+    if direct_mode:
+        coverage_note = (
+            "Product Hunt product pages could not be verified: "
+            f"{page_issue}. This limited policy includes only posts whose feed Link "
+            "redirects directly to a GitHub repository. Dates are Atom feed publication "
+            "timestamps, not verified launch dates. The feeds expose bounded recent slices."
+        )
+        method = (
+            "Post appears in both official Atom feeds with matching ID, product URL, "
+            "name, feed publication timestamp, and outbound Link. The Link redirects directly "
+            "to a GitHub repository; GitHub API verifies its public open-source status."
+        )
+    else:
+        coverage_note = (
+            "Product Hunt's public feeds expose bounded recent slices. This review "
+            "queue does not cover every launch. Dates are verified product-page launch dates."
+        )
+        method = (
+            "Post appears in both official Atom feeds; matching launch gives its actual "
+            "scheduledAt and either a direct GitHub primaryLink or a same-name product "
+            "page githubUrl; GitHub API confirms a public, non-fork, unarchived "
+            "repository with a recognized open-source license."
+        )
+
+    # Build evidence under exactly one policy. If a product page is unavailable,
+    # do not mix page-derived and feed-derived rows or claim a partial page scan
+    # is complete. Every shared post's direct Link must resolve in fallback mode.
+    leads: list[tuple[str, FeedEntry, FeedEntry, str, datetime, datetime | None, dict]] = []
+    for post_id, ai_entry, open_entry in matched:
+        if direct_mode:
+            direct_url = ai_entry.direct_link_url
+            if (
+                not direct_url
+                or direct_url != open_entry.direct_link_url
+                or _name_key(ai_entry.name) != _name_key(open_entry.name)
+                or ai_entry.feed_published_at != open_entry.feed_published_at
+            ):
+                warnings.append(f"Product Hunt feeds lack matching direct Link evidence for post {post_id}")
+                complete = False
+                continue
+            try:
+                location = _fetch_with_retry(fetch_direct_link_fn, direct_url)
+            except ProductHuntError as error:
+                warnings.append(str(error))
+                complete = False
+                continue
+            if not isinstance(location, str) or not location:
+                warnings.append(f"Product Hunt direct Link had no Location for post {post_id}")
+                complete = False
+                continue
+            try:
+                parts = urlsplit(location)
+                port = parts.port
+            except ValueError:
+                parts = None
+                port = None
+            if (
+                parts is None
+                or parts.scheme not in {"http", "https"}
+                or not parts.hostname
+                or parts.username is not None
+                or parts.password is not None
+                or port is not None
+                or parts.hostname in {"producthunt.com", "www.producthunt.com"}
+            ):
+                warnings.append(f"Product Hunt direct Link had no external HTTP location for post {post_id}")
+                complete = False
+                continue
+            slug = _github_slug(location)
+            if slug is None:
+                # A checked redirect to a product website is outside this
+                # explicit direct-to-GitHub policy, not a source failure.
+                continue
+            source_date = ai_entry.feed_published_at
+            launch_at = None
+            # Keep the exact PH Location for audit. GitHub root links can use
+            # HTTP or a .git suffix; the API supplies the canonical repo name.
+            evidence_fields = {
+                "feed_link_url": direct_url,
+                "redirect_location": location,
+            }
+        else:
+            evidence = page_evidence[post_id]
+            if evidence is None:
+                continue
+            slug, launch_at, field = evidence
+            source_date = launch_at
+            evidence_fields = {
+                "product_page_url": ai_entry.product_hunt_url,
+                "product_page_field": field,
+            }
+        leads.append(
+            (post_id, ai_entry, open_entry, slug, source_date, launch_at, evidence_fields)
+        )
+
+    candidates: list[dict] = []
+    for post_id, ai_entry, open_entry, slug, source_date, launch_at, evidence_fields in leads:
+        if not now - timedelta(days=days) <= source_date <= now:
             continue
         if slug.casefold() in known:
             continue
@@ -410,7 +616,7 @@ def discover_product_hunt(
             continue
         description = repository.get("description")
         if not isinstance(description, str) or not description.strip():
-            description = ai_entry.tagline or open_entry.tagline
+            description = ai_entry.tagline or open_entry.tagline or "No description provided"
         candidates.append(
             {
                 "repo": repository["full_name"],
@@ -418,24 +624,36 @@ def discover_product_hunt(
                 "description": description,
                 "stars": stats["stars"],
                 "license": stats["license"],
-                "launch_at": _utc_iso(launch_at),
+                "source_date": _utc_iso(source_date),
+                "date_basis": date_basis,
+                "feed_published_at": _utc_iso(ai_entry.feed_published_at),
+                "launch_at": _utc_iso(launch_at) if launch_at is not None else None,
                 "product_hunt_url": ai_entry.product_hunt_url,
                 "github_url": f"https://github.com/{repository['full_name']}",
                 "evidence": {
-                    "product_page_url": ai_entry.product_hunt_url,
-                    "product_page_field": evidence_field,
-                    "github_api_url": api_url,
+                    **evidence_fields,
+                    "github_api_url": f"{API_ROOT}/repos/{repository['full_name']}",
                     "product_hunt_post_id": post_id,
                 },
                 "source_feeds": list(FEEDS),
             }
         )
-    candidates.sort(key=lambda item: (item["launch_at"], item["stars"]), reverse=True)
+    candidates.sort(key=lambda item: (item["source_date"], item["stars"]), reverse=True)
+    deduplicated: list[dict] = []
+    seen_repositories: set[str] = set()
+    for candidate in candidates:
+        canonical = candidate["repo"].casefold()
+        if canonical in seen_repositories:
+            continue
+        seen_repositories.add(canonical)
+        deduplicated.append(candidate)
+    if page_issue is not None and not complete:
+        warnings.insert(0, page_issue)
     return {
         "fetched_at": _utc_iso(now),
         "window_days": days,
         "complete": complete,
-        "method": "Post appears in both official Atom feeds; matching launch gives its actual scheduledAt and either a direct GitHub primaryLink or a same-name product page githubUrl; GitHub API confirms a public, non-fork, unarchived repository with a recognized open-source license.",
+        "method": method,
         "matching_posts": len(shared_ids),
         "sources": [
             {
@@ -445,8 +663,13 @@ def discover_product_hunt(
             }
             for url in FEEDS
         ],
-        "coverage_note": "Product Hunt's public feeds expose bounded recent slices. This review queue does not cover every launch.",
-        "candidates": candidates[:limit],
+        "coverage": {
+            "mode": mode,
+            "date_basis": date_basis,
+            "note": coverage_note,
+        },
+        "coverage_note": coverage_note,
+        "candidates": deduplicated[:limit],
         "warnings": warnings,
     }
 
@@ -470,7 +693,7 @@ def _write_json(path: Path, snapshot: dict) -> None:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--days", type=int, default=90, help="Actual launch lookback in days (default: 90)")
+    parser.add_argument("--days", type=int, default=90, help="Source-date lookback in days (default: 90)")
     parser.add_argument("--limit", type=int, default=50, help="Maximum candidates (1–100)")
     parser.add_argument("--output", type=Path, help="Write a JSON snapshot to this path; stdout by default")
     parser.add_argument("--root", type=Path, default=ROOT, help=argparse.SUPPRESS)

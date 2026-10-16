@@ -34,22 +34,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 scripts/radar.py --input data/trending-monthly.json --output data/radar.json
-      - name: Capture Product Hunt AI and open-source launches
+      - name: Capture Product Hunt AI and open-source leads
+        continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python3 scripts/producthunt.py --days 90 --output data/producthunt-recent.json
-      - name: Require a complete Product Hunt source snapshot
-        run: |
-          python3 - <<'PY'
-          import json
-          from pathlib import Path
-
-          snapshot = json.loads(Path("data/producthunt-recent.json").read_text(encoding="utf-8"))
-          if snapshot.get("complete") is not True:
-              for warning in snapshot.get("warnings", []):
-                  print(f"Source warning: {warning}")
-              raise SystemExit("Product Hunt feeds were incomplete; keeping the previous snapshot")
-          PY
+        run: python3 scripts/producthunt.py --days 90 --output "$RUNNER_TEMP/producthunt-recent.json"
+      - name: Accept verified Product Hunt snapshot
+        run: python3 scripts/accept_producthunt.py --input "$RUNNER_TEMP/producthunt-recent.json" --output data/producthunt-recent.json
       - name: Render README
         run: python3 scripts/render.py --write
       - name: Verify generated README

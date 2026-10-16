@@ -8,6 +8,7 @@ import tempfile
 import unittest
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.error import HTTPError
 from unittest import mock
 
 from scripts import producthunt
@@ -27,16 +28,29 @@ CATALOG = {
 }
 
 
-def feed(entries: list[tuple[str, str, str]], *, updated: str = "2026-10-16T07:01:00Z") -> str:
+def feed(
+    entries: list[tuple[str, str, str]],
+    *,
+    updated: str = "2026-10-16T07:01:00Z",
+    direct_links: bool = False,
+    published_by_post: dict[str, str] | None = None,
+) -> str:
     items = []
+    published_by_post = published_by_post or {}
     for post_id, name, product_slug in entries:
+        direct_link = (
+            f'&lt;p&gt;&lt;a href="https://www.producthunt.com/r/p/{post_id}?app_id=339"&gt;'
+            "Link&lt;/a&gt;&lt;/p&gt;"
+            if direct_links
+            else ""
+        )
         items.append(
             "<entry>"
             f"<id>tag:www.producthunt.com,2005:Post/{post_id}</id>"
             f"<title>{name}</title>"
             f'<link rel="alternate" href="https://www.producthunt.com/products/{product_slug}"/>'
-            "<published>2026-08-01T00:00:00Z</published>"
-            "<content type=\"html\">&lt;p&gt;An AI project from the feed&lt;/p&gt;</content>"
+            f"<published>{published_by_post.get(post_id, '2026-08-01T00:00:00Z')}</published>"
+            f"<content type=\"html\">&lt;p&gt;An AI project from the feed&lt;/p&gt;{direct_link}</content>"
             "</entry>"
         )
     return (
@@ -92,13 +106,58 @@ def github_repo(slug: str, *, license_id: str = "MIT", **updates) -> dict:
 
 
 class ProductHuntParsingTests(unittest.TestCase):
-    def test_parses_atom_entry_and_treats_published_as_submission_date_only(self) -> None:
-        result = producthunt.parse_atom_feed(feed([("101", "New Agent", "new-agent")]), producthunt.AI_FEED)
+    def test_parses_atom_entry_and_preserves_feed_publication_timestamp(self) -> None:
+        result = producthunt.parse_atom_feed(
+            feed([("101", "New Agent", "new-agent")], direct_links=True), producthunt.AI_FEED
+        )
 
         self.assertEqual(set(result.entries), {"101"})
         self.assertEqual(result.entries["101"].name, "New Agent")
         self.assertEqual(result.entries["101"].tagline, "An AI project from the feed")
+        self.assertEqual(
+            result.entries["101"].feed_published_at,
+            datetime(2026, 8, 1, tzinfo=timezone.utc),
+        )
+        self.assertEqual(
+            result.entries["101"].direct_link_url,
+            "https://www.producthunt.com/r/p/101?app_id=339",
+        )
         self.assertEqual(result.updated_at, datetime(2026, 10, 16, 7, 1, tzinfo=timezone.utc))
+
+    def test_feed_direct_link_must_name_the_same_post(self) -> None:
+        raw = feed([("101", "New Agent", "new-agent")], direct_links=True).replace(
+            "/r/p/101?", "/r/p/999?"
+        )
+
+        result = producthunt.parse_atom_feed(raw, producthunt.AI_FEED)
+
+        self.assertIsNone(result.entries["101"].direct_link_url)
+
+    def test_direct_link_fetch_reads_redirect_without_following_destination(self) -> None:
+        url = "https://www.producthunt.com/r/p/101?app_id=339"
+
+        def moved(request, **_kwargs):
+            raise HTTPError(
+                request.full_url,
+                301,
+                "Moved Permanently",
+                {"Location": "https://github.com/new/agent?ref=producthunt"},
+                None,
+            )
+
+        self.assertEqual(
+            producthunt.fetch_direct_link_location(url, opener=moved),
+            "https://github.com/new/agent?ref=producthunt",
+        )
+
+    def test_direct_link_fetch_rejects_product_hunt_http_error(self) -> None:
+        url = "https://www.producthunt.com/r/p/101?app_id=339"
+
+        def blocked(request, **_kwargs):
+            raise HTTPError(request.full_url, 403, "Forbidden", {}, None)
+
+        with self.assertRaisesRegex(producthunt.ProductHuntError, "HTTP 403"):
+            producthunt.fetch_direct_link_location(url, opener=blocked)
 
     def test_rejects_html_error_page_instead_of_treating_it_as_empty_feed(self) -> None:
         with self.assertRaisesRegex(producthunt.ProductHuntError, "did not return an Atom feed"):
@@ -189,12 +248,32 @@ class ProductHuntParsingTests(unittest.TestCase):
 
 
 class ProductHuntDiscoveryTests(unittest.TestCase):
-    def _sources(self, *, extra_ai=(), extra_open=(), pages=None, repositories=None, updated=None):
+    def _sources(
+        self,
+        *,
+        extra_ai=(),
+        extra_open=(),
+        pages=None,
+        repositories=None,
+        updated=None,
+        direct_links=False,
+        published_by_post=None,
+    ):
         ai_entries = [("101", "New Agent", "new-agent"), *extra_ai]
         open_entries = [("101", "New Agent", "new-agent"), *extra_open]
         values = {
-            producthunt.AI_FEED: feed(ai_entries, updated=updated or "2026-10-16T07:01:00Z"),
-            producthunt.OPEN_SOURCE_FEED: feed(open_entries, updated=updated or "2026-10-16T07:01:00Z"),
+            producthunt.AI_FEED: feed(
+                ai_entries,
+                updated=updated or "2026-10-16T07:01:00Z",
+                direct_links=direct_links,
+                published_by_post=published_by_post,
+            ),
+            producthunt.OPEN_SOURCE_FEED: feed(
+                open_entries,
+                updated=updated or "2026-10-16T07:01:00Z",
+                direct_links=direct_links,
+                published_by_post=published_by_post,
+            ),
             "https://www.producthunt.com/products/new-agent": page(
                 "101", "https://github.com/new/agent"
             ),
@@ -231,6 +310,11 @@ class ProductHuntDiscoveryTests(unittest.TestCase):
         candidate = snapshot["candidates"][0]
         self.assertEqual(candidate["repo"], "new/agent")
         self.assertEqual(candidate["launch_at"], "2026-10-15T07:01:00Z")
+        self.assertEqual(candidate["source_date"], "2026-10-15T07:01:00Z")
+        self.assertEqual(candidate["date_basis"], "actual_launch")
+        self.assertEqual(candidate["feed_published_at"], "2026-08-01T00:00:00Z")
+        self.assertEqual(snapshot["coverage"]["mode"], "product_page")
+        self.assertEqual(snapshot["coverage"]["date_basis"], "actual_launch")
         self.assertEqual(candidate["product_hunt_url"], "https://www.producthunt.com/products/new-agent")
         self.assertEqual(candidate["evidence"]["product_page_field"], "product.githubUrl")
         self.assertEqual(candidate["evidence"]["github_api_url"], "https://api.github.com/repos/new/agent")
@@ -280,6 +364,22 @@ class ProductHuntDiscoveryTests(unittest.TestCase):
                 )
                 self.assertEqual(snapshot["candidates"], [])
 
+    def test_candidate_has_description_when_github_and_feeds_are_blank(self) -> None:
+        fetch_text, fetch_json, _ = self._sources(
+            repositories={"new/agent": github_repo("new/agent", description="")}
+        )
+
+        def no_feed_tagline(url):
+            payload = fetch_text(url)
+            return payload.replace("An AI project from the feed", "") if url in producthunt.FEEDS else payload
+
+        snapshot = producthunt.discover_product_hunt(
+            CATALOG, now=NOW, fetch_text_fn=no_feed_tagline, fetch_json_fn=fetch_json
+        )
+
+        self.assertTrue(snapshot["complete"])
+        self.assertEqual(snapshot["candidates"][0]["description"], "No description provided")
+
     def test_source_page_error_is_reported_as_partial_not_no_launches(self) -> None:
         fetch_text, fetch_json, _ = self._sources()
 
@@ -296,6 +396,165 @@ class ProductHuntDiscoveryTests(unittest.TestCase):
         self.assertFalse(snapshot["complete"])
         self.assertEqual(snapshot["candidates"], [])
         self.assertIn("HTTP 503", snapshot["warnings"][0])
+
+    def test_page_block_switches_to_complete_direct_feed_link_policy(self) -> None:
+        fetch_text, fetch_json, requested = self._sources(
+            extra_ai=[("102", "Website Only", "website-only")],
+            extra_open=[("102", "Website Only", "website-only")],
+            direct_links=True,
+        )
+
+        def blocked_pages(url):
+            if url.startswith("https://www.producthunt.com/products/"):
+                raise producthunt.ProductHuntError(f"Product Hunt returned HTTP 403 for {url}")
+            return fetch_text(url)
+
+        def redirect(url):
+            requested.append(url)
+            return {
+                "https://www.producthunt.com/r/p/101?app_id=339": "https://github.com/new/agent?ref=producthunt",
+                "https://www.producthunt.com/r/p/102?app_id=339": "https://website.example/?ref=producthunt",
+            }[url]
+
+        snapshot = producthunt.discover_product_hunt(
+            CATALOG,
+            now=NOW,
+            fetch_text_fn=blocked_pages,
+            fetch_json_fn=fetch_json,
+            fetch_direct_link_fn=redirect,
+        )
+
+        self.assertTrue(snapshot["complete"])
+        self.assertEqual(snapshot["warnings"], [])
+        self.assertEqual(snapshot["coverage"]["mode"], "feed_direct_github")
+        self.assertEqual(snapshot["coverage"]["date_basis"], "feed_published")
+        self.assertIn("direct", snapshot["coverage"]["note"].lower())
+        self.assertEqual(
+            set(requested) & {
+                "https://www.producthunt.com/r/p/101?app_id=339",
+                "https://www.producthunt.com/r/p/102?app_id=339",
+            },
+            {
+                "https://www.producthunt.com/r/p/101?app_id=339",
+                "https://www.producthunt.com/r/p/102?app_id=339",
+            },
+        )
+        self.assertEqual(len(snapshot["candidates"]), 1)
+        candidate = snapshot["candidates"][0]
+        self.assertEqual(candidate["repo"], "new/agent")
+        self.assertIsNone(candidate["launch_at"])
+        self.assertEqual(candidate["source_date"], "2026-08-01T00:00:00Z")
+        self.assertEqual(candidate["feed_published_at"], "2026-08-01T00:00:00Z")
+        self.assertEqual(candidate["date_basis"], "feed_published")
+        self.assertEqual(
+            candidate["evidence"]["feed_link_url"],
+            "https://www.producthunt.com/r/p/101?app_id=339",
+        )
+        self.assertEqual(
+            candidate["evidence"]["redirect_location"],
+            "https://github.com/new/agent?ref=producthunt",
+        )
+
+    def test_same_canonical_repo_under_two_posts_keeps_newest_feed_publication(self) -> None:
+        fetch_text, fetch_json, _ = self._sources(
+            extra_ai=[("102", "New Agent Relaunch", "new-agent-relaunch")],
+            extra_open=[("102", "New Agent Relaunch", "new-agent-relaunch")],
+            direct_links=True,
+            published_by_post={
+                "101": "2026-10-12T00:00:00Z",
+                "102": "2026-10-15T00:00:00Z",
+            },
+            repositories={"New/Agent": github_repo("new/agent")},
+        )
+
+        def blocked_pages(url):
+            if url.startswith("https://www.producthunt.com/products/"):
+                raise producthunt.ProductHuntError("Product Hunt product page HTTP 403")
+            return fetch_text(url)
+
+        def redirect(url):
+            return {
+                "https://www.producthunt.com/r/p/101?app_id=339": "https://github.com/New/Agent",
+                "https://www.producthunt.com/r/p/102?app_id=339": "https://github.com/new/agent",
+            }[url]
+
+        snapshot = producthunt.discover_product_hunt(
+            CATALOG,
+            now=NOW,
+            fetch_text_fn=blocked_pages,
+            fetch_json_fn=fetch_json,
+            fetch_direct_link_fn=redirect,
+        )
+
+        self.assertTrue(snapshot["complete"])
+        self.assertEqual(snapshot["warnings"], [])
+        self.assertEqual(len(snapshot["candidates"]), 1)
+        self.assertEqual(snapshot["candidates"][0]["repo"], "new/agent")
+        self.assertEqual(snapshot["candidates"][0]["name"], "New Agent Relaunch")
+        self.assertEqual(snapshot["candidates"][0]["source_date"], "2026-10-15T00:00:00Z")
+        self.assertEqual(snapshot["candidates"][0]["evidence"]["product_hunt_post_id"], "102")
+
+    def test_direct_evidence_preserves_valid_product_hunt_and_github_url_variants(self) -> None:
+        fetch_text, fetch_json, _ = self._sources(
+            direct_links=True,
+            repositories={"New/Agent": github_repo("new/agent")},
+        )
+        feed_link = "https://producthunt.com/r/p/101?app_id=339"
+        redirect_location = "http://github.com/New/Agent.git?ref=producthunt"
+
+        def bare_host_feed_and_blocked_pages(url):
+            if url.startswith("https://www.producthunt.com/products/"):
+                raise producthunt.ProductHuntError("Product Hunt product page HTTP 403")
+            return fetch_text(url).replace(
+                "https://www.producthunt.com/r/p/101", "https://producthunt.com/r/p/101"
+            )
+
+        def redirect(url):
+            self.assertEqual(url, feed_link)
+            return redirect_location
+
+        snapshot = producthunt.discover_product_hunt(
+            CATALOG,
+            now=NOW,
+            fetch_text_fn=bare_host_feed_and_blocked_pages,
+            fetch_json_fn=fetch_json,
+            fetch_direct_link_fn=redirect,
+        )
+
+        self.assertTrue(snapshot["complete"])
+        self.assertEqual(snapshot["warnings"], [])
+        candidate = snapshot["candidates"][0]
+        self.assertEqual(candidate["repo"], "new/agent")
+        self.assertEqual(candidate["github_url"], "https://github.com/new/agent")
+        self.assertEqual(
+            candidate["evidence"]["github_api_url"], "https://api.github.com/repos/new/agent"
+        )
+        self.assertEqual(candidate["evidence"]["feed_link_url"], feed_link)
+        self.assertEqual(candidate["evidence"]["redirect_location"], redirect_location)
+
+    def test_blocked_direct_link_marks_limited_policy_incomplete(self) -> None:
+        fetch_text, fetch_json, _ = self._sources(direct_links=True)
+
+        def blocked_pages(url):
+            if url.startswith("https://www.producthunt.com/products/"):
+                raise producthunt.ProductHuntError("Product Hunt product page HTTP 403")
+            return fetch_text(url)
+
+        def blocked_redirect(_url):
+            raise producthunt.ProductHuntError("Product Hunt direct link HTTP 403")
+
+        snapshot = producthunt.discover_product_hunt(
+            CATALOG,
+            now=NOW,
+            fetch_text_fn=blocked_pages,
+            fetch_json_fn=fetch_json,
+            fetch_direct_link_fn=blocked_redirect,
+        )
+
+        self.assertFalse(snapshot["complete"])
+        self.assertEqual(snapshot["coverage"]["mode"], "feed_direct_github")
+        self.assertEqual(snapshot["candidates"], [])
+        self.assertTrue(any("direct link HTTP 403" in item for item in snapshot["warnings"]))
 
     def test_changed_product_page_format_is_reported_as_partial(self) -> None:
         fetch_text, fetch_json, _ = self._sources(

@@ -64,6 +64,11 @@ LAUNCHES = {
     "window_days": 90,
     "complete": True,
     "warnings": [],
+    "coverage": {
+        "mode": "product_page",
+        "date_basis": "actual_launch",
+        "note": "Product pages provided launch dates and repository links.",
+    },
     "sources": [
         {
             "url": url,
@@ -80,6 +85,9 @@ LAUNCHES = {
             "stars": 42,
             "license": "Apache-2.0",
             "launch_at": "2026-10-15T00:00:00Z",
+            "source_date": "2026-10-15T00:00:00Z",
+            "date_basis": "actual_launch",
+            "feed_published_at": "2026-10-14T00:00:00Z",
             "product_hunt_url": "https://www.producthunt.com/products/tool-launch",
             "github_url": "https://github.com/new/tool",
             "source_feeds": list(render.PH_FEEDS),
@@ -138,10 +146,10 @@ class ReadmeRenderTests(unittest.TestCase):
 
             self.assertIn("**1 selected project**", result)
             self.assertIn("**1 monthly signal**", result)
-            self.assertIn("**1 new launch lead**", result)
+            self.assertIn("**1 launch lead**", result)
             self.assertIn("**+123**", result)
             self.assertIn("Creative \\| local AI", result)
-            self.assertIn("[Tool Launch · Oct 15, 2026]", result)
+            self.assertIn("[Tool Launch · Launched Oct 15, 2026]", result)
             self.assertIn("A tool \\| for AI", result)
             self.assertIn("⭐ 42 · Apache-2.0", result)
             self.assertIn("**1 pick.** Make and remix images.", result)
@@ -188,6 +196,102 @@ class ReadmeRenderTests(unittest.TestCase):
                 render.render_all(root)
 
             self.assertEqual(readme_path.read_text(encoding="utf-8"), original)
+
+    def test_feed_redirect_mode_labels_feed_date_and_checks_evidence(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            direct = copy.deepcopy(LAUNCHES)
+            direct["coverage"] = {
+                "mode": "feed_direct_github",
+                "date_basis": "feed_published",
+                "note": "Only direct GitHub outbound links are included.",
+            }
+            row = direct["candidates"][0]
+            row["launch_at"] = None
+            row["source_date"] = row["feed_published_at"]
+            row["date_basis"] = "feed_published"
+            row["evidence"] = {
+                "feed_link_url": "https://www.producthunt.com/r/p/123456?app_id=339",
+                "redirect_location": "https://github.com/new/tool?ref=producthunt",
+                "github_api_url": "https://api.github.com/repos/new/tool",
+                "product_hunt_post_id": "123456",
+            }
+            readme_path = write_fixture(root, launches=direct)
+
+            self.assertTrue(render.render_all(root))
+            result = readme_path.read_text(encoding="utf-8")
+            self.assertIn("Feed date Oct 14, 2026", result)
+            self.assertIn("outbound link goes directly to a GitHub repository", result)
+            self.assertNotIn("Launched Oct 14, 2026", result)
+
+            direct["candidates"][0]["evidence"]["feed_link_url"] = (
+                "https://producthunt.com/r/p/123456?app_id=339"
+            )
+            direct["candidates"][0]["evidence"]["redirect_location"] = (
+                "http://github.com/new/tool.git?ref=producthunt"
+            )
+            (root / "data" / "producthunt-recent.json").write_text(
+                json.dumps(direct), encoding="utf-8"
+            )
+            self.assertFalse(render.render_all(root))
+
+            direct["candidates"][0]["evidence"]["redirect_location"] = (
+                "https://github.com/unrelated/repo?ref=producthunt"
+            )
+            (root / "data" / "producthunt-recent.json").write_text(
+                json.dumps(direct), encoding="utf-8"
+            )
+            with self.assertRaisesRegex(CatalogError, "redirect"):
+                render.render_all(root)
+
+    def test_old_product_hunt_snapshot_is_visibly_flagged(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            readme_path = write_fixture(root)
+            newer_stats = copy.deepcopy(STATS)
+            newer_stats["fetched_at"] = "2026-11-01T18:00:00Z"
+            (root / "data" / "stats.json").write_text(json.dumps(newer_stats), encoding="utf-8")
+
+            self.assertTrue(render.render_all(root))
+            self.assertIn(
+                "Product Hunt snapshot is older than one weekly cycle",
+                readme_path.read_text(encoding="utf-8"),
+            )
+
+    def test_promoting_a_previous_launch_lead_does_not_block_refresh(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            readme_path = write_fixture(root)
+            promoted_catalog = copy.deepcopy(CATALOG)
+            promoted_catalog["projects"].append(
+                {
+                    "repo": "new/tool",
+                    "name": "Tool Launch",
+                    "category": "images",
+                    "description": "A useful AI tool.",
+                }
+            )
+            promoted_stats = copy.deepcopy(STATS)
+            promoted_stats["repositories"]["new/tool"] = {
+                "stars": 42,
+                "license": "Apache-2.0",
+                "archived": False,
+            }
+            (root / "data" / "projects.json").write_text(
+                json.dumps(promoted_catalog), encoding="utf-8"
+            )
+            (root / "data" / "stats.json").write_text(
+                json.dumps(promoted_stats), encoding="utf-8"
+            )
+
+            self.assertTrue(render.render_all(root))
+            result = readme_path.read_text(encoding="utf-8")
+            launch_section = result.split(render.LAUNCHES_START, 1)[1].split(
+                render.LAUNCHES_END, 1
+            )[0]
+            self.assertIn("**0 launch leads**", result)
+            self.assertNotIn("[new/tool]", launch_section)
+            self.assertIn("[Tool Launch](https://github.com/new/tool)", result)
 
 
 if __name__ == "__main__":
