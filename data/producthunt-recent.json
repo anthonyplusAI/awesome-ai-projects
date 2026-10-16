@@ -1,0 +1,143 @@
+{
+  "fetched_at": "2026-10-16T23:02:11Z",
+  "window_days": 90,
+  "complete": true,
+  "method": "Post appears in both official Atom feeds; matching launch gives its actual scheduledAt and either a direct GitHub primaryLink or a same-name product page githubUrl; GitHub API confirms a public, non-fork, unarchived repository with a recognized open-source license.",
+  "matching_posts": 8,
+  "sources": [
+    {
+      "url": "https://www.producthunt.com/feed?category=artificial-intelligence",
+      "feed_updated_at": "2026-10-16T07:01:00Z",
+      "entry_count": 50
+    },
+    {
+      "url": "https://www.producthunt.com/feed?category=open-source",
+      "feed_updated_at": "2026-10-16T07:01:00Z",
+      "entry_count": 50
+    }
+  ],
+  "coverage_note": "Product Hunt's public feeds expose bounded recent slices. This review queue does not cover every launch.",
+  "candidates": [
+    {
+      "repo": "autonomous-ai/openharness",
+      "name": "Harness by Autonomous",
+      "description": "The ultimate harness for coding agents and beyond. All your agents. All your machines. One command center. Start with code, then follow your curiosity and build across disciplines: CAD, circuits, robots, games and music.",
+      "stars": 1272,
+      "license": "MIT",
+      "launch_at": "2026-10-16T07:01:00Z",
+      "product_hunt_url": "https://www.producthunt.com/products/harness-by-autonomous",
+      "github_url": "https://github.com/autonomous-ai/openharness",
+      "evidence": {
+        "product_page_url": "https://www.producthunt.com/products/harness-by-autonomous",
+        "product_page_field": "product.githubUrl",
+        "github_api_url": "https://api.github.com/repos/autonomous-ai/openharness",
+        "product_hunt_post_id": "1281483"
+      },
+      "source_feeds": [
+        "https://www.producthunt.com/feed?category=artificial-intelligence",
+        "https://www.producthunt.com/feed?category=open-source"
+      ]
+    },
+    {
+      "repo": "risa-labs-inc/BossConsole",
+      "name": "BOSS Console",
+      "description": "Open-source, multi-platform harness for AI agents - a native, multi-threaded operator's console (JVM, not Electron) to run Claude Code, Codex, Gemini or OpenCode with a real browser, terminal, editor, secrets & 200+ MCP tools. Built for enterprises, science & research.",
+      "stars": 812,
+      "license": "Apache-2.0",
+      "launch_at": "2026-10-16T07:01:00Z",
+      "product_hunt_url": "https://www.producthunt.com/products/boss-console",
+      "github_url": "https://github.com/risa-labs-inc/BossConsole",
+      "evidence": {
+        "product_page_url": "https://www.producthunt.com/products/boss-console",
+        "product_page_field": "product.githubUrl",
+        "github_api_url": "https://api.github.com/repos/risa-labs-inc/BossConsole",
+        "product_hunt_post_id": "1281378"
+      },
+      "source_feeds": [
+        "https://www.producthunt.com/feed?category=artificial-intelligence",
+        "https://www.producthunt.com/feed?category=open-source"
+      ]
+    },
+    {
+      "repo": "HarjjotSinghh/helicon",
+      "name": "Helicon",
+      "description": "Open-source desktop app and VS Code extension for Meta's Muse Code CLI, with threads, inline diffs and approvals on Windows, macOS and Linux. Unofficial, not affiliated with Meta.",
+      "stars": 92,
+      "license": "MIT",
+      "launch_at": "2026-10-16T07:01:00Z",
+      "product_hunt_url": "https://www.producthunt.com/products/helicon",
+      "github_url": "https://github.com/HarjjotSinghh/helicon",
+      "evidence": {
+        "product_page_url": "https://www.producthunt.com/products/helicon",
+        "product_page_field": "product.githubUrl",
+        "github_api_url": "https://api.github.com/repos/HarjjotSinghh/helicon",
+        "product_hunt_post_id": "1275161"
+      },
+      "source_feeds": [
+        "https://www.producthunt.com/feed?category=artificial-intelligence",
+        "https://www.producthunt.com/feed?category=open-source"
+      ]
+    },
+    {
+      "repo": "tetriz-ai/tetriz-harness",
+      "name": "Tetriz Harness",
+      "description": "Recommend AI coding harness changes from repository context and coding signals, then distribute approved rules, skills, hooks and agents to selected people or teams. Pair with Agent Desk through your ingestion adapter; use audience targeting for manual test/control rollouts.",
+      "stars": 10,
+      "license": "MIT",
+      "launch_at": "2026-10-16T07:01:00Z",
+      "product_hunt_url": "https://www.producthunt.com/products/tetriz-harness",
+      "github_url": "https://github.com/tetriz-ai/tetriz-harness",
+      "evidence": {
+        "product_page_url": "https://www.producthunt.com/products/tetriz-harness",
+        "product_page_field": "launch.primaryLink.url",
+        "github_api_url": "https://api.github.com/repos/tetriz-ai/tetriz-harness",
+        "product_hunt_post_id": "1281396"
+      },
+      "source_feeds": [
+        "https://www.producthunt.com/feed?category=artificial-intelligence",
+        "https://www.producthunt.com/feed?category=open-source"
+      ]
+    },
+    {
+      "repo": "qualixar/superlocalmemory",
+      "name": "SuperLocalMemory",
+      "description": "Open-source governed, local-first memory control plane for AI agents and teams. arXiv:2608.08253",
+      "stars": 249,
+      "license": "AGPL-3.0",
+      "launch_at": "2026-10-15T07:01:00Z",
+      "product_hunt_url": "https://www.producthunt.com/products/superlocalmemory-v2",
+      "github_url": "https://github.com/qualixar/superlocalmemory",
+      "evidence": {
+        "product_page_url": "https://www.producthunt.com/products/superlocalmemory-v2",
+        "product_page_field": "launch.primaryLink.url",
+        "github_api_url": "https://api.github.com/repos/qualixar/superlocalmemory",
+        "product_hunt_post_id": "1279449"
+      },
+      "source_feeds": [
+        "https://www.producthunt.com/feed?category=artificial-intelligence",
+        "https://www.producthunt.com/feed?category=open-source"
+      ]
+    },
+    {
+      "repo": "acyclic-labs/sdk",
+      "name": "Acyclic",
+      "description": "Open-source Acyclic SDK and in-memory reference providers",
+      "stars": 36,
+      "license": "Apache-2.0",
+      "launch_at": "2026-10-14T07:01:00Z",
+      "product_hunt_url": "https://www.producthunt.com/products/acyclic",
+      "github_url": "https://github.com/acyclic-labs/sdk",
+      "evidence": {
+        "product_page_url": "https://www.producthunt.com/products/acyclic",
+        "product_page_field": "product.githubUrl",
+        "github_api_url": "https://api.github.com/repos/acyclic-labs/sdk",
+        "product_hunt_post_id": "1275267"
+      },
+      "source_feeds": [
+        "https://www.producthunt.com/feed?category=artificial-intelligence",
+        "https://www.producthunt.com/feed?category=open-source"
+      ]
+    }
+  ],
+  "warnings": []
+}

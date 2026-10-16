@@ -14,6 +14,7 @@ import os
 import re
 import ssl
 import sys
+import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.error import HTTPError, URLError
@@ -176,6 +177,27 @@ def validate_catalog(catalog: object) -> None:
             raise CatalogError(f"{slug}: unknown category {category!r}")
         if "product_hunt" in project:
             _validate_product_hunt_url(project["product_hunt"], slug)
+        if "license_override" in project:
+            override = project["license_override"]
+            if (
+                not isinstance(override, dict)
+                or set(override) != {"spdx_id", "evidence_url"}
+                or not is_open_source_license(override.get("spdx_id"))
+            ):
+                raise CatalogError(f"{slug}: license_override needs an open-source SPDX ID")
+            evidence = override.get("evidence_url")
+            if not isinstance(evidence, str) or any(char.isspace() for char in evidence):
+                raise CatalogError(f"{slug}: license_override needs a repository license link")
+            parts = urlsplit(evidence)
+            if (
+                parts.scheme != "https"
+                or parts.netloc != "github.com"
+                or not parts.path.startswith(f"/{slug}/blob/")
+                or parts.query
+                or parts.fragment
+                or any(char in evidence for char in '<>"')
+            ):
+                raise CatalogError(f"{slug}: license_override needs a repository license link")
 
 
 def _parse_utc_timestamp(value: object) -> datetime:
@@ -239,35 +261,42 @@ def render_catalog(catalog: dict, stats: dict) -> str:
         .date()
         .isoformat()
     )
-    lines = [f"_Star counts and licenses checked on **{fetched_date} PT**._", ""]
+    lines = [
+        f"_GitHub metadata refreshed on **{fetched_date} PT**. "
+        "Documented license exceptions are not automatically rechecked._",
+        "",
+    ]
     for category in catalog["categories"]:
+        category_projects = [
+            project for project in catalog["projects"] if project["category"] == category["id"]
+        ]
+        pick_label = "pick" if len(category_projects) == 1 else "picks"
         lines.extend(
             [
+                f'<a id="{category["id"]}"></a>',
+                "",
                 f"### {escape_table_text(category['title'])}",
                 "",
-                escape_table_text(category["description"]),
+                f"**{len(category_projects)} {pick_label}.** {escape_table_text(category['description'])}",
                 "",
-                "| Project | Why it's here | ⭐ Stars | License | Launch |",
-                "| --- | --- | ---: | --- | --- |",
+                "| Project | Why try it | ⭐ Stars |",
+                "| --- | --- | ---: |",
             ]
         )
-        for project in catalog["projects"]:
-            if project["category"] != category["id"]:
-                continue
+        for project in category_projects:
             slug = project["repo"]
             snapshot = stats["repositories"][slug]
             repository_url = f"https://github.com/{slug}"
-            launch = "—"
+            launch = ""
             if "product_hunt" in project:
                 product_hunt_url = project["product_hunt"].replace("(", "%28").replace(")", "%29")
-                launch = f"[🏹 Product Hunt]({product_hunt_url})"
+                launch = f" · [🏹 Product Hunt]({product_hunt_url})"
             lines.append(
                 "| "
-                + f"[{escape_table_text(project['name'])}]({repository_url}) | "
+                + f"[{escape_table_text(project['name'])}]({repository_url})"
+                + f" · `{snapshot['license']}`{launch} | "
                 + f"{escape_table_text(project['description'])} | "
-                + f"{snapshot['stars']:,} | "
-                + f"{escape_table_text(snapshot['license'])} | "
-                + f"{launch} |"
+                + f"**{snapshot['stars']:,}** |"
             )
         lines.append("")
     return "\n".join(lines).rstrip() + "\n"
@@ -301,8 +330,17 @@ def fetch_json(url: str, token: str | None = None, opener=None) -> dict:
         if context is not None:
             open_kwargs["context"] = context
     try:
-        with opener(request, **open_kwargs) as response:
-            payload = json.load(response)
+        for attempt in range(2):
+            try:
+                with opener(request, **open_kwargs) as response:
+                    payload = json.load(response)
+                break
+            except HTTPError:
+                raise
+            except URLError:
+                if attempt == 1:
+                    raise
+                time.sleep(0.5)
     except HTTPError as error:
         try:
             raw_error = error.read()
@@ -340,6 +378,8 @@ def fetch_repository_stats(
     full_name = response.get("full_name")
     if not isinstance(full_name, str) or full_name.casefold() != slug.casefold():
         raise CatalogError(f"{slug}: GitHub API points to {full_name!r}; update the slug")
+    if response.get("private") is not False:
+        raise CatalogError(f"{slug}: repository is private or GitHub API omitted public status")
     if response.get("archived") is True:
         raise CatalogError(f"{slug}: repository is archived; remove it from the catalog")
     if response.get("archived") is not False:
@@ -442,8 +482,12 @@ def refresh_sync(root: Path, fetch_json_fn=None, now: datetime | None = None) ->
     repositories = {}
     for project in catalog["projects"]:
         slug = project["repo"]
+        override = project.get("license_override")
+        verified_license = (
+            override["spdx_id"] if override is not None else existing_licenses.get(slug)
+        )
         repositories[slug] = fetch_repository_stats(
-            slug, fetch_json_fn, existing_license=existing_licenses.get(slug)
+            slug, fetch_json_fn, existing_license=verified_license
         )
 
     if now is None:

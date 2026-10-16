@@ -12,7 +12,7 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 from types import SimpleNamespace
 from unittest import mock
-from urllib.error import HTTPError
+from urllib.error import HTTPError, URLError
 from urllib.parse import parse_qs, urlparse
 
 from scripts import discover, refresh
@@ -90,16 +90,17 @@ class CatalogRenderingTests(unittest.TestCase):
         rendered = refresh.render_catalog(CATALOG, STATS)
 
         self.assertIn("2026-10-13 PT", rendered)
-        self.assertIn("### Image making\n\nTools for images.", rendered)
-        self.assertIn("| Project | Why it's here | ⭐ Stars | License | Launch |", rendered)
+        self.assertIn('<a id="images"></a>\n\n### Image making', rendered)
+        self.assertIn("**1 pick.** Tools for images.", rendered)
+        self.assertIn("| Project | Why try it | ⭐ Stars |", rendered)
         self.assertIn(
-            "| [Brush \\| Bloom](https://github.com/example/brush) | "
-            "Photo &lt;craft&gt; with AI | 12,345 | MIT | "
-            "[🏹 Product Hunt](https://www.producthunt.com/products/brush) |",
+            "| [Brush \\| Bloom](https://github.com/example/brush) · `MIT` · "
+            "[🏹 Product Hunt](https://www.producthunt.com/products/brush) | "
+            "Photo &lt;craft&gt; with AI | **12,345** |",
             rendered,
         )
 
-    def test_shows_dash_in_launch_column_without_product_hunt_link(self) -> None:
+    def test_omits_launch_link_when_project_has_no_product_hunt_listing(self) -> None:
         catalog = copy.deepcopy(CATALOG)
         catalog["projects"].append(
             {
@@ -119,7 +120,8 @@ class CatalogRenderingTests(unittest.TestCase):
         rendered = refresh.render_catalog(catalog, stats)
 
         self.assertIn(
-            "| [Voice](https://github.com/new/voice) | Local audio editing | 25 | MIT | — |",
+            "| [Voice](https://github.com/new/voice) · `MIT` | "
+            "Local audio editing | **25** |",
             rendered,
         )
 
@@ -131,6 +133,7 @@ class CatalogRenderingTests(unittest.TestCase):
 
         self.assertIn("2026-10-13 PT", rendered)
         self.assertNotIn("2026-10-14 PT", rendered)
+        self.assertIn("Documented license exceptions are not automatically rechecked.", rendered)
 
     def test_replaces_only_content_between_markers(self) -> None:
         old = (
@@ -163,6 +166,7 @@ class GithubApiTests(unittest.TestCase):
             return {
                 "full_name": "example/brush",
                 "stargazers_count": 12345,
+                "private": False,
                 "archived": False,
                 "fork": False,
                 "license": {"spdx_id": "MIT", "name": "MIT License"},
@@ -178,6 +182,7 @@ class GithubApiTests(unittest.TestCase):
             return {
                 "full_name": "example/brush",
                 "stargazers_count": 12345,
+                "private": False,
                 "archived": True,
                 "fork": False,
                 "license": {"spdx_id": "MIT", "name": "MIT License"},
@@ -191,6 +196,7 @@ class GithubApiTests(unittest.TestCase):
             return {
                 "full_name": "example/brush",
                 "stargazers_count": 12345,
+                "private": False,
                 "archived": False,
                 "fork": True,
                 "license": {"spdx_id": "MIT"},
@@ -199,11 +205,26 @@ class GithubApiTests(unittest.TestCase):
         with self.assertRaisesRegex(refresh.CatalogError, "fork"):
             refresh.fetch_repository_stats("example/brush", fixture)
 
+    def test_rejects_private_repository_even_with_valid_license(self) -> None:
+        def fixture(_url: str) -> dict:
+            return {
+                "full_name": "example/brush",
+                "stargazers_count": 12345,
+                "private": True,
+                "archived": False,
+                "fork": False,
+                "license": {"spdx_id": "MIT"},
+            }
+
+        with self.assertRaisesRegex(refresh.CatalogError, "private"):
+            refresh.fetch_repository_stats("example/brush", fixture)
+
     def test_preserves_verified_license_when_github_reports_noassertion(self) -> None:
         def fixture(_url: str) -> dict:
             return {
                 "full_name": "example/brush",
                 "stargazers_count": 12345,
+                "private": False,
                 "archived": False,
                 "fork": False,
                 "license": {"spdx_id": "NOASSERTION"},
@@ -218,6 +239,42 @@ class GithubApiTests(unittest.TestCase):
         with self.assertRaisesRegex(refresh.CatalogError, "license"):
             refresh.fetch_repository_stats("example/brush", fixture)
 
+    def test_documented_license_override_survives_github_noassertion(self) -> None:
+        catalog = copy.deepcopy(CATALOG)
+        catalog["projects"][0]["license_override"] = {
+            "spdx_id": "MIT",
+            "evidence_url": "https://github.com/example/brush/blob/main/LICENSE",
+        }
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "data").mkdir()
+            (root / "data" / "projects.json").write_text(json.dumps(catalog))
+            (root / "data" / "stats.json").write_text(
+                json.dumps({"fetched_at": "2026-10-13T12:00:00Z", "repositories": {}})
+            )
+            (root / "README.md").write_text(
+                "<!-- CATALOG:START -->\nold\n<!-- CATALOG:END -->\n"
+            )
+
+            def fixture(_url: str) -> dict:
+                return {
+                    "full_name": "example/brush",
+                    "stargazers_count": 42,
+                    "private": False,
+                    "archived": False,
+                    "fork": False,
+                    "license": {"spdx_id": "NOASSERTION"},
+                }
+
+            try:
+                refresh.refresh_sync(root, fixture)
+            except refresh.CatalogError as error:
+                self.fail(f"documented MIT license was not used: {error}")
+            saved = json.loads((root / "data" / "stats.json").read_text())
+
+        self.assertEqual(saved["repositories"]["example/brush"]["license"], "MIT")
+
     def test_preserves_dual_license_when_github_picks_one_branch(self) -> None:
         for reported in ("MIT", "Apache-2.0"):
             with self.subTest(reported=reported):
@@ -225,6 +282,7 @@ class GithubApiTests(unittest.TestCase):
                     return {
                         "full_name": "example/brush",
                         "stargazers_count": 12345,
+                        "private": False,
                         "archived": False,
                         "fork": False,
                         "license": {"spdx_id": reported},
@@ -251,6 +309,28 @@ class GithubApiTests(unittest.TestCase):
             refresh.fetch_json(
                 "https://api.github.com/repos/example/brush", opener=limited
             )
+
+    def test_transient_transport_failure_retries_and_returns_repository(self) -> None:
+        attempts = 0
+
+        def flaky(_request, timeout=None):
+            nonlocal attempts
+            attempts += 1
+            if attempts == 1:
+                raise URLError("TLS connection closed unexpectedly")
+            return io.BytesIO(b'{"full_name":"example/brush","stargazers_count":42}')
+
+        with mock.patch("time.sleep"):
+            try:
+                result = refresh.fetch_json(
+                    "https://api.github.com/repos/example/brush", opener=flaky
+                )
+            except refresh.CatalogError as error:
+                self.fail(f"transient transport failure was not retried: {error}")
+
+        self.assertEqual(result["full_name"], "example/brush")
+        self.assertEqual(result["stargazers_count"], 42)
+        self.assertEqual(attempts, 2)
 
     def test_default_urlopen_receives_verified_fallback_context(self) -> None:
         context = object()
@@ -292,6 +372,7 @@ class GithubApiTests(unittest.TestCase):
                 return {
                     "full_name": slug,
                     "stargazers_count": 25 if slug == "new/voice" else 12345,
+                    "private": False,
                     "archived": slug == "new/voice",
                     "fork": False,
                     "license": {"spdx_id": "MIT"},
@@ -325,7 +406,7 @@ class GithubApiTests(unittest.TestCase):
                 ["example/brush"]["license"],
                 "MIT",
             )
-            self.assertIn("| 25 | MIT |", readme.read_text())
+            self.assertIn("Audio demo | **25** |", readme.read_text())
             self.assertTrue(readme.read_text().endswith("\nAfter\n"))
 
 

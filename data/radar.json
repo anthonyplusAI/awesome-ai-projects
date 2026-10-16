@@ -1,0 +1,138 @@
+{
+  "fetched_at": "2026-10-16T23:01:19Z",
+  "source_url": "https://github.com/trending?since=monthly",
+  "period": "monthly",
+  "source_updated_at": "2026-10-16T22:52:13Z",
+  "signal": "Automated GitHub Trending candidates; not editorial endorsements.",
+  "selection_policy": "Highest-ranked qualifying AI repositories, with one slot reserved for a qualifying curated project when available.",
+  "repositories": [
+    {
+      "repo": "paperclipai/paperclip",
+      "rank": 2,
+      "stars_this_month": 22181,
+      "stars_total": 103152,
+      "license": "MIT",
+      "description": "The open-source app everyone uses to manage agents at work",
+      "curated": true,
+      "github_url": "https://github.com/paperclipai/paperclip",
+      "source_url": "https://github.com/trending?since=monthly",
+      "evidence_urls": [
+        "https://github.com/trending?since=monthly",
+        "https://github.com/paperclipai/paperclip",
+        "https://api.github.com/repos/paperclipai/paperclip"
+      ]
+    },
+    {
+      "repo": "heygen-com/hyperframes",
+      "rank": 4,
+      "stars_this_month": 14246,
+      "stars_total": 65280,
+      "license": "Apache-2.0",
+      "description": "Write HTML. Render video. Built for agents.",
+      "curated": true,
+      "github_url": "https://github.com/heygen-com/hyperframes",
+      "source_url": "https://github.com/trending?since=monthly",
+      "evidence_urls": [
+        "https://github.com/trending?since=monthly",
+        "https://github.com/heygen-com/hyperframes",
+        "https://api.github.com/repos/heygen-com/hyperframes"
+      ]
+    },
+    {
+      "repo": "vectorize-io/hindsight",
+      "rank": 5,
+      "stars_this_month": 26652,
+      "stars_total": 50489,
+      "license": "MIT",
+      "description": "Hindsight: Agent Memory That Learns",
+      "curated": true,
+      "github_url": "https://github.com/vectorize-io/hindsight",
+      "source_url": "https://github.com/trending?since=monthly",
+      "evidence_urls": [
+        "https://github.com/trending?since=monthly",
+        "https://github.com/vectorize-io/hindsight",
+        "https://api.github.com/repos/vectorize-io/hindsight"
+      ]
+    },
+    {
+      "repo": "debpalash/VoiceStudio",
+      "rank": 6,
+      "stars_this_month": 38181,
+      "stars_total": 71033,
+      "license": "AGPL-3.0",
+      "description": "VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation…",
+      "curated": true,
+      "github_url": "https://github.com/debpalash/VoiceStudio",
+      "source_url": "https://github.com/trending?since=monthly",
+      "evidence_urls": [
+        "https://github.com/trending?since=monthly",
+        "https://github.com/debpalash/VoiceStudio",
+        "https://api.github.com/repos/debpalash/VoiceStudio"
+      ]
+    },
+    {
+      "repo": "affaan-m/ECC",
+      "rank": 7,
+      "stars_this_month": 22953,
+      "stars_total": 281443,
+      "license": "MIT",
+      "description": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor…",
+      "curated": false,
+      "github_url": "https://github.com/affaan-m/ECC",
+      "source_url": "https://github.com/trending?since=monthly",
+      "evidence_urls": [
+        "https://github.com/trending?since=monthly",
+        "https://github.com/affaan-m/ECC",
+        "https://api.github.com/repos/affaan-m/ECC"
+      ]
+    },
+    {
+      "repo": "anthropics/knowledge-work-plugins",
+      "rank": 9,
+      "stars_this_month": 5835,
+      "stars_total": 29881,
+      "license": "Apache-2.0",
+      "description": "Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork",
+      "curated": false,
+      "github_url": "https://github.com/anthropics/knowledge-work-plugins",
+      "source_url": "https://github.com/trending?since=monthly",
+      "evidence_urls": [
+        "https://github.com/trending?since=monthly",
+        "https://github.com/anthropics/knowledge-work-plugins",
+        "https://api.github.com/repos/anthropics/knowledge-work-plugins"
+      ]
+    },
+    {
+      "repo": "NVIDIA/OpenShell",
+      "rank": 11,
+      "stars_this_month": 7813,
+      "stars_total": 16443,
+      "license": "Apache-2.0",
+      "description": "OpenShell is the safe, private runtime for autonomous AI agents.",
+      "curated": true,
+      "github_url": "https://github.com/NVIDIA/OpenShell",
+      "source_url": "https://github.com/trending?since=monthly",
+      "evidence_urls": [
+        "https://github.com/trending?since=monthly",
+        "https://github.com/NVIDIA/OpenShell",
+        "https://api.github.com/repos/NVIDIA/OpenShell"
+      ]
+    },
+    {
+      "repo": "tashfeenahmed/freellmapi",
+      "rank": 12,
+      "stars_this_month": 9499,
+      "stars_total": 36200,
+      "license": "MIT",
+      "description": "7.4 billion tokens per month. 34 free LLM providers. 635 free model endpoints. All behind one /v1 endpoint, plus any custom OpenAI-compatible endpoint. Smart r…",
+      "curated": false,
+      "github_url": "https://github.com/tashfeenahmed/freellmapi",
+      "source_url": "https://github.com/trending?since=monthly",
+      "evidence_urls": [
+        "https://github.com/trending?since=monthly",
+        "https://github.com/tashfeenahmed/freellmapi",
+        "https://api.github.com/repos/tashfeenahmed/freellmapi"
+      ]
+    }
+  ]
+}

@@ -1,136 +1,228 @@
 # Awesome AI Projects ✨
 
-![A colorful night-sky map of open-source AI projects](assets/hero.svg)
+![A colorful night sky filled with open-source AI project cards](assets/hero.svg)
 
-**A handpicked field guide to open-source AI.** Find something to run locally, build with, learn from, or simply marvel at. There are established favorites here, plus smaller projects with fresh ideas.
+**A living field guide to open-source AI.** Follow the projects people love, see what is moving this month, and find new launches worth a closer look. Pick a rabbit hole and go build something. 🐇
 
-**Jump in:** [Start somewhere fun](#start-somewhere-fun) · [Explore the collection](#explore-the-collection) · [How we find them](#how-we-find-them) · [Suggest a project](CONTRIBUTING.md)
+<!-- STATUS:START -->
+**56 selected projects** · **8 monthly signals** · **6 new launch leads**
 
-## Start somewhere fun
+_Stars checked Oct 16, 2026 PT · Monthly Trending checked Oct 16, 2026 PT · Product Hunt checked Oct 16, 2026 PT_
+<!-- STATUS:END -->
 
-| 🚀 Make a splash | 🎙️ Make some noise | 🎨 Make a mess |
-| :--- | :--- | :--- |
-| **[brag](https://github.com/latent-spaces/brag)** turns a finished project into a short launch video with an agent skill. | **[VoiceStudio](https://github.com/debpalash/VoiceStudio)** brings voice cloning, dubbing, and transcription to a local desktop studio. | **[PhotoCraft](https://github.com/storytold/photocraft)** is a Rust image editor with CLI and MCP agent control. It is an AI-adjacent pick; generative features are still on its roadmap. |
+[![Weekly discovery refresh](https://github.com/anthonyplusAI/awesome-ai-projects/actions/workflows/refresh.yml/badge.svg)](https://github.com/anthonyplusAI/awesome-ai-projects/actions/workflows/refresh.yml)
+&nbsp; [🔥 Monthly momentum](#monthly-momentum) · [🏹 Launch radar](#launch-radar) · [✨ Start somewhere fun](#start-somewhere-fun) · [🧭 Curated collection](#curated-collection) · [📡 Sources and updates](#sources-and-updates)
 
-## Explore the collection
+**How to read this map:** The **curated collection** contains projects selected after checking their public source, open-source license, and practical use. The **monthly** and **launch** radars are freshly gathered leads that pass automated checks; they still need a closer look before joining the collection. Source dates appear with every section.
 
-**Reading the map:** ⭐ is the GitHub star count at the last refresh. The license is for the repository's source code; model weights, datasets, and hosted services can have separate terms. 🏹 links to a verified Product Hunt listing for that project.
+---
+
+<a id="monthly-momentum"></a>
+
+## 🔥 Monthly momentum
+
+Here are the open-source AI projects currently surfaced by [GitHub Trending's monthly view](https://github.com/trending?since=monthly). The **+stars** figure is what GitHub shows for this period; total stars come from the GitHub API. This is a discovery signal, not a quality score.
+
+<!-- RADAR:START -->
+_Source: [GitHub Trending · this month](https://github.com/trending?since=monthly), captured **Oct 16, 2026 PT**. GitHub reports the star gains. Descriptions come from repository metadata and may include unverified claims. New leads are screened automatically and have not been selected for the collection._
+
+| Trending project | ⭐ This month | GitHub description / license |
+| --- | ---: | --- |
+| #2 [paperclipai/paperclip](https://github.com/paperclipai/paperclip) · ✓ Curated | **+22,181** (103,152 total) | The open-source app everyone uses to manage agents at work · MIT |
+| #4 [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) · ✓ Curated | **+14,246** (65,280 total) | Write HTML. Render video. Built for agents. · Apache-2.0 |
+| #5 [vectorize-io/hindsight](https://github.com/vectorize-io/hindsight) · ✓ Curated | **+26,652** (50,489 total) | Hindsight: Agent Memory That Learns · MIT |
+| #6 [debpalash/VoiceStudio](https://github.com/debpalash/VoiceStudio) · ✓ Curated | **+38,181** (71,033 total) | VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription &amp; audiobook creation… · AGPL-3.0 |
+| #7 [affaan-m/ECC](https://github.com/affaan-m/ECC) · 🔎 New lead | **+22,953** (281,443 total) | The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor… · MIT |
+| #9 [anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins) · 🔎 New lead | **+5,835** (29,881 total) | Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork · Apache-2.0 |
+| #11 [NVIDIA/OpenShell](https://github.com/NVIDIA/OpenShell) · ✓ Curated | **+7,813** (16,443 total) | OpenShell is the safe, private runtime for autonomous AI agents. · Apache-2.0 |
+| #12 [tashfeenahmed/freellmapi](https://github.com/tashfeenahmed/freellmapi) · 🔎 New lead | **+9,499** (36,200 total) | 7.4 billion tokens per month. 34 free LLM providers. 635 free model endpoints. All behind one /v1 endpoint, plus any custom OpenAI-compatible endpoint. Smart r… · MIT |
+<!-- RADAR:END -->
+
+[See every repository captured from the monthly page →](data/trending-monthly.json) · [See validation evidence for the shortlist →](data/radar.json)
+
+<a id="launch-radar"></a>
+
+## 🏹 Launch radar
+
+Product Hunt can surface projects before they appear in a large GitHub ranking. These leads appeared in **both** its [AI](https://www.producthunt.com/feed?category=artificial-intelligence) and [open-source](https://www.producthunt.com/feed?category=open-source) public feeds, then passed a GitHub repository and license check. A product-page GitHub link can point to a parent project, so treat a launch association as a lead for review.
+
+<!-- LAUNCHES:START -->
+_Source: Product Hunt's [AI feed](https://www.producthunt.com/feed?category=artificial-intelligence) and [open-source feed](https://www.producthunt.com/feed?category=open-source), checked **Oct 16, 2026 PT**. Launch dates come from each product page; GitHub links and open-source licenses are checked. Descriptions come from repository metadata. These are automated leads awaiting collection review._
+
+| GitHub project | Product Hunt launch | Snapshot |
+| --- | --- | --- |
+| [autonomous-ai/openharness](https://github.com/autonomous-ai/openharness) | [Harness by Autonomous · Oct 16, 2026](https://www.producthunt.com/products/harness-by-autonomous) | The ultimate harness for coding agents and beyond. All your agents. All your machines. One command center. Start with code, then follow your curiosity and build across disciplines: CAD, circuits, robots, games and music. · ⭐ 1,272 · MIT |
+| [risa-labs-inc/BossConsole](https://github.com/risa-labs-inc/BossConsole) | [BOSS Console · Oct 16, 2026](https://www.producthunt.com/products/boss-console) | Open-source, multi-platform harness for AI agents - a native, multi-threaded operator's console (JVM, not Electron) to run Claude Code, Codex, Gemini or OpenCode with a real browser, terminal, editor, secrets &amp; 200+ MCP tools. Built for enterprises, science &amp; research. · ⭐ 812 · Apache-2.0 |
+| [HarjjotSinghh/helicon](https://github.com/HarjjotSinghh/helicon) | [Helicon · Oct 16, 2026](https://www.producthunt.com/products/helicon) | Open-source desktop app and VS Code extension for Meta's Muse Code CLI, with threads, inline diffs and approvals on Windows, macOS and Linux. Unofficial, not affiliated with Meta. · ⭐ 92 · MIT |
+| [tetriz-ai/tetriz-harness](https://github.com/tetriz-ai/tetriz-harness) | [Tetriz Harness · Oct 16, 2026](https://www.producthunt.com/products/tetriz-harness) | Recommend AI coding harness changes from repository context and coding signals, then distribute approved rules, skills, hooks and agents to selected people or teams. Pair with Agent Desk through your ingestion adapter; use audience targeting for manual test/control rollouts. · ⭐ 10 · MIT |
+| [qualixar/superlocalmemory](https://github.com/qualixar/superlocalmemory) | [SuperLocalMemory · Oct 15, 2026](https://www.producthunt.com/products/superlocalmemory-v2) | Open-source governed, local-first memory control plane for AI agents and teams. arXiv:2608.08253 · ⭐ 249 · AGPL-3.0 |
+| [acyclic-labs/sdk](https://github.com/acyclic-labs/sdk) | [Acyclic · Oct 14, 2026](https://www.producthunt.com/products/acyclic) | Open-source Acyclic SDK and in-memory reference providers · ⭐ 36 · Apache-2.0 |
+<!-- LAUNCHES:END -->
+
+[Inspect the launch evidence →](data/producthunt-recent.json)
+
+<a id="start-somewhere-fun"></a>
+
+## ✨ Start somewhere fun
+
+- 🚀 **Make a launch video:** [brag](https://github.com/latent-spaces/brag) turns a finished project into a short reveal with an agent skill and [Hyperframes](https://github.com/heygen-com/hyperframes).
+- 🎙️ **Build a voice studio:** [VoiceStudio](https://github.com/debpalash/VoiceStudio) brings cloning, dubbing, transcription, and audiobooks to a local desktop app.
+- 🎨 **Give an agent a canvas:** [PhotoCraft](https://github.com/storytold/photocraft) is a Rust image editor with CLI and MCP controls. It is an **AI-adjacent** pick; generative features are still on its roadmap.
+
+<a id="curated-collection"></a>
+
+## 🧭 Curated collection
+
+These are the selected picks. ⭐ is the repository's **total** GitHub star count at the last check; the license shown is for source code. Model weights, datasets, and hosted features can have different terms. 🏹 links to a Product Hunt page only when we have checked the association.
+
+**Explore by theme:** [🤖 Agents and coding](#agents-coding) · [🧠 Local models](#local-models) · [📚 Search and memory](#knowledge) · [🎨 Creative tools](#creative) · [🎙️ Voice and audio](#voice) · [🧰 Builders](#builders) · [🧪 Evaluation](#evaluation)
 
 <!-- CATALOG:START -->
-_Star counts and licenses checked on **2026-10-13 PT**._
+_GitHub metadata refreshed on **2026-10-16 PT**. Documented license exceptions are not automatically rechecked._
+
+<a id="agents-coding"></a>
 
 ### 🤖 Agents and coding
 
-From terminal copilots to personal agents that can take action.
+**11 picks.** From terminal copilots to personal agents that can take action.
 
-| Project | Why it's here | ⭐ Stars | License | Launch |
-| --- | --- | ---: | --- | --- |
-| [OpenClaw](https://github.com/openclaw/openclaw) | Personal AI agent that acts across chat apps and devices. | 391,904 | MIT | [🏹 Product Hunt](https://www.producthunt.com/products/openclaw-formerly-clawdbot) |
-| [OpenCode](https://github.com/anomalyco/opencode) | Coding agent for terminal, desktop, and web. | 213,249 | MIT | [🏹 Product Hunt](https://www.producthunt.com/products/opencode) |
-| [OpenHands](https://github.com/OpenHands/OpenHands) | Self-hosted control center for running coding agents and automations. | 90,830 | MIT | — |
-| [browser-use](https://github.com/browser-use/browser-use) | Browser automation for AI agents. | 117,882 | MIT | — |
-| [Cline](https://github.com/cline/cline) | Coding agent for IDE, CLI, and desktop workflows. | 70,278 | Apache-2.0 | [🏹 Product Hunt](https://www.producthunt.com/products/cline-4) |
-| [Goose](https://github.com/aaif-goose/goose) | Extensible coding agent that runs on your machine. | 55,255 | Apache-2.0 | — |
-| [Aider](https://github.com/Aider-AI/aider) | Terminal pair programmer that edits files in Git repositories. | 49,529 | Apache-2.0 | — |
-| [Kilo Code](https://github.com/Kilo-Org/kilocode) | AI coding platform for code edits and automation. | 27,597 | MIT | [🏹 Product Hunt](https://www.producthunt.com/products/kilocode) |
-| [IronClaw](https://github.com/nearai/ironclaw) | Security-focused personal AI agent. | 12,652 | MIT OR Apache-2.0 | [🏹 Product Hunt](https://www.producthunt.com/products/ironclaw) |
-| [PydanticAI](https://github.com/pydantic/pydantic-ai) | Typed Python framework for model-powered agents. | 20,598 | MIT | — |
+| Project | Why try it | ⭐ Stars |
+| --- | --- | ---: |
+| [OpenClaw](https://github.com/openclaw/openclaw) · `MIT` · [🏹 Product Hunt](https://www.producthunt.com/products/openclaw-formerly-clawdbot) | Personal AI agent that acts across chat apps and devices. | **392,193** |
+| [Paperclip](https://github.com/paperclipai/paperclip) · `MIT` | Self-hosted control panel for assigning goals, tasks, and budgets to AI agent teams. | **103,152** |
+| [OpenCode](https://github.com/anomalyco/opencode) · `MIT` · [🏹 Product Hunt](https://www.producthunt.com/products/opencode) | Coding agent for terminal, desktop, and web. | **214,339** |
+| [OpenHands](https://github.com/OpenHands/OpenHands) · `MIT` | Self-hosted control center for running coding agents and automations. | **91,078** |
+| [browser-use](https://github.com/browser-use/browser-use) · `MIT` | Browser automation for AI agents. | **118,201** |
+| [Cline](https://github.com/cline/cline) · `Apache-2.0` · [🏹 Product Hunt](https://www.producthunt.com/products/cline-4) | Coding agent for IDE, CLI, and desktop workflows. | **70,422** |
+| [Goose](https://github.com/aaif-goose/goose) · `Apache-2.0` | Extensible coding agent that runs on your machine. | **55,347** |
+| [Aider](https://github.com/Aider-AI/aider) · `Apache-2.0` | Terminal pair programmer that edits files in Git repositories. | **49,585** |
+| [Kilo Code](https://github.com/Kilo-Org/kilocode) · `MIT` · [🏹 Product Hunt](https://www.producthunt.com/products/kilocode) | AI coding platform for code edits and automation. | **27,628** |
+| [IronClaw](https://github.com/nearai/ironclaw) · `MIT OR Apache-2.0` · [🏹 Product Hunt](https://www.producthunt.com/products/ironclaw) | Security-focused personal AI agent. | **12,658** |
+| [PydanticAI](https://github.com/pydantic/pydantic-ai) · `MIT` | Typed Python framework for model-powered agents. | **20,669** |
+
+<a id="local-models"></a>
 
 ### 🧠 Local models and inference
 
-Run models on your own hardware or serve them at speed.
+**8 picks.** Run models on your own hardware or serve them at speed.
 
-| Project | Why it's here | ⭐ Stars | License | Launch |
-| --- | --- | ---: | --- | --- |
-| [Ollama](https://github.com/ollama/ollama) | Run and manage large language models locally. | 183,051 | MIT | — |
-| [llama.cpp](https://github.com/ggml-org/llama.cpp) | Efficient C and C++ inference for language models. | 131,087 | MIT | — |
-| [vLLM](https://github.com/vllm-project/vllm) | High-throughput model serving and inference. | 93,732 | Apache-2.0 | — |
-| [Jan](https://github.com/janhq/jan) | Offline-first desktop app for private AI chat. | 44,937 | Apache-2.0 | — |
-| [LocalAI](https://github.com/mudler/LocalAI) | Self-hosted API for local language, image, and audio models. | 49,513 | MIT | — |
-| [Exo](https://github.com/exo-explore/exo) | Pool nearby devices for distributed local inference. | 47,870 | Apache-2.0 | — |
-| [Parallax](https://github.com/GradientHQ/parallax) | Serve models across a cluster of local machines. | 1,397 | Apache-2.0 | [🏹 Product Hunt](https://www.producthunt.com/products/parallax-by-gradient) |
-| [Unsloth](https://github.com/unslothai/unsloth) | Tools for local model inference and fine-tuning. | 77,953 | Apache-2.0 | [🏹 Product Hunt](https://www.producthunt.com/products/unsloth) |
+| Project | Why try it | ⭐ Stars |
+| --- | --- | ---: |
+| [Ollama](https://github.com/ollama/ollama) · `MIT` | Run and manage large language models locally. | **183,496** |
+| [llama.cpp](https://github.com/ggml-org/llama.cpp) · `MIT` | Efficient C and C++ inference for language models. | **131,421** |
+| [vLLM](https://github.com/vllm-project/vllm) · `Apache-2.0` | High-throughput model serving and inference. | **93,945** |
+| [Jan](https://github.com/janhq/jan) · `Apache-2.0` | Offline-first desktop app for private AI chat. | **44,971** |
+| [LocalAI](https://github.com/mudler/LocalAI) · `MIT` | Self-hosted API for local language, image, and audio models. | **49,587** |
+| [Exo](https://github.com/exo-explore/exo) · `Apache-2.0` | Pool nearby devices for distributed local inference. | **47,926** |
+| [Parallax](https://github.com/GradientHQ/parallax) · `Apache-2.0` · [🏹 Product Hunt](https://www.producthunt.com/products/parallax-by-gradient) | Serve models across a cluster of local machines. | **1,397** |
+| [Unsloth](https://github.com/unslothai/unsloth) · `Apache-2.0` · [🏹 Product Hunt](https://www.producthunt.com/products/unsloth) | Tools for local model inference and fine-tuning. | **78,132** |
+
+<a id="knowledge"></a>
 
 ### 📚 Search, RAG and memory
 
-Search, remember, and make better use of your own information.
+**10 picks.** Search, remember, and make better use of your own information.
 
-| Project | Why it's here | ⭐ Stars | License | Launch |
-| --- | --- | ---: | --- | --- |
-| [RAGFlow](https://github.com/infiniflow/ragflow) | Retrieval and agent workflows over your documents. | 92,158 | Apache-2.0 | — |
-| [AnythingLLM](https://github.com/Mintplex-Labs/anything-llm) | Workspace for chatting with documents and building agents. | 67,035 | MIT | [🏹 Product Hunt](https://www.producthunt.com/products/anythingllm) |
-| [Mem0](https://github.com/mem0ai/mem0) | Persistent memory layer for AI agents. | 67,135 | Apache-2.0 | — |
-| [LlamaIndex](https://github.com/run-llama/llama_index) | Connect private data to retrieval and agent applications. | 52,482 | MIT | — |
-| [Khoj](https://github.com/khoj-ai/khoj) | Self-hostable personal AI research assistant. | 37,676 | AGPL-3.0 | — |
-| [Graphiti](https://github.com/getzep/graphiti) | Build real-time knowledge graphs for AI agents. | 31,725 | Apache-2.0 | — |
-| [Chroma](https://github.com/chroma-core/chroma) | Search infrastructure for AI applications. | 29,495 | Apache-2.0 | — |
+| Project | Why try it | ⭐ Stars |
+| --- | --- | ---: |
+| [RAGFlow](https://github.com/infiniflow/ragflow) · `Apache-2.0` | Retrieval and agent workflows over your documents. | **92,335** |
+| [WeKnora](https://github.com/Tencent/WeKnora) · `MIT` | Self-hosted document workspace with RAG search, agents, and a maintained wiki. | **34,392** |
+| [AnythingLLM](https://github.com/Mintplex-Labs/anything-llm) · `MIT` · [🏹 Product Hunt](https://www.producthunt.com/products/anythingllm) | Workspace for chatting with documents and building agents. | **67,211** |
+| [Mem0](https://github.com/mem0ai/mem0) · `Apache-2.0` | Persistent memory layer for AI agents. | **67,311** |
+| [Hindsight](https://github.com/vectorize-io/hindsight) · `MIT` | Memory service for agents to retain, recall, and reflect across sessions. | **50,489** |
+| [LlamaIndex](https://github.com/run-llama/llama_index) · `MIT` | Connect private data to retrieval and agent applications. | **52,525** |
+| [PageIndex](https://github.com/VectifyAI/PageIndex) · `MIT` | Tree-based retrieval over long text PDFs using a local Python SDK. | **39,186** |
+| [Khoj](https://github.com/khoj-ai/khoj) · `AGPL-3.0` | Self-hostable personal AI research assistant. | **37,711** |
+| [Graphiti](https://github.com/getzep/graphiti) · `Apache-2.0` | Build real-time knowledge graphs for AI agents. | **31,821** |
+| [Chroma](https://github.com/chroma-core/chroma) · `Apache-2.0` | Search infrastructure for AI applications. | **29,512** |
+
+<a id="creative"></a>
 
 ### 🎨 Create, remix and ship
 
-Generate media, build interfaces, and give agents creative tools.
+**8 picks.** Generate media, build interfaces, and give agents creative tools.
 
-| Project | Why it's here | ⭐ Stars | License | Launch |
-| --- | --- | ---: | --- | --- |
-| [ComfyUI](https://github.com/Comfy-Org/ComfyUI) | Node-based workflows for image and video generation. | 137,335 | GPL-3.0 | — |
-| [InvokeAI](https://github.com/invoke-ai/InvokeAI) | Creative studio for generative image workflows. | 28,621 | Apache-2.0 | — |
-| [OpenUI](https://github.com/wandb/openui) | Generate and refine live interfaces from prompts. | 22,591 | Apache-2.0 | [🏹 Product Hunt](https://www.producthunt.com/products/openui) |
-| [ComfyUI-Copilot](https://github.com/ATH-MaaS/ComfyUI-Copilot) | Build ComfyUI workflows with natural language; bring your own AI API key. | 5,541 | MIT | [🏹 Product Hunt](https://www.producthunt.com/products/comfyui-copilot) |
-| [brag](https://github.com/latent-spaces/brag) | Agent skill for making project launch videos with Hyperframes. | 15,749 | MIT | — |
-| [PhotoCraft](https://github.com/storytold/photocraft) | AI-adjacent Rust image editor with agent controls; generative AI is planned. | 57,860 | MIT OR Apache-2.0 | — |
-| [Diffusers](https://github.com/huggingface/diffusers) | Diffusion pipelines for image, video, and audio generation. | 34,713 | Apache-2.0 | — |
+| Project | Why try it | ⭐ Stars |
+| --- | --- | ---: |
+| [ComfyUI](https://github.com/Comfy-Org/ComfyUI) · `GPL-3.0` | Node-based workflows for image and video generation. | **137,918** |
+| [InvokeAI](https://github.com/invoke-ai/InvokeAI) · `Apache-2.0` | Creative studio for generative image workflows. | **28,690** |
+| [OpenUI](https://github.com/wandb/openui) · `Apache-2.0` · [🏹 Product Hunt](https://www.producthunt.com/products/openui) | Generate and refine live interfaces from prompts. | **22,612** |
+| [ComfyUI-Copilot](https://github.com/ATH-MaaS/ComfyUI-Copilot) · `MIT` · [🏹 Product Hunt](https://www.producthunt.com/products/comfyui-copilot) | Build ComfyUI workflows with natural language; bring your own AI API key. | **5,550** |
+| [brag](https://github.com/latent-spaces/brag) · `MIT` | Agent skill for making project launch videos with Hyperframes. | **16,332** |
+| [HyperFrames](https://github.com/heygen-com/hyperframes) · `Apache-2.0` | Render HTML, CSS, and timed animations into MP4 videos with a local CLI and agent skills. | **65,280** |
+| [PhotoCraft](https://github.com/storytold/photocraft) · `MIT OR Apache-2.0` | AI-adjacent Rust image editor with agent controls; generative AI is planned. | **64,956** |
+| [Diffusers](https://github.com/huggingface/diffusers) · `Apache-2.0` | Diffusion pipelines for image, video, and audio generation. | **34,735** |
+
+<a id="voice"></a>
 
 ### 🎙️ Voice and audio
 
-Speech recognition, voices, and audio creation.
+**7 picks.** Speech recognition, voices, and audio creation.
 
-| Project | Why it's here | ⭐ Stars | License | Launch |
-| --- | --- | ---: | --- | --- |
-| [VoiceStudio](https://github.com/debpalash/VoiceStudio) | Local studio for cloning, dubbing, transcription, and audiobooks. | 63,223 | AGPL-3.0 | — |
-| [Whisper](https://github.com/openai/whisper) | Speech recognition model and transcription toolkit. | 110,465 | MIT | — |
-| [RVC WebUI](https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI) | Train and run retrieval-based voice conversion models. | 38,723 | MIT | — |
-| [OpenVoice](https://github.com/myshell-ai/OpenVoice) | Instant voice cloning across languages and styles. | 37,875 | MIT | — |
-| [Chatterbox](https://github.com/resemble-ai/chatterbox) | Text-to-speech models and inference tools. | 26,911 | MIT | — |
-| [Handy](https://github.com/cjpais/Handy) | Offline speech-to-text desktop app. | 33,696 | MIT | [🏹 Product Hunt](https://www.producthunt.com/products/handy-4) |
-| [OpenWhispr](https://github.com/OpenWhispr/openwhispr) | Dictation app with local and cloud transcription options. | 9,360 | MIT | [🏹 Product Hunt](https://www.producthunt.com/products/openwispr-open-source-ai-speech-to-text) |
+| Project | Why try it | ⭐ Stars |
+| --- | --- | ---: |
+| [VoiceStudio](https://github.com/debpalash/VoiceStudio) · `AGPL-3.0` | Local studio for cloning, dubbing, transcription, and audiobooks. | **71,033** |
+| [Whisper](https://github.com/openai/whisper) · `MIT` | Speech recognition model and transcription toolkit. | **110,691** |
+| [RVC WebUI](https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI) · `MIT` | Train and run retrieval-based voice conversion models. | **38,778** |
+| [OpenVoice](https://github.com/myshell-ai/OpenVoice) · `MIT` | Instant voice cloning across languages and styles. | **37,904** |
+| [Chatterbox](https://github.com/resemble-ai/chatterbox) · `MIT` | Text-to-speech models and inference tools. | **27,016** |
+| [Handy](https://github.com/cjpais/Handy) · `MIT` · [🏹 Product Hunt](https://www.producthunt.com/products/handy-4) | Offline speech-to-text desktop app. | **33,972** |
+| [OpenWhispr](https://github.com/OpenWhispr/openwhispr) · `MIT` · [🏹 Product Hunt](https://www.producthunt.com/products/openwispr-open-source-ai-speech-to-text) | Dictation app with local and cloud transcription options. | **9,488** |
+
+<a id="builders"></a>
 
 ### 🧰 Build with models
 
-Frameworks and services for shipping your own AI applications.
+**8 picks.** Frameworks and services for shipping your own AI applications.
 
-| Project | Why it's here | ⭐ Stars | License | Launch |
-| --- | --- | ---: | --- | --- |
-| [LangChain](https://github.com/langchain-ai/langchain) | Framework for building language-model apps and agents. | 147,789 | MIT | — |
-| [CrewAI](https://github.com/crewAIInc/crewAI) | Orchestrate collaborative AI agents. | 59,662 | MIT | — |
-| [Transformers](https://github.com/huggingface/transformers) | Model architectures and tools for training and inference. | 167,683 | Apache-2.0 | — |
-| [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) | Python SDK for agents, tools, and handoffs. | 30,020 | MIT | — |
-| [LiteLLM](https://github.com/BerriAI/litellm) | Route requests across model providers through one API. | 61,173 | MIT | — |
-| [mcp-use](https://github.com/mcp-use/mcp-use) | Build MCP clients, servers, and agent integrations. | 10,755 | MIT | [🏹 Product Hunt](https://www.producthunt.com/products/mcp-use) |
-| [InsForge](https://github.com/InsForge/InsForge) | Backend platform built for coding agents. | 13,110 | Apache-2.0 | [🏹 Product Hunt](https://www.producthunt.com/products/insforge-alpha) |
+| Project | Why try it | ⭐ Stars |
+| --- | --- | ---: |
+| [LangChain](https://github.com/langchain-ai/langchain) · `MIT` | Framework for building language-model apps and agents. | **147,945** |
+| [CrewAI](https://github.com/crewAIInc/crewAI) · `MIT` | Orchestrate collaborative AI agents. | **59,774** |
+| [Transformers](https://github.com/huggingface/transformers) · `Apache-2.0` | Model architectures and tools for training and inference. | **167,767** |
+| [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) · `MIT` | Python SDK for agents, tools, and handoffs. | **30,092** |
+| [OpenShell](https://github.com/NVIDIA/OpenShell) · `Apache-2.0` | Policy-controlled sandbox runtime for AI agents with file and network restrictions. | **16,443** |
+| [LiteLLM](https://github.com/BerriAI/litellm) · `MIT` | Route requests across model providers through one API. | **61,401** |
+| [mcp-use](https://github.com/mcp-use/mcp-use) · `MIT` · [🏹 Product Hunt](https://www.producthunt.com/products/mcp-use) | Build MCP clients, servers, and agent integrations. | **10,773** |
+| [InsForge](https://github.com/InsForge/InsForge) · `Apache-2.0` · [🏹 Product Hunt](https://www.producthunt.com/products/insforge-alpha) | Backend platform built for coding agents. | **13,129** |
+
+<a id="evaluation"></a>
 
 ### 🧪 Test, trace and trust
 
-See what your system does and test it before you ship.
+**4 picks.** See what your system does and test it before you ship.
 
-| Project | Why it's here | ⭐ Stars | License | Launch |
-| --- | --- | ---: | --- | --- |
-| [Langfuse](https://github.com/langfuse/langfuse) | Trace, debug, and evaluate language-model apps. | 35,785 | MIT | — |
-| [promptfoo](https://github.com/promptfoo/promptfoo) | Test prompts, agents, and RAG pipelines. | 25,978 | MIT | — |
-| [DeepEval](https://github.com/confident-ai/deepeval) | Write evaluations for language-model application behavior. | 18,831 | Apache-2.0 | — |
-| [NeMo Guardrails](https://github.com/NVIDIA-NeMo/Guardrails) | Define programmable constraints around AI conversations. | 7,290 | Apache-2.0 | — |
+| Project | Why try it | ⭐ Stars |
+| --- | --- | ---: |
+| [Langfuse](https://github.com/langfuse/langfuse) · `MIT` | Trace, debug, and evaluate language-model apps. | **35,937** |
+| [promptfoo](https://github.com/promptfoo/promptfoo) · `MIT` | Test prompts, agents, and RAG pipelines. | **26,070** |
+| [DeepEval](https://github.com/confident-ai/deepeval) · `Apache-2.0` | Write evaluations for language-model application behavior. | **18,909** |
+| [NeMo Guardrails](https://github.com/NVIDIA-NeMo/Guardrails) · `Apache-2.0` | Define programmable constraints around AI conversations. | **7,313** |
 <!-- CATALOG:END -->
 
-**License details:** [Unsloth](https://github.com/unslothai/unsloth#license) licenses its core under Apache-2.0 and its optional Studio UI under AGPL-3.0. [Langfuse](https://github.com/langfuse/langfuse#license) has an MIT-licensed core and separately licensed enterprise features. [LiteLLM](https://github.com/BerriAI/litellm/blob/main/LICENSE) uses MIT outside `enterprise/`, which is separately licensed. Always check the project's license files for the part you plan to use.
+**License details worth checking:**
 
-## How we find them
+- [Unsloth](https://github.com/unslothai/unsloth#license) licenses its core under Apache-2.0 and its optional Studio UI under AGPL-3.0.
+- [Langfuse](https://github.com/langfuse/langfuse#license) has an MIT-licensed core and separately licensed enterprise features.
+- [LiteLLM](https://github.com/BerriAI/litellm/blob/main/LICENSE) uses MIT outside `enterprise/`, which is separately licensed.
+- [WeKnora](https://github.com/Tencent/WeKnora/blob/main/LICENSE) declares MIT for WeKnora and lists third-party components separately. Its GitHub API license label is `NOASSERTION`, so this entry uses the linked license file as evidence.
 
-This list mixes human picks with a repeatable discovery trail:
+Check the project's license files for the specific part you want to use.
 
-1. **Scout:** Browse [GitHub Trending](https://github.com/trending), [AI agent repositories](https://github.com/topics/ai-agents), and Product Hunt's [AI](https://www.producthunt.com/topics/artificial-intelligence?order=recent_launches) and [open-source](https://www.producthunt.com/topics/open-source?order=recent_launches) launch feeds.
-2. **Check the code:** Confirm that the linked GitHub repository is public, has a clear open-source license, and contains the actual project. A Product Hunt launch is a lead, not proof of an open-source release.
-3. **Look for momentum:** Run `python3 scripts/discover.py --days 90` for recently created GitHub candidates. A human reviews each one before it joins the list.
-4. **Refresh the numbers:** `python3 scripts/refresh.py --refresh` updates GitHub stars and source-code licenses. The repository's scheduled workflow runs this weekly; `--check` verifies that the README matches its catalog data without network access.
+<a id="sources-and-updates"></a>
 
-Stars are a useful discovery signal, but the list is curated for variety, usefulness, and ideas worth exploring. [Suggest a project](CONTRIBUTING.md) if you found one we missed.
+## 📡 Sources and updates
+
+Every automated signal has a source you can inspect:
+
+1. **Monthly GitHub Trending:** [the live monthly page](https://github.com/trending?since=monthly) is captured in [`data/trending-monthly.json`](data/trending-monthly.json), including every page result, rank, and displayed monthly star gain. [`data/radar.json`](data/radar.json) is the smaller AI shortlist after GitHub API checks.
+2. **Product Hunt launches:** its public [AI Atom feed](https://www.producthunt.com/feed?category=artificial-intelligence) and [open-source Atom feed](https://www.producthunt.com/feed?category=open-source) supply [`data/producthunt-recent.json`](data/producthunt-recent.json). Each feed exposes a bounded set of recent entries, so the lookback window is a filter, not an exhaustive archive. Product Hunt's [RSS documentation](https://help.producthunt.com/en/articles/484970-does-product-hunt-have-an-rss-feed) describes the public feed.
+3. **Repository facts:** [GitHub's repository API](https://docs.github.com/en/rest/repos/repos#get-a-repository) supplies current stars, repository status, and source-code license metadata for the [curated catalog](data/stats.json) and candidate validation. The license check is a screening step; it does not inspect every file or asset.
+4. **Optional manual scouting:** [`scripts/discover.py`](scripts/discover.py) searches GitHub repositories with the `artificial-intelligence`, `generative-ai`, `ai-agent`, and `llm` topics. It prints candidates for review and does not change the published collection.
+
+The [GitHub Actions workflow](.github/workflows/refresh.yml) runs **weekly** and can be started manually. It refreshes source snapshots and catalog stats, then regenerates this README. **Check the dates above or the workflow badge**: when a required source fails, the previous published snapshot stays in place. New candidates are never added to the curated collection automatically.
+
+Found one we missed? [Nominate it or send a pull request →](CONTRIBUTING.md)
 
 ---
 

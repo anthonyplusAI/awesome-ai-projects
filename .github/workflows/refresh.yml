@@ -1,4 +1,4 @@
-name: Refresh AI catalog
+name: Refresh AI discovery and catalog
 
 on:
   schedule:
@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: ai-catalog-refresh-${{ github.ref }}
+  group: ai-catalog-refresh
   cancel-in-progress: false
 
 jobs:
@@ -17,23 +17,53 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.repository.default_branch }}
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
-      - name: Test catalog tools
+      - name: Test discovery and catalog tools
         run: python3 -m unittest discover -s tests -v
       - name: Refresh repository metadata
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 scripts/refresh.py --refresh
-      - name: Commit changed snapshot and README
+      - name: Capture monthly GitHub Trending
+        run: python3 scripts/trending.py --output data/trending-monthly.json
+      - name: Validate AI projects from Trending
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/radar.py --input data/trending-monthly.json --output data/radar.json
+      - name: Capture Product Hunt AI and open-source launches
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/producthunt.py --days 90 --output data/producthunt-recent.json
+      - name: Require a complete Product Hunt source snapshot
         run: |
-          if git diff --quiet -- README.md data/stats.json; then
-            echo "Catalog already current"
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          snapshot = json.loads(Path("data/producthunt-recent.json").read_text(encoding="utf-8"))
+          if snapshot.get("complete") is not True:
+              for warning in snapshot.get("warnings", []):
+                  print(f"Source warning: {warning}")
+              raise SystemExit("Product Hunt feeds were incomplete; keeping the previous snapshot")
+          PY
+      - name: Render README
+        run: python3 scripts/render.py --write
+      - name: Verify generated README
+        run: python3 scripts/render.py --check
+      - name: Commit generated snapshots and README
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          git add -- README.md data/stats.json data/trending-monthly.json data/radar.json data/producthunt-recent.json
+          if git diff --cached --quiet; then
+            echo "Discovery snapshots and README are already current"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -- README.md data/stats.json
-          git commit -m "chore: refresh AI catalog stats"
-          git push
+          git commit -m "chore: refresh AI discovery snapshots"
+          git push origin "HEAD:${DEFAULT_BRANCH}"

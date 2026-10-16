@@ -1,0 +1,183 @@
+{
+  "source_url": "https://github.com/trending?since=monthly",
+  "period": "monthly",
+  "fetched_at": "2026-10-16T22:52:13Z",
+  "repositories": [
+    {
+      "repo": "cloudflare/security-audit-skill",
+      "rank": 1,
+      "stars_this_month": 25242,
+      "stars_total": 30219,
+      "description": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings",
+      "language": "JavaScript"
+    },
+    {
+      "repo": "paperclipai/paperclip",
+      "rank": 2,
+      "stars_this_month": 22181,
+      "stars_total": 103152,
+      "description": "The open-source app everyone uses to manage agents at work",
+      "language": "TypeScript"
+    },
+    {
+      "repo": "anthropics/financial-services",
+      "rank": 3,
+      "stars_this_month": 5252,
+      "stars_total": 40086,
+      "description": null,
+      "language": "Python"
+    },
+    {
+      "repo": "heygen-com/hyperframes",
+      "rank": 4,
+      "stars_this_month": 14246,
+      "stars_total": 65279,
+      "description": "Write HTML. Render video. Built for agents.",
+      "language": "TypeScript"
+    },
+    {
+      "repo": "vectorize-io/hindsight",
+      "rank": 5,
+      "stars_this_month": 26652,
+      "stars_total": 50489,
+      "description": "Hindsight: Agent Memory That Learns",
+      "language": "Python"
+    },
+    {
+      "repo": "debpalash/VoiceStudio",
+      "rank": 6,
+      "stars_this_month": 38181,
+      "stars_total": 71025,
+      "description": "VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
+      "language": "Python"
+    },
+    {
+      "repo": "affaan-m/ECC",
+      "rank": 7,
+      "stars_this_month": 22953,
+      "stars_total": 281434,
+      "description": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
+      "language": "JavaScript"
+    },
+    {
+      "repo": "agent-substrate/substrate",
+      "rank": 8,
+      "stars_this_month": 3368,
+      "stars_total": 5306,
+      "description": "Agent Substrate: the core system",
+      "language": "Go"
+    },
+    {
+      "repo": "anthropics/knowledge-work-plugins",
+      "rank": 9,
+      "stars_this_month": 5835,
+      "stars_total": 29879,
+      "description": "Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork",
+      "language": "Python"
+    },
+    {
+      "repo": "mksglu/context-mode",
+      "rank": 10,
+      "stars_this_month": 6744,
+      "stars_total": 30205,
+      "description": "Context window optimization for AI coding agents. Sandboxes tool output (98% reduction), persists session memory, and enforces routing across 17 platforms via MCP + hooks.",
+      "language": "TypeScript"
+    },
+    {
+      "repo": "NVIDIA/OpenShell",
+      "rank": 11,
+      "stars_this_month": 7813,
+      "stars_total": 16443,
+      "description": "OpenShell is the safe, private runtime for autonomous AI agents.",
+      "language": "Rust"
+    },
+    {
+      "repo": "tashfeenahmed/freellmapi",
+      "rank": 12,
+      "stars_this_month": 9499,
+      "stars_total": 36198,
+      "description": "7.4 billion tokens per month. 34 free LLM providers. 635 free model endpoints. All behind one /v1 endpoint, plus any custom OpenAI-compatible endpoint. Smart routing, automatic failover, encrypted keys. Personal experimentation only.",
+      "language": "TypeScript"
+    },
+    {
+      "repo": "TencentCloud/Octop",
+      "rank": 13,
+      "stars_this_month": 7082,
+      "stars_total": 9688,
+      "description": "A smarter, self-hosted AI assistant — multi-user, multi-agent.",
+      "language": "Python"
+    },
+    {
+      "repo": "trycua/cua",
+      "rank": 14,
+      "stars_this_month": 7322,
+      "stars_total": 29968,
+      "description": "Scale computer-use 2.0 with open-source drivers, cross-OS fleets, and benchmarks for training, evaluation, and data generation.",
+      "language": "Rust"
+    },
+    {
+      "repo": "NationalSecurityAgency/ghidra",
+      "rank": 15,
+      "stars_this_month": 12092,
+      "stars_total": 89584,
+      "description": "Ghidra is a software reverse engineering (SRE) framework",
+      "language": "Java"
+    },
+    {
+      "repo": "addyosmani/agent-skills",
+      "rank": 16,
+      "stars_this_month": 13095,
+      "stars_total": 107379,
+      "description": "Production-grade engineering skills for AI coding agents.",
+      "language": "JavaScript"
+    },
+    {
+      "repo": "anthropics/claude-code",
+      "rank": 17,
+      "stars_this_month": 6760,
+      "stars_total": 151236,
+      "description": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands.",
+      "language": "TypeScript"
+    },
+    {
+      "repo": "Tencent/WeKnora",
+      "rank": 18,
+      "stars_this_month": 10698,
+      "stars_total": 34392,
+      "description": "Open-source LLM knowledge platform: turn raw documents into a queryable RAG, an autonomous reasoning agent, and a self-maintaining Wiki.",
+      "language": "Go"
+    },
+    {
+      "repo": "rohitg00/ai-engineering-from-scratch",
+      "rank": 19,
+      "stars_this_month": 15242,
+      "stars_total": 70267,
+      "description": "Learn AI Engineering! Learn it. Build it. Ship it for others.",
+      "language": "Python"
+    },
+    {
+      "repo": "cursor/plugins",
+      "rank": 20,
+      "stars_this_month": 3928,
+      "stars_total": 11911,
+      "description": "Cursor plugin specification and official plugins",
+      "language": "TypeScript"
+    },
+    {
+      "repo": "longbridge/gpui-kit",
+      "rank": 21,
+      "stars_this_month": 3233,
+      "stars_total": 17797,
+      "description": "Rust GUI components for building fantastic cross-platform desktop application by using GPUI.",
+      "language": "Rust"
+    },
+    {
+      "repo": "VectifyAI/PageIndex",
+      "rank": 22,
+      "stars_this_month": 3625,
+      "stars_total": 39186,
+      "description": "📑 PageIndex: Document Index for Vectorless, Reasoning-based RAG",
+      "language": "Python"
+    }
+  ]
+}

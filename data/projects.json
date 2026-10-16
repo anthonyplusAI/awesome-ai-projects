@@ -45,6 +45,12 @@
       "product_hunt": "https://www.producthunt.com/products/openclaw-formerly-clawdbot"
     },
     {
+      "repo": "paperclipai/paperclip",
+      "name": "Paperclip",
+      "category": "agents-coding",
+      "description": "Self-hosted control panel for assigning goals, tasks, and budgets to AI agent teams."
+    },
+    {
       "repo": "anomalyco/opencode",
       "name": "OpenCode",
       "category": "agents-coding",
@@ -159,6 +165,16 @@
       "description": "Retrieval and agent workflows over your documents."
     },
     {
+      "repo": "Tencent/WeKnora",
+      "name": "WeKnora",
+      "category": "knowledge",
+      "description": "Self-hosted document workspace with RAG search, agents, and a maintained wiki.",
+      "license_override": {
+        "spdx_id": "MIT",
+        "evidence_url": "https://github.com/Tencent/WeKnora/blob/main/LICENSE"
+      }
+    },
+    {
       "repo": "Mintplex-Labs/anything-llm",
       "name": "AnythingLLM",
       "category": "knowledge",
@@ -172,10 +188,22 @@
       "description": "Persistent memory layer for AI agents."
     },
     {
+      "repo": "vectorize-io/hindsight",
+      "name": "Hindsight",
+      "category": "knowledge",
+      "description": "Memory service for agents to retain, recall, and reflect across sessions."
+    },
+    {
       "repo": "run-llama/llama_index",
       "name": "LlamaIndex",
       "category": "knowledge",
       "description": "Connect private data to retrieval and agent applications."
+    },
+    {
+      "repo": "VectifyAI/PageIndex",
+      "name": "PageIndex",
+      "category": "knowledge",
+      "description": "Tree-based retrieval over long text PDFs using a local Python SDK."
     },
     {
       "repo": "khoj-ai/khoj",
@@ -226,6 +254,12 @@
       "name": "brag",
       "category": "creative",
       "description": "Agent skill for making project launch videos with Hyperframes."
+    },
+    {
+      "repo": "heygen-com/hyperframes",
+      "name": "HyperFrames",
+      "category": "creative",
+      "description": "Render HTML, CSS, and timed animations into MP4 videos with a local CLI and agent skills."
     },
     {
       "repo": "storytold/photocraft",
@@ -306,6 +340,12 @@
       "name": "OpenAI Agents SDK",
       "category": "builders",
       "description": "Python SDK for agents, tools, and handoffs."
+    },
+    {
+      "repo": "NVIDIA/OpenShell",
+      "name": "OpenShell",
+      "category": "builders",
+      "description": "Policy-controlled sandbox runtime for AI agents with file and network restrictions."
     },
     {
       "repo": "BerriAI/litellm",
