@@ -1,88 +1,88 @@
 {
-  "fetched_at": "2026-10-16T23:19:50Z",
+  "fetched_at": "2026-10-19T20:38:24Z",
   "repositories": {
     "openclaw/openclaw": {
-      "stars": 392194,
+      "stars": 392478,
       "license": "MIT",
       "archived": false
     },
     "paperclipai/paperclip": {
-      "stars": 103162,
+      "stars": 104664,
       "license": "MIT",
       "archived": false
     },
     "anomalyco/opencode": {
-      "stars": 214342,
+      "stars": 217648,
       "license": "MIT",
       "archived": false
     },
     "OpenHands/OpenHands": {
-      "stars": 91080,
+      "stars": 91295,
       "license": "MIT",
       "archived": false
     },
     "browser-use/browser-use": {
-      "stars": 118203,
+      "stars": 118532,
       "license": "MIT",
       "archived": false
     },
     "cline/cline": {
-      "stars": 70425,
+      "stars": 70562,
       "license": "Apache-2.0",
       "archived": false
     },
     "aaif-goose/goose": {
-      "stars": 55348,
+      "stars": 55445,
       "license": "Apache-2.0",
       "archived": false
     },
     "Aider-AI/aider": {
-      "stars": 49586,
+      "stars": 49644,
       "license": "Apache-2.0",
       "archived": false
     },
     "Kilo-Org/kilocode": {
-      "stars": 27628,
+      "stars": 27662,
       "license": "MIT",
       "archived": false
     },
     "nearai/ironclaw": {
-      "stars": 12658,
+      "stars": 12664,
       "license": "MIT OR Apache-2.0",
       "archived": false
     },
     "pydantic/pydantic-ai": {
-      "stars": 20669,
+      "stars": 20736,
       "license": "MIT",
       "archived": false
     },
     "ollama/ollama": {
-      "stars": 183498,
+      "stars": 183857,
       "license": "MIT",
       "archived": false
     },
     "ggml-org/llama.cpp": {
-      "stars": 131422,
+      "stars": 131717,
       "license": "MIT",
       "archived": false
     },
     "vllm-project/vllm": {
-      "stars": 93945,
+      "stars": 94152,
       "license": "Apache-2.0",
       "archived": false
     },
     "janhq/jan": {
-      "stars": 44971,
+      "stars": 45017,
       "license": "Apache-2.0",
       "archived": false
     },
     "mudler/LocalAI": {
-      "stars": 49587,
+      "stars": 49697,
       "license": "MIT",
       "archived": false
     },
     "exo-explore/exo": {
-      "stars": 47926,
+      "stars": 47965,
       "license": "Apache-2.0",
       "archived": false
     },
@@ -92,192 +92,192 @@
       "archived": false
     },
     "unslothai/unsloth": {
-      "stars": 78132,
+      "stars": 78273,
       "license": "Apache-2.0",
       "archived": false
     },
     "infiniflow/ragflow": {
-      "stars": 92336,
+      "stars": 92480,
       "license": "Apache-2.0",
       "archived": false
     },
     "Tencent/WeKnora": {
-      "stars": 34396,
+      "stars": 34724,
       "license": "MIT",
       "archived": false
     },
     "Mintplex-Labs/anything-llm": {
-      "stars": 67213,
+      "stars": 67324,
       "license": "MIT",
       "archived": false
     },
     "mem0ai/mem0": {
-      "stars": 67311,
+      "stars": 67464,
       "license": "Apache-2.0",
       "archived": false
     },
     "vectorize-io/hindsight": {
-      "stars": 50494,
+      "stars": 51625,
       "license": "MIT",
       "archived": false
     },
     "run-llama/llama_index": {
-      "stars": 52525,
+      "stars": 52569,
       "license": "MIT",
       "archived": false
     },
     "VectifyAI/PageIndex": {
-      "stars": 39188,
+      "stars": 39305,
       "license": "MIT",
       "archived": false
     },
     "khoj-ai/khoj": {
-      "stars": 37711,
+      "stars": 37748,
       "license": "AGPL-3.0",
       "archived": false
     },
     "getzep/graphiti": {
-      "stars": 31822,
+      "stars": 32045,
       "license": "Apache-2.0",
       "archived": false
     },
     "chroma-core/chroma": {
-      "stars": 29512,
+      "stars": 29533,
       "license": "Apache-2.0",
       "archived": false
     },
     "Comfy-Org/ComfyUI": {
-      "stars": 137918,
+      "stars": 139567,
       "license": "GPL-3.0",
       "archived": false
     },
     "invoke-ai/InvokeAI": {
-      "stars": 28690,
+      "stars": 28765,
       "license": "Apache-2.0",
       "archived": false
     },
     "wandb/openui": {
-      "stars": 22612,
+      "stars": 22627,
       "license": "Apache-2.0",
       "archived": false
     },
     "ATH-MaaS/ComfyUI-Copilot": {
-      "stars": 5550,
+      "stars": 5554,
       "license": "MIT",
       "archived": false
     },
     "latent-spaces/brag": {
-      "stars": 16336,
+      "stars": 16955,
       "license": "MIT",
       "archived": false
     },
     "heygen-com/hyperframes": {
-      "stars": 65294,
+      "stars": 67550,
       "license": "Apache-2.0",
       "archived": false
     },
     "storytold/photocraft": {
-      "stars": 64970,
+      "stars": 68460,
       "license": "MIT OR Apache-2.0",
       "archived": false
     },
     "huggingface/diffusers": {
-      "stars": 34736,
+      "stars": 34762,
       "license": "Apache-2.0",
       "archived": false
     },
     "debpalash/VoiceStudio": {
-      "stars": 71073,
+      "stars": 77307,
       "license": "AGPL-3.0",
       "archived": false
     },
     "openai/whisper": {
-      "stars": 110693,
+      "stars": 110882,
       "license": "MIT",
       "archived": false
     },
     "RVC-Project/Retrieval-based-Voice-Conversion-WebUI": {
-      "stars": 38778,
+      "stars": 38843,
       "license": "MIT",
       "archived": false
     },
     "myshell-ai/OpenVoice": {
-      "stars": 37904,
+      "stars": 38013,
       "license": "MIT",
       "archived": false
     },
     "resemble-ai/chatterbox": {
-      "stars": 27016,
+      "stars": 27089,
       "license": "MIT",
       "archived": false
     },
     "cjpais/Handy": {
-      "stars": 33972,
+      "stars": 34151,
       "license": "MIT",
       "archived": false
     },
     "OpenWhispr/openwhispr": {
-      "stars": 9488,
+      "stars": 9586,
       "license": "MIT",
       "archived": false
     },
     "langchain-ai/langchain": {
-      "stars": 147945,
+      "stars": 148090,
       "license": "MIT",
       "archived": false
     },
     "crewAIInc/crewAI": {
-      "stars": 59774,
+      "stars": 59879,
       "license": "MIT",
       "archived": false
     },
     "huggingface/transformers": {
-      "stars": 167767,
+      "stars": 167862,
       "license": "Apache-2.0",
       "archived": false
     },
     "openai/openai-agents-python": {
-      "stars": 30092,
+      "stars": 30144,
       "license": "MIT",
       "archived": false
     },
     "NVIDIA/OpenShell": {
-      "stars": 16447,
+      "stars": 16710,
       "license": "Apache-2.0",
       "archived": false
     },
     "BerriAI/litellm": {
-      "stars": 61401,
+      "stars": 61579,
       "license": "MIT",
       "archived": false
     },
     "mcp-use/mcp-use": {
-      "stars": 10773,
+      "stars": 10786,
       "license": "MIT",
       "archived": false
     },
     "InsForge/InsForge": {
-      "stars": 13129,
+      "stars": 13150,
       "license": "Apache-2.0",
       "archived": false
     },
     "langfuse/langfuse": {
-      "stars": 35937,
+      "stars": 36036,
       "license": "MIT",
       "archived": false
     },
     "promptfoo/promptfoo": {
-      "stars": 26070,
+      "stars": 26152,
       "license": "MIT",
       "archived": false
     },
     "confident-ai/deepeval": {
-      "stars": 18909,
+      "stars": 18962,
       "license": "Apache-2.0",
       "archived": false
     },
     "NVIDIA-NeMo/Guardrails": {
-      "stars": 7313,
+      "stars": 7330,
       "license": "Apache-2.0",
       "archived": false
     }
