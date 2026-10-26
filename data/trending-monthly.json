@@ -1,175 +1,175 @@
 {
   "source_url": "https://github.com/trending?since=monthly",
   "period": "monthly",
-  "fetched_at": "2026-10-19T20:38:25Z",
+  "fetched_at": "2026-10-26T20:36:30Z",
   "repositories": [
     {
-      "repo": "paperclipai/paperclip",
-      "rank": 1,
-      "stars_this_month": 23340,
-      "stars_total": 104664,
-      "description": "The open-source app everyone uses to manage agents at work",
-      "language": "TypeScript"
-    },
-    {
-      "repo": "debpalash/VoiceStudio",
-      "rank": 2,
-      "stars_this_month": 42036,
-      "stars_total": 77307,
-      "description": "VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
-      "language": "Python"
-    },
-    {
       "repo": "heygen-com/hyperframes",
-      "rank": 3,
-      "stars_this_month": 15429,
-      "stars_total": 67550,
+      "rank": 1,
+      "stars_this_month": 19211,
+      "stars_total": 72943,
       "description": "Write HTML. Render video. Built for agents.",
       "language": "TypeScript"
     },
     {
-      "repo": "vectorize-io/hindsight",
-      "rank": 4,
-      "stars_this_month": 27550,
-      "stars_total": 51625,
-      "description": "Hindsight: Agent Memory That Learns",
-      "language": "Python"
-    },
-    {
-      "repo": "anthropics/financial-services",
-      "rank": 5,
-      "stars_this_month": 5498,
-      "stars_total": 40406,
-      "description": null,
-      "language": "Python"
-    },
-    {
       "repo": "cloudflare/security-audit-skill",
-      "rank": 6,
-      "stars_this_month": 19109,
-      "stars_total": 32331,
+      "rank": 2,
+      "stars_this_month": 24611,
+      "stars_total": 48355,
       "description": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings",
       "language": "JavaScript"
     },
     {
-      "repo": "mksglu/context-mode",
-      "rank": 7,
-      "stars_this_month": 7319,
-      "stars_total": 31041,
-      "description": "Context window optimization for AI coding agents. Sandboxes tool output (98% reduction), persists session memory, and enforces routing across 17 platforms via MCP + hooks.",
-      "language": "TypeScript"
-    },
-    {
-      "repo": "NVIDIA/OpenShell",
-      "rank": 8,
-      "stars_this_month": 7995,
-      "stars_total": 16710,
-      "description": "OpenShell is the safe, private runtime for autonomous AI agents.",
-      "language": "Rust"
-    },
-    {
-      "repo": "agent-substrate/substrate",
-      "rank": 9,
-      "stars_this_month": 3533,
-      "stars_total": 5582,
-      "description": "Agent Substrate: the core system",
-      "language": "Go"
-    },
-    {
-      "repo": "tashfeenahmed/freellmapi",
-      "rank": 10,
-      "stars_this_month": 10063,
-      "stars_total": 37575,
-      "description": "7.4 billion tokens per month. 34 free LLM providers. 635 free model endpoints. All behind one /v1 endpoint, plus any custom OpenAI-compatible endpoint. Smart routing, automatic failover, encrypted keys. Personal experimentation only.",
-      "language": "TypeScript"
+      "repo": "debpalash/VoiceStudio",
+      "rank": 3,
+      "stars_this_month": 50977,
+      "stars_total": 88890,
+      "description": "VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
+      "language": "Python"
     },
     {
       "repo": "anthropics/knowledge-work-plugins",
-      "rank": 11,
-      "stars_this_month": 5493,
-      "stars_total": 30474,
+      "rank": 4,
+      "stars_this_month": 7387,
+      "stars_total": 33180,
       "description": "Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork",
       "language": "Python"
     },
     {
+      "repo": "mksglu/context-mode",
+      "rank": 5,
+      "stars_this_month": 8324,
+      "stars_total": 32412,
+      "description": "Context window optimization for AI coding agents. Sandboxes tool output (98% reduction), persists session memory, and enforces routing across 17 platforms via MCP + hooks.",
+      "language": "TypeScript"
+    },
+    {
+      "repo": "cursor/plugins",
+      "rank": 6,
+      "stars_this_month": 5448,
+      "stars_total": 14176,
+      "description": "Cursor plugin specification and official plugins",
+      "language": "TypeScript"
+    },
+    {
+      "repo": "pbakaus/impeccable",
+      "rank": 7,
+      "stars_this_month": 16493,
+      "stars_total": 88998,
+      "description": "The design language that makes your AI harness better at design.",
+      "language": "Rust"
+    },
+    {
+      "repo": "anthropics/claude-plugins-official",
+      "rank": 8,
+      "stars_this_month": 7932,
+      "stars_total": 44715,
+      "description": "Official, Anthropic-managed directory of high quality Claude Code Plugins.",
+      "language": "Python"
+    },
+    {
+      "repo": "NVIDIA/OpenShell",
+      "rank": 9,
+      "stars_this_month": 11062,
+      "stars_total": 20064,
+      "description": "OpenShell is the safe, private runtime for autonomous AI agents.",
+      "language": "Rust"
+    },
+    {
+      "repo": "earthtojake/text-to-cad",
+      "rank": 10,
+      "stars_this_month": 6821,
+      "stars_total": 23296,
+      "description": "Give your agent CAD superpowers.",
+      "language": "Python"
+    },
+    {
+      "repo": "paperclipai/paperclip",
+      "rank": 11,
+      "stars_this_month": 24081,
+      "stars_total": 107604,
+      "description": "The open-source app everyone uses to manage agents at work",
+      "language": "TypeScript"
+    },
+    {
       "repo": "affaan-m/ECC",
       "rank": 12,
-      "stars_this_month": 23080,
-      "stars_total": 283993,
+      "stars_this_month": 22882,
+      "stars_total": 289693,
       "description": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
       "language": "JavaScript"
     },
     {
-      "repo": "cursor/plugins",
+      "repo": "thedotmack/claude-mem",
       "rank": 13,
-      "stars_this_month": 4507,
-      "stars_total": 13020,
-      "description": "Cursor plugin specification and official plugins",
+      "stars_this_month": 8817,
+      "stars_total": 103375,
+      "description": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More",
       "language": "TypeScript"
     },
     {
       "repo": "NationalSecurityAgency/ghidra",
       "rank": 14,
-      "stars_this_month": 12009,
-      "stars_total": 91498,
+      "stars_this_month": 14822,
+      "stars_total": 94654,
       "description": "Ghidra is a software reverse engineering (SRE) framework",
       "language": "Java"
     },
     {
-      "repo": "anthropics/claude-plugins-official",
+      "repo": "tashfeenahmed/freellmapi",
       "rank": 15,
-      "stars_this_month": 6015,
-      "stars_total": 43149,
-      "description": "Official, Anthropic-managed directory of high quality Claude Code Plugins.",
+      "stars_this_month": 12957,
+      "stars_total": 42095,
+      "description": "7.4 billion tokens per month. 34 free LLM providers. 635 free model endpoints. All behind one /v1 endpoint, plus any custom OpenAI-compatible endpoint. Smart routing, automatic failover, encrypted keys. Personal experimentation only.",
+      "language": "TypeScript"
+    },
+    {
+      "repo": "pingdotgg/t3code",
+      "rank": 16,
+      "stars_this_month": 6596,
+      "stars_total": 30460,
+      "description": null,
+      "language": "TypeScript"
+    },
+    {
+      "repo": "DietrichGebert/ponytail",
+      "rank": 17,
+      "stars_this_month": 31412,
+      "stars_total": 177010,
+      "description": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
+      "language": "JavaScript"
+    },
+    {
+      "repo": "Panniantong/Agent-Reach",
+      "rank": 18,
+      "stars_this_month": 17531,
+      "stars_total": 103369,
+      "description": "Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu — one CLI, zero API fees.",
+      "language": "Python"
+    },
+    {
+      "repo": "VectifyAI/PageIndex",
+      "rank": 19,
+      "stars_this_month": 3964,
+      "stars_total": 39785,
+      "description": "📑 PageIndex: Document Index for Vectorless, Reasoning-based RAG",
       "language": "Python"
     },
     {
       "repo": "rohitg00/ai-engineering-from-scratch",
-      "rank": 16,
-      "stars_this_month": 16300,
-      "stars_total": 71411,
+      "rank": 20,
+      "stars_this_month": 16847,
+      "stars_total": 74317,
       "description": "Learn AI Engineering! Learn it. Build it. Ship it for others.",
       "language": "Python"
     },
     {
-      "repo": "TencentCloud/Octop",
-      "rank": 17,
-      "stars_this_month": 6138,
-      "stars_total": 10267,
-      "description": "A smarter, self-hosted AI assistant — multi-user, multi-agent.",
-      "language": "Python"
-    },
-    {
-      "repo": "earthtojake/text-to-cad",
-      "rank": 18,
-      "stars_this_month": 5476,
-      "stars_total": 21706,
-      "description": "Give your agent CAD superpowers.",
-      "language": "Python"
-    },
-    {
-      "repo": "HKUDS/CLI-Anything",
-      "rank": 19,
-      "stars_this_month": 5051,
-      "stars_total": 55144,
-      "description": "\"CLI-Anything: Making ALL Software Agent-Native\" -- CLI-Hub: https://clianything.cc/",
-      "language": "Python"
-    },
-    {
-      "repo": "pbakaus/impeccable",
-      "rank": 20,
-      "stars_this_month": 14068,
-      "stars_total": 83148,
-      "description": "The design language that makes your AI harness better at design.",
-      "language": "Rust"
-    },
-    {
-      "repo": "longbridge/gpui-kit",
+      "repo": "supabase/supabase",
       "rank": 21,
-      "stars_this_month": 3632,
-      "stars_total": 18297,
-      "description": "Rust GUI components for building fantastic cross-platform desktop application by using GPUI.",
-      "language": "Rust"
+      "stars_this_month": 3471,
+      "stars_total": 114017,
+      "description": "The Postgres development platform. Supabase gives you a dedicated Postgres database to build your web, mobile, and AI applications.",
+      "language": "TypeScript"
     }
   ]
 }
