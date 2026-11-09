@@ -1,16 +1,16 @@
 {
-  "fetched_at": "2026-11-02T23:09:21Z",
+  "fetched_at": "2026-11-09T23:48:47Z",
   "source_url": "https://github.com/trending?since=monthly",
   "period": "monthly",
-  "source_updated_at": "2026-11-02T23:09:21Z",
+  "source_updated_at": "2026-11-09T23:48:47Z",
   "signal": "Automated GitHub Trending candidates; not editorial endorsements.",
   "selection_policy": "Highest-ranked qualifying AI repositories, with one slot reserved for a qualifying curated project when available.",
   "repositories": [
     {
       "repo": "morluto/rea",
       "rank": 1,
-      "stars_this_month": 422016,
-      "stars_total": 422722,
+      "stars_this_month": 425123,
+      "stars_total": 446873,
       "license": "MIT",
       "description": "Reverse engineer anything with agents, from app behavior down to native binaries.",
       "curated": false,
@@ -23,26 +23,10 @@
       ]
     },
     {
-      "repo": "heygen-com/hyperframes",
-      "rank": 4,
-      "stars_this_month": 22225,
-      "stars_total": 77707,
-      "license": "Apache-2.0",
-      "description": "Write HTML. Render video. Built for agents.",
-      "curated": true,
-      "github_url": "https://github.com/heygen-com/hyperframes",
-      "source_url": "https://github.com/trending?since=monthly",
-      "evidence_urls": [
-        "https://github.com/trending?since=monthly",
-        "https://github.com/heygen-com/hyperframes",
-        "https://api.github.com/repos/heygen-com/hyperframes"
-      ]
-    },
-    {
       "repo": "Nutlope/hallmark",
-      "rank": 5,
-      "stars_this_month": 15201,
-      "stars_total": 45951,
+      "rank": 2,
+      "stars_this_month": 21146,
+      "stars_total": 51760,
       "license": "MIT",
       "description": "Anti-AI-slop design skill for Claude Code, Cursor, and Codex.",
       "curated": false,
@@ -55,42 +39,26 @@
       ]
     },
     {
-      "repo": "debpalash/VoiceStudio",
-      "rank": 6,
-      "stars_this_month": 47055,
-      "stars_total": 98997,
-      "license": "AGPL-3.0",
-      "description": "VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation…",
-      "curated": true,
-      "github_url": "https://github.com/debpalash/VoiceStudio",
-      "source_url": "https://github.com/trending?since=monthly",
-      "evidence_urls": [
-        "https://github.com/trending?since=monthly",
-        "https://github.com/debpalash/VoiceStudio",
-        "https://api.github.com/repos/debpalash/VoiceStudio"
-      ]
-    },
-    {
-      "repo": "anthropics/knowledge-work-plugins",
-      "rank": 7,
-      "stars_this_month": 8486,
-      "stars_total": 34485,
+      "repo": "heygen-com/hyperframes",
+      "rank": 5,
+      "stars_this_month": 22360,
+      "stars_total": 81679,
       "license": "Apache-2.0",
-      "description": "Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork",
-      "curated": false,
-      "github_url": "https://github.com/anthropics/knowledge-work-plugins",
+      "description": "Write HTML. Render video. Built for agents.",
+      "curated": true,
+      "github_url": "https://github.com/heygen-com/hyperframes",
       "source_url": "https://github.com/trending?since=monthly",
       "evidence_urls": [
         "https://github.com/trending?since=monthly",
-        "https://github.com/anthropics/knowledge-work-plugins",
-        "https://api.github.com/repos/anthropics/knowledge-work-plugins"
+        "https://github.com/heygen-com/hyperframes",
+        "https://api.github.com/repos/heygen-com/hyperframes"
       ]
     },
     {
       "repo": "thedotmack/claude-mem",
-      "rank": 10,
-      "stars_this_month": 14011,
-      "stars_total": 110690,
+      "rank": 6,
+      "stars_this_month": 17296,
+      "stars_total": 115385,
       "license": "Apache-2.0",
       "description": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "curated": false,
@@ -103,10 +71,42 @@
       ]
     },
     {
+      "repo": "debpalash/VoiceStudio",
+      "rank": 7,
+      "stars_this_month": 50169,
+      "stars_total": 106141,
+      "license": "AGPL-3.0",
+      "description": "VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation…",
+      "curated": true,
+      "github_url": "https://github.com/debpalash/VoiceStudio",
+      "source_url": "https://github.com/trending?since=monthly",
+      "evidence_urls": [
+        "https://github.com/trending?since=monthly",
+        "https://github.com/debpalash/VoiceStudio",
+        "https://api.github.com/repos/debpalash/VoiceStudio"
+      ]
+    },
+    {
+      "repo": "HKUDS/DeepTutor",
+      "rank": 8,
+      "stars_this_month": 16065,
+      "stars_total": 57607,
+      "license": "Apache-2.0",
+      "description": "DeepTutor: Lifelong Personalized Tutoring. https://deeptutor.info/.",
+      "curated": false,
+      "github_url": "https://github.com/HKUDS/DeepTutor",
+      "source_url": "https://github.com/trending?since=monthly",
+      "evidence_urls": [
+        "https://github.com/trending?since=monthly",
+        "https://github.com/HKUDS/DeepTutor",
+        "https://api.github.com/repos/HKUDS/DeepTutor"
+      ]
+    },
+    {
       "repo": "pbakaus/impeccable",
-      "rank": 11,
-      "stars_this_month": 26119,
-      "stars_total": 100416,
+      "rank": 9,
+      "stars_this_month": 28008,
+      "stars_total": 106870,
       "license": "Apache-2.0",
       "description": "The design vocabulary for your coding agent. Steer with polish and bolder, review with critique and audit, catch AI slop before it ships.",
       "curated": false,
@@ -119,19 +119,19 @@
       ]
     },
     {
-      "repo": "earthtojake/text-to-cad",
-      "rank": 13,
-      "stars_this_month": 8238,
-      "stars_total": 25007,
-      "license": "MIT",
-      "description": "Design physical products with AI",
+      "repo": "storytold/artcraft",
+      "rank": 10,
+      "stars_this_month": 33780,
+      "stars_total": 40257,
+      "license": "Apache-2.0",
+      "description": "ArtCraft is an intentional crafting engine for artists, designers, and filmmakers",
       "curated": false,
-      "github_url": "https://github.com/earthtojake/text-to-cad",
+      "github_url": "https://github.com/storytold/artcraft",
       "source_url": "https://github.com/trending?since=monthly",
       "evidence_urls": [
         "https://github.com/trending?since=monthly",
-        "https://github.com/earthtojake/text-to-cad",
-        "https://api.github.com/repos/earthtojake/text-to-cad"
+        "https://github.com/storytold/artcraft",
+        "https://api.github.com/repos/storytold/artcraft"
       ]
     }
   ]
