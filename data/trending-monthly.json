@@ -1,111 +1,127 @@
 {
   "source_url": "https://github.com/trending?since=monthly",
   "period": "monthly",
-  "fetched_at": "2026-11-09T23:48:47Z",
+  "fetched_at": "2026-11-16T23:46:09Z",
   "repositories": [
     {
-      "repo": "morluto/rea",
-      "rank": 1,
-      "stars_this_month": 425123,
-      "stars_total": 446873,
-      "description": "Reverse engineer anything with agents, from app behavior down to native binaries.",
-      "language": "TypeScript"
-    },
-    {
       "repo": "Nutlope/hallmark",
-      "rank": 2,
-      "stars_this_month": 21146,
-      "stars_total": 51760,
+      "rank": 1,
+      "stars_this_month": 25448,
+      "stars_total": 56106,
       "description": "Anti-AI-slop design skill for Claude Code, Cursor, and Codex.",
       "language": "CSS"
     },
     {
       "repo": "cloudflare/security-audit-skill",
-      "rank": 3,
-      "stars_this_month": 40289,
-      "stars_total": 68040,
+      "rank": 2,
+      "stars_this_month": 43540,
+      "stars_total": 73928,
       "description": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings",
       "language": "JavaScript"
     },
     {
       "repo": "pingdotgg/t3code",
-      "rank": 4,
-      "stars_this_month": 25840,
-      "stars_total": 54090,
-      "description": null,
-      "language": "TypeScript"
-    },
-    {
-      "repo": "heygen-com/hyperframes",
-      "rank": 5,
-      "stars_this_month": 22360,
-      "stars_total": 81679,
-      "description": "Write HTML. Render video. Built for agents.",
+      "rank": 3,
+      "stars_this_month": 33583,
+      "stars_total": 62762,
+      "description": "The best way to control Claude Code, Codex and more from any computer or phone",
       "language": "TypeScript"
     },
     {
       "repo": "thedotmack/claude-mem",
-      "rank": 6,
-      "stars_this_month": 17296,
-      "stars_total": 115385,
+      "rank": 4,
+      "stars_this_month": 17038,
+      "stars_total": 117684,
       "description": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More",
       "language": "TypeScript"
     },
     {
-      "repo": "debpalash/VoiceStudio",
-      "rank": 7,
-      "stars_this_month": 50169,
-      "stars_total": 106141,
-      "description": "VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
-      "language": "Python"
-    },
-    {
-      "repo": "HKUDS/DeepTutor",
-      "rank": 8,
-      "stars_this_month": 16065,
-      "stars_total": 57607,
-      "description": "DeepTutor: Lifelong Personalized Tutoring. https://deeptutor.info/.",
+      "repo": "anthropics/skills",
+      "rank": 5,
+      "stars_this_month": 14332,
+      "stars_total": 196024,
+      "description": "Public repository for Agent Skills",
       "language": "Python"
     },
     {
       "repo": "pbakaus/impeccable",
-      "rank": 9,
-      "stars_this_month": 28008,
-      "stars_total": 106870,
+      "rank": 6,
+      "stars_this_month": 29631,
+      "stars_total": 111364,
       "description": "The design vocabulary for your coding agent. Steer with polish and bolder, review with critique and audit, catch AI slop before it ships.",
       "language": "Rust"
     },
     {
-      "repo": "storytold/artcraft",
-      "rank": 10,
-      "stars_this_month": 33780,
-      "stars_total": 40257,
-      "description": "ArtCraft is an intentional crafting engine for artists, designers, and filmmakers",
-      "language": "Rust"
-    },
-    {
-      "repo": "NationalSecurityAgency/ghidra",
-      "rank": 11,
-      "stars_this_month": 17344,
-      "stars_total": 99090,
-      "description": "Ghidra is a software reverse engineering (SRE) framework",
-      "language": "Java"
-    },
-    {
-      "repo": "boykopovar/AnyPS5",
-      "rank": 12,
-      "stars_this_month": 39354,
-      "stars_total": 52615,
-      "description": "Tool for automatic PS5 executables porting to Linux and Windows",
-      "language": "C++"
-    },
-    {
-      "repo": "anthropics/claude-plugins-official",
-      "rank": 13,
-      "stars_this_month": 9152,
-      "stars_total": 46632,
-      "description": "Official, Anthropic-managed directory of high quality Claude Code Plugins.",
+      "repo": "HKUDS/DeepTutor",
+      "rank": 7,
+      "stars_this_month": 18278,
+      "stars_total": 59774,
+      "description": "DeepTutor: Lifelong Personalized Tutoring. https://deeptutor.info/.",
       "language": "Python"
+    },
+    {
+      "repo": "heygen-com/hyperframes",
+      "rank": 8,
+      "stars_this_month": 20878,
+      "stars_total": 85229,
+      "description": "Write HTML. Render video. Built for agents.",
+      "language": "TypeScript"
+    },
+    {
+      "repo": "sherlock-project/sherlock",
+      "rank": 9,
+      "stars_this_month": 18371,
+      "stars_total": 113152,
+      "description": "Hunt down social media accounts by username across social networks",
+      "language": "Python"
+    },
+    {
+      "repo": "Leonxlnx/taste-skill",
+      "rank": 10,
+      "stars_this_month": 19546,
+      "stars_total": 116888,
+      "description": "Agent skills that give coding agents taste: art direction, reference images and a browser check instead of generic AI pages",
+      "language": "JavaScript"
+    },
+    {
+      "repo": "AgriciDaniel/claude-seo",
+      "rank": 11,
+      "stars_this_month": 10672,
+      "stars_total": 30036,
+      "description": "Universal SEO skill for Claude Code. 26 sub-skills + 19 sub-agents covering technical SEO, E-E-A-T, schema, GEO/AEO, agent readiness (Lighthouse Agentic Browsing, WebMCP, llms.txt), backlinks, local SEO, e-commerce, international SEO, Google APIs, and PDF/Excel reporting. 9 optional extensions for live SEO data.",
+      "language": "Python"
+    },
+    {
+      "repo": "anthropics/knowledge-work-plugins",
+      "rank": 12,
+      "stars_this_month": 6417,
+      "stars_total": 36303,
+      "description": "Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork",
+      "language": "Python"
+    },
+    {
+      "repo": "backnotprop/plannotator",
+      "rank": 13,
+      "stars_this_month": 2237,
+      "stars_total": 12530,
+      "description": "The workspace to stay in the loop and on top of agents - shape, decide, plan, annotate, review code, share with team, and send all feedback to agents with one click.",
+      "language": "TypeScript"
+    },
+    {
+      "repo": "Vincentwei1021/video-shotcraft",
+      "rank": 14,
+      "stars_this_month": 7937,
+      "stars_total": 20567,
+      "description": "AI video skill for Claude Code & Codex — cinematic, editable product promos with Remotion: 124 shot recipe cards, 150 motion previews, beat sync, sound design, Motion Workbench & JianYing (CapCut CN) export.",
+      "language": "TypeScript"
+    },
+    {
+      "repo": "vercel-labs/agent-browser",
+      "rank": 15,
+      "stars_this_month": 7545,
+      "stars_total": 52004,
+      "description": "Browser automation CLI for AI agents",
+      "language": "Rust"
     }
   ]
 }

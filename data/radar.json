@@ -1,32 +1,16 @@
 {
-  "fetched_at": "2026-11-09T23:48:47Z",
+  "fetched_at": "2026-11-16T23:46:09Z",
   "source_url": "https://github.com/trending?since=monthly",
   "period": "monthly",
-  "source_updated_at": "2026-11-09T23:48:47Z",
+  "source_updated_at": "2026-11-16T23:46:09Z",
   "signal": "Automated GitHub Trending candidates; not editorial endorsements.",
   "selection_policy": "Highest-ranked qualifying AI repositories, with one slot reserved for a qualifying curated project when available.",
   "repositories": [
     {
-      "repo": "morluto/rea",
-      "rank": 1,
-      "stars_this_month": 425123,
-      "stars_total": 446873,
-      "license": "MIT",
-      "description": "Reverse engineer anything with agents, from app behavior down to native binaries.",
-      "curated": false,
-      "github_url": "https://github.com/morluto/rea",
-      "source_url": "https://github.com/trending?since=monthly",
-      "evidence_urls": [
-        "https://github.com/trending?since=monthly",
-        "https://github.com/morluto/rea",
-        "https://api.github.com/repos/morluto/rea"
-      ]
-    },
-    {
       "repo": "Nutlope/hallmark",
-      "rank": 2,
-      "stars_this_month": 21146,
-      "stars_total": 51760,
+      "rank": 1,
+      "stars_this_month": 25448,
+      "stars_total": 56106,
       "license": "MIT",
       "description": "Anti-AI-slop design skill for Claude Code, Cursor, and Codex.",
       "curated": false,
@@ -39,26 +23,26 @@
       ]
     },
     {
-      "repo": "heygen-com/hyperframes",
-      "rank": 5,
-      "stars_this_month": 22360,
-      "stars_total": 81679,
-      "license": "Apache-2.0",
-      "description": "Write HTML. Render video. Built for agents.",
-      "curated": true,
-      "github_url": "https://github.com/heygen-com/hyperframes",
+      "repo": "pingdotgg/t3code",
+      "rank": 3,
+      "stars_this_month": 33583,
+      "stars_total": 62762,
+      "license": "MIT",
+      "description": "The best way to control Claude Code, Codex and more from any computer or phone",
+      "curated": false,
+      "github_url": "https://github.com/pingdotgg/t3code",
       "source_url": "https://github.com/trending?since=monthly",
       "evidence_urls": [
         "https://github.com/trending?since=monthly",
-        "https://github.com/heygen-com/hyperframes",
-        "https://api.github.com/repos/heygen-com/hyperframes"
+        "https://github.com/pingdotgg/t3code",
+        "https://api.github.com/repos/pingdotgg/t3code"
       ]
     },
     {
       "repo": "thedotmack/claude-mem",
-      "rank": 6,
-      "stars_this_month": 17296,
-      "stars_total": 115385,
+      "rank": 4,
+      "stars_this_month": 17038,
+      "stars_total": 117684,
       "license": "Apache-2.0",
       "description": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "curated": false,
@@ -71,42 +55,10 @@
       ]
     },
     {
-      "repo": "debpalash/VoiceStudio",
-      "rank": 7,
-      "stars_this_month": 50169,
-      "stars_total": 106141,
-      "license": "AGPL-3.0",
-      "description": "VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation…",
-      "curated": true,
-      "github_url": "https://github.com/debpalash/VoiceStudio",
-      "source_url": "https://github.com/trending?since=monthly",
-      "evidence_urls": [
-        "https://github.com/trending?since=monthly",
-        "https://github.com/debpalash/VoiceStudio",
-        "https://api.github.com/repos/debpalash/VoiceStudio"
-      ]
-    },
-    {
-      "repo": "HKUDS/DeepTutor",
-      "rank": 8,
-      "stars_this_month": 16065,
-      "stars_total": 57607,
-      "license": "Apache-2.0",
-      "description": "DeepTutor: Lifelong Personalized Tutoring. https://deeptutor.info/.",
-      "curated": false,
-      "github_url": "https://github.com/HKUDS/DeepTutor",
-      "source_url": "https://github.com/trending?since=monthly",
-      "evidence_urls": [
-        "https://github.com/trending?since=monthly",
-        "https://github.com/HKUDS/DeepTutor",
-        "https://api.github.com/repos/HKUDS/DeepTutor"
-      ]
-    },
-    {
       "repo": "pbakaus/impeccable",
-      "rank": 9,
-      "stars_this_month": 28008,
-      "stars_total": 106870,
+      "rank": 6,
+      "stars_this_month": 29631,
+      "stars_total": 111364,
       "license": "Apache-2.0",
       "description": "The design vocabulary for your coding agent. Steer with polish and bolder, review with critique and audit, catch AI slop before it ships.",
       "curated": false,
@@ -119,19 +71,67 @@
       ]
     },
     {
-      "repo": "storytold/artcraft",
-      "rank": 10,
-      "stars_this_month": 33780,
-      "stars_total": 40257,
+      "repo": "HKUDS/DeepTutor",
+      "rank": 7,
+      "stars_this_month": 18278,
+      "stars_total": 59774,
       "license": "Apache-2.0",
-      "description": "ArtCraft is an intentional crafting engine for artists, designers, and filmmakers",
+      "description": "DeepTutor: Lifelong Personalized Tutoring. https://deeptutor.info/.",
       "curated": false,
-      "github_url": "https://github.com/storytold/artcraft",
+      "github_url": "https://github.com/HKUDS/DeepTutor",
       "source_url": "https://github.com/trending?since=monthly",
       "evidence_urls": [
         "https://github.com/trending?since=monthly",
-        "https://github.com/storytold/artcraft",
-        "https://api.github.com/repos/storytold/artcraft"
+        "https://github.com/HKUDS/DeepTutor",
+        "https://api.github.com/repos/HKUDS/DeepTutor"
+      ]
+    },
+    {
+      "repo": "heygen-com/hyperframes",
+      "rank": 8,
+      "stars_this_month": 20878,
+      "stars_total": 85229,
+      "license": "Apache-2.0",
+      "description": "Write HTML. Render video. Built for agents.",
+      "curated": true,
+      "github_url": "https://github.com/heygen-com/hyperframes",
+      "source_url": "https://github.com/trending?since=monthly",
+      "evidence_urls": [
+        "https://github.com/trending?since=monthly",
+        "https://github.com/heygen-com/hyperframes",
+        "https://api.github.com/repos/heygen-com/hyperframes"
+      ]
+    },
+    {
+      "repo": "Leonxlnx/taste-skill",
+      "rank": 10,
+      "stars_this_month": 19546,
+      "stars_total": 116888,
+      "license": "MIT",
+      "description": "Agent skills that give coding agents taste: art direction, reference images and a browser check instead of generic AI pages",
+      "curated": false,
+      "github_url": "https://github.com/Leonxlnx/taste-skill",
+      "source_url": "https://github.com/trending?since=monthly",
+      "evidence_urls": [
+        "https://github.com/trending?since=monthly",
+        "https://github.com/Leonxlnx/taste-skill",
+        "https://api.github.com/repos/Leonxlnx/taste-skill"
+      ]
+    },
+    {
+      "repo": "AgriciDaniel/claude-seo",
+      "rank": 11,
+      "stars_this_month": 10672,
+      "stars_total": 30036,
+      "license": "MIT",
+      "description": "Universal SEO skill for Claude Code. 26 sub-skills + 19 sub-agents covering technical SEO, E-E-A-T, schema, GEO/AEO, agent readiness (Lighthouse Agentic Browsi…",
+      "curated": false,
+      "github_url": "https://github.com/AgriciDaniel/claude-seo",
+      "source_url": "https://github.com/trending?since=monthly",
+      "evidence_urls": [
+        "https://github.com/trending?since=monthly",
+        "https://github.com/AgriciDaniel/claude-seo",
+        "https://api.github.com/repos/AgriciDaniel/claude-seo"
       ]
     }
   ]
